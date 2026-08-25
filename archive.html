@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The LEONIDA.RPF archive of GTA VI analysis and commentary.">
-    <title>Archive — LEONIDA.RPF</title>
+    <title>LEONIDA.RPF — Analysis</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,50 +15,119 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="predictions.html">Predictions</a>
-            <a href="analysis.html">Analysis</a>
+            <a class="active" href="analysis.html">Analysis</a>
             <a href="opinions.html">Opinions</a>
             <a href="confirmed.html">Confirmed</a>
-            <a class="active" href="archive.html">Archive</a>
+            <a href="archive.html">Archive</a>
         </nav>
+
+        <div class="system-status"><span></span> ANALYSIS</div>
     </div>
 </header>
 
 <main>
 
-<section class="hero">
+<section class="page-header">
     <div class="container">
-
-        <p class="eyebrow">SITE ARCHIVE</p>
-
-        <h1>Archive</h1>
-
-        <p class="intro">
-            A chronological record of predictions, analysis,
-            opinions, and confirmed information.
+        <span class="eyebrow">DATABASE / 02</span>
+        <h1>Analysis</h1>
+        <p>
+            Detailed examinations of publicly available GTA VI material.
         </p>
-
     </div>
 </section>
 
 <section class="section">
     <div class="container">
 
-        <h2>Archive</h2>
+        <div class="tabs">
+            <button class="tab active" data-filter="all">ALL</button>
+            <button class="tab" data-filter="world">WORLD</button>
+            <button class="tab" data-filter="characters">CHARACTERS</button>
+            <button class="tab" data-filter="systems">SYSTEMS</button>
+            <button class="tab" data-filter="trailers">TRAILERS</button>
+        </div>
 
-        <article class="entry">
+        <div class="record-list">
 
-            <span class="tag">ARCHIVE</span>
+            <article class="record" data-category="world">
+                <div class="record-top">
+                    <span>ANL-001</span>
+                    <span>WORLD</span>
+                </div>
 
-            <h3>Archive begins here</h3>
+                <h2>Reading Leonida Through Its Environment</h2>
 
-            <p class="meta">Current archive</p>
+                <p>
+                    An examination of the environments Rockstar has
+                    publicly shown and what they reveal about the world.
+                </p>
 
-            <p>
-                Entries will be added here chronologically as the
-                LEONIDA.RPF project develops.
-            </p>
+                <div class="record-footer">
+                    <span>PUBLIC MATERIAL</span>
+                    <span>ANALYSIS</span>
+                </div>
+            </article>
 
-        </article>
+            <article class="record" data-category="characters">
+                <div class="record-top">
+                    <span>ANL-002</span>
+                    <span>CHARACTERS</span>
+                </div>
+
+                <h2>Jason and Lucia as a Narrative Pair</h2>
+
+                <p>
+                    Examining the relationship between the game's two
+                    central protagonists and the narrative structure
+                    Rockstar has presented publicly.
+                </p>
+
+                <div class="record-footer">
+                    <span>PUBLIC MATERIAL</span>
+                    <span>ANALYSIS</span>
+                </div>
+            </article>
+
+            <article class="record" data-category="systems">
+                <div class="record-top">
+                    <span>ANL-003</span>
+                    <span>SYSTEMS</span>
+                </div>
+
+                <h2>The Increasing Importance of World Simulation</h2>
+
+                <p>
+                    What publicly shown gameplay suggests about systemic
+                    behavior, NPCs, vehicles, and environmental interaction.
+                </p>
+
+                <div class="record-footer">
+                    <span>PUBLIC MATERIAL</span>
+                    <span>ANALYSIS</span>
+                </div>
+            </article>
+
+            <article class="record" data-category="trailers">
+                <div class="record-top">
+                    <span>ANL-004</span>
+                    <span>TRAILERS</span>
+                </div>
+
+                <h2>Trailer Frame Analysis</h2>
+
+                <p>
+                    Individual observations extracted from Rockstar's
+                    officially released footage.
+                </p>
+
+                <div class="record-footer">
+                    <span>OFFICIAL TRAILER</span>
+                    <span>ANALYSIS</span>
+                </div>
+            </article>
+
+        </div>
 
     </div>
 </section>
@@ -72,6 +140,41 @@
         <p>WE DO NOT SHARE LEAKS.</p>
     </div>
 </footer>
+
+<script>
+document.body.classList.add("loaded");
+
+document.querySelectorAll(".tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const filter = tab.dataset.filter;
+
+        document.querySelectorAll(".record").forEach(record => {
+            const visible =
+                filter === "all" ||
+                record.dataset.category === filter;
+
+            record.style.display = visible ? "" : "none";
+
+            if (visible) {
+                record.animate(
+                    [
+                        { opacity: 0, transform: "translateY(8px)" },
+                        { opacity: 1, transform: "translateY(0)" }
+                    ],
+                    {
+                        duration: 300,
+                        easing: "cubic-bezier(.2,.8,.2,1)"
+                    }
+                );
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>

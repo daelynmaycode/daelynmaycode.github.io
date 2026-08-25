@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Publicly confirmed GTA VI information collected by LEONIDA.RPF.">
-    <title>Confirmed — LEONIDA.RPF</title>
+    <title>LEONIDA.RPF — Confirmed</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,53 +20,96 @@
             <a class="active" href="confirmed.html">Confirmed</a>
             <a href="archive.html">Archive</a>
         </nav>
+
+        <div class="system-status"><span></span> VERIFIED DATA</div>
     </div>
 </header>
 
 <main>
 
-<section class="hero">
+<section class="page-header">
     <div class="container">
-
-        <p class="eyebrow">ESTABLISHED INFORMATION</p>
-
+        <span class="eyebrow">DATABASE / 04</span>
         <h1>Confirmed</h1>
-
-        <p class="intro">
-            Information established through official announcements
-            and reliable publicly available sources.
+        <p>
+            Information officially established through publicly available
+            sources.
         </p>
-
-        <div class="notice">
-            <strong>CONFIRMED MEANS CONFIRMED.</strong>
-            <p>
-                This section is intentionally separate from predictions,
-                theories, and personal opinions.
-            </p>
-        </div>
-
     </div>
 </section>
 
 <section class="section">
     <div class="container">
 
-        <h2>Confirmed Information</h2>
+        <div class="verification-bar">
+            <div>
+                <span class="eyebrow">VERIFICATION STANDARD</span>
+                <strong>PUBLICLY ESTABLISHED</strong>
+            </div>
 
-        <article class="entry">
+            <span class="verified-dot">● VERIFIED</span>
+        </div>
 
-            <span class="tag">CONFIRMED</span>
+        <div class="record-list">
 
-            <h3>Confirmed information begins here</h3>
+            <article class="record confirmed-record">
+                <div class="record-top">
+                    <span>CNF-001</span>
+                    <span>VERIFIED</span>
+                </div>
 
-            <p class="meta">Entry 001 · Date</p>
+                <h2>Grand Theft Auto VI is set in Leonida</h2>
 
-            <p>
-                Add information here only when it can be supported by
-                an appropriate public source.
-            </p>
+                <p>
+                    Rockstar Games has officially established Leonida
+                    as the game's setting.
+                </p>
 
-        </article>
+                <div class="record-footer">
+                    <span>SOURCE: ROCKSTAR GAMES</span>
+                    <span>VERIFIED</span>
+                </div>
+            </article>
+
+            <article class="record confirmed-record">
+                <div class="record-top">
+                    <span>CNF-002</span>
+                    <span>VERIFIED</span>
+                </div>
+
+                <h2>Jason and Lucia are protagonists</h2>
+
+                <p>
+                    Rockstar has publicly identified Jason and Lucia
+                    as the central characters of GTA VI.
+                </p>
+
+                <div class="record-footer">
+                    <span>SOURCE: OFFICIAL MATERIAL</span>
+                    <span>VERIFIED</span>
+                </div>
+            </article>
+
+            <article class="record confirmed-record">
+                <div class="record-top">
+                    <span>CNF-003</span>
+                    <span>VERIFIED</span>
+                </div>
+
+                <h2>Vice City returns</h2>
+
+                <p>
+                    Officially released material establishes the return
+                    of Vice City within GTA VI.
+                </p>
+
+                <div class="record-footer">
+                    <span>SOURCE: OFFICIAL TRAILER</span>
+                    <span>VERIFIED</span>
+                </div>
+            </article>
+
+        </div>
 
     </div>
 </section>
@@ -80,6 +122,14 @@
         <p>WE DO NOT SHARE LEAKS.</p>
     </div>
 </footer>
+
+<script>
+document.body.classList.add("loaded");
+
+document.querySelectorAll(".confirmed-record").forEach((record, i) => {
+    record.style.setProperty("--delay", `${i * 80}ms`);
+});
+</script>
 
 </body>
 </html>

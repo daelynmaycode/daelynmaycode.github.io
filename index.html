@@ -1,28 +1,19 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="LEONIDA.RPF — independent analysis, predictions, opinions, and observations surrounding Grand Theft Auto VI.">
-    <meta name="theme-color" content="#0b0b0b">
-
-    <title>LEONIDA.RPF — Independent GTA VI Analysis</title>
-
+    <meta name="description" content="LEONIDA.RPF — independent GTA VI analysis.">
+    <title>LEONIDA.RPF — Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
     <div class="container nav">
+        <a class="logo" href="index.html">LEONIDA.RPF</a>
 
-        <a class="logo" href="index.html" aria-label="LEONIDA.RPF Home">
-            LEONIDA.RPF
-        </a>
-
-        <nav aria-label="Primary navigation">
+        <nav>
             <a class="active" href="index.html">Home</a>
             <a href="predictions.html">Predictions</a>
             <a href="analysis.html">Analysis</a>
@@ -31,106 +22,107 @@
             <a href="archive.html">Archive</a>
         </nav>
 
+        <div class="system-status">
+            <span></span> DATABASE ONLINE
+        </div>
     </div>
 </header>
 
 <main>
 
-<!-- HERO -->
-
-<section class="hero">
+<section class="hero dashboard-hero">
     <div class="container">
+
+        <div class="terminal-line">
+            LEONIDA.RPF / DATABASE / HOME
+        </div>
 
         <p class="eyebrow">INDEPENDENT GTA VI ANALYSIS</p>
 
-        <h1>LEONIDA.RPF</h1>
+        <h1>LEONIDA<span>.RPF</span></h1>
 
         <p class="intro">
-            An independent research archive documenting observations,
-            analysis, predictions, theories, and opinions surrounding
-            Grand Theft Auto VI.
+            An independent archive of observations, analysis,
+            predictions, opinions, and publicly confirmed information
+            surrounding Grand Theft Auto VI.
         </p>
 
-        <div class="hero-meta">
-            <span>DATABASE / ACTIVE</span>
-            <span>PUBLIC INFORMATION ONLY</span>
-            <span>EST. 2026</span>
+        <div class="dashboard-meta">
+            <div>
+                <small>STATUS</small>
+                <strong>OPERATIONAL</strong>
+            </div>
+            <div>
+                <small>ACCESS</small>
+                <strong>PUBLIC</strong>
+            </div>
+            <div>
+                <small>DATA SOURCE</small>
+                <strong>PUBLIC MATERIAL</strong>
+            </div>
         </div>
 
         <div class="notice">
-            <div class="notice-label">EDITORIAL POLICY</div>
-
+            <span class="notice-label">EDITORIAL POLICY</span>
             <strong>WE DO NOT SHARE LEAKS.</strong>
-
             <p>
-                LEONIDA.RPF does not publish, distribute, or host leaked
-                or stolen material. Entries are based exclusively on
-                publicly available information, official material,
-                observable evidence, and individual interpretation.
+                No leaked or stolen material is published, distributed,
+                or hosted here. Analysis is based on publicly available
+                information and personal interpretation.
             </p>
         </div>
 
     </div>
 </section>
 
-
-<!-- DATABASE OVERVIEW -->
-
-<section class="section overview">
-    <div class="container">
-
-        <div class="section-heading">
-            <p class="eyebrow">DATABASE</p>
-            <h2>Overview</h2>
-            <p>
-                A living archive of research surrounding Grand Theft Auto VI.
-            </p>
-        </div>
-
-        <div class="stats">
-
-            <div class="stat">
-                <span class="stat-value">—</span>
-                <span class="stat-label">ANALYSIS</span>
-            </div>
-
-            <div class="stat">
-                <span class="stat-value">—</span>
-                <span class="stat-label">PREDICTIONS</span>
-            </div>
-
-            <div class="stat">
-                <span class="stat-value">—</span>
-                <span class="stat-label">CONFIRMED</span>
-            </div>
-
-            <div class="stat">
-                <span class="stat-value">—</span>
-                <span class="stat-label">OPINIONS</span>
-            </div>
-
-            <div class="stat">
-                <span class="stat-value">—</span>
-                <span class="stat-label">ARCHIVED</span>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- EXPLORE -->
 
 <section class="section">
     <div class="container">
 
         <div class="section-heading">
-            <p class="eyebrow">RECORDS</p>
-            <h2>Explore</h2>
-            <p>
-                Navigate the database by type of information and interpretation.
-            </p>
+            <span class="eyebrow">DATABASE</span>
+            <h2>System Overview</h2>
+        </div>
+
+        <div class="stats">
+
+            <a href="analysis.html" class="stat">
+                <span class="stat-value" data-count="0">0</span>
+                <span class="stat-label">ANALYSIS</span>
+            </a>
+
+            <a href="predictions.html" class="stat">
+                <span class="stat-value" data-count="0">0</span>
+                <span class="stat-label">PREDICTIONS</span>
+            </a>
+
+            <a href="confirmed.html" class="stat">
+                <span class="stat-value" data-count="0">0</span>
+                <span class="stat-label">CONFIRMED</span>
+            </a>
+
+            <a href="opinions.html" class="stat">
+                <span class="stat-value" data-count="0">0</span>
+                <span class="stat-label">OPINIONS</span>
+            </a>
+
+            <a href="archive.html" class="stat">
+                <span class="stat-value" data-count="0">0</span>
+                <span class="stat-label">ARCHIVE</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">NAVIGATION</span>
+            <h2>Explore Database</h2>
         </div>
 
         <div class="grid">
@@ -138,51 +130,36 @@
             <a class="card" href="predictions.html">
                 <span class="card-index">01</span>
                 <h3>Predictions</h3>
-                <p>
-                    What we think may happen, supported by available
-                    evidence and reasoning.
-                </p>
-                <span class="card-link">VIEW RECORDS →</span>
+                <p>What may happen, and why.</p>
+                <span class="card-link">OPEN →</span>
             </a>
 
             <a class="card" href="analysis.html">
                 <span class="card-index">02</span>
                 <h3>Analysis</h3>
-                <p>
-                    Detailed observations and breakdowns based on
-                    publicly available material.
-                </p>
-                <span class="card-link">VIEW RECORDS →</span>
+                <p>Detailed examination of public material.</p>
+                <span class="card-link">OPEN →</span>
             </a>
 
             <a class="card" href="opinions.html">
                 <span class="card-index">03</span>
                 <h3>Opinions</h3>
-                <p>
-                    Personal interpretations, theories, arguments,
-                    and subjective takes.
-                </p>
-                <span class="card-link">VIEW RECORDS →</span>
+                <p>Interpretations, theories, and personal takes.</p>
+                <span class="card-link">OPEN →</span>
             </a>
 
             <a class="card" href="confirmed.html">
                 <span class="card-index">04</span>
                 <h3>Confirmed</h3>
-                <p>
-                    Information officially established through
-                    publicly available sources.
-                </p>
-                <span class="card-link">VIEW RECORDS →</span>
+                <p>Information officially established.</p>
+                <span class="card-link">OPEN →</span>
             </a>
 
             <a class="card" href="archive.html">
                 <span class="card-index">05</span>
                 <h3>Archive</h3>
-                <p>
-                    A chronological record of previous research,
-                    observations, and published entries.
-                </p>
-                <span class="card-link">VIEW ARCHIVE →</span>
+                <p>A chronological record of the database.</p>
+                <span class="card-link">OPEN →</span>
             </a>
 
         </div>
@@ -191,80 +168,39 @@
 </section>
 
 
-<!-- METHODOLOGY -->
-
-<section class="section methodology">
+<section class="section">
     <div class="container">
 
         <div class="section-heading">
-            <p class="eyebrow">METHODOLOGY</p>
-            <h2>How the database works</h2>
+            <span class="eyebrow">METHODOLOGY</span>
+            <h2>Evidence → Interpretation</h2>
         </div>
 
         <div class="method-grid">
 
             <article class="method">
-                <span class="method-number">01</span>
+                <span>01</span>
                 <h3>Evidence</h3>
-                <p>
-                    Publicly available material is examined before
-                    conclusions are drawn.
-                </p>
+                <p>Publicly available material is collected.</p>
             </article>
 
             <article class="method">
-                <span class="method-number">02</span>
+                <span>02</span>
                 <h3>Observation</h3>
-                <p>
-                    Visible details, statements, patterns, and
-                    inconsistencies are documented.
-                </p>
+                <p>Visible details and statements are documented.</p>
             </article>
 
             <article class="method">
-                <span class="method-number">03</span>
-                <h3>Interpretation</h3>
-                <p>
-                    Observations are analyzed without presenting
-                    speculation as established fact.
-                </p>
+                <span>03</span>
+                <h3>Analysis</h3>
+                <p>Observations are interpreted and contextualized.</p>
             </article>
 
             <article class="method">
-                <span class="method-number">04</span>
+                <span>04</span>
                 <h3>Prediction</h3>
-                <p>
-                    Where appropriate, interpretations are used to
-                    construct informed predictions about the game.
-                </p>
+                <p>Reasoned possibilities are separated from fact.</p>
             </article>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- LATEST -->
-
-<section class="section latest">
-    <div class="container">
-
-        <div class="section-heading">
-            <p class="eyebrow">DATABASE ACTIVITY</p>
-            <h2>Latest Records</h2>
-        </div>
-
-        <div class="latest-list">
-
-            <a class="latest-entry" href="archive.html">
-                <div>
-                    <span class="entry-type">ARCHIVE</span>
-                    <h3>Browse the latest entries</h3>
-                </div>
-
-                <span class="entry-arrow">→</span>
-            </a>
 
         </div>
 
@@ -273,61 +209,39 @@
 
 </main>
 
-
 <footer>
-    <div class="container footer-content">
-
-        <div>
-            <strong>LEONIDA.RPF</strong>
-            <p>INDEPENDENT GTA VI ANALYSIS</p>
-        </div>
-
-        <div>
-            <p>WE DO NOT SHARE LEAKS.</p>
-            <p>PUBLIC INFORMATION ONLY.</p>
-        </div>
-
-        <div>
-            <p>LEONIDA.RPF © 2026</p>
-        </div>
-
+    <div class="container">
+        <strong>LEONIDA.RPF</strong>
+        <p>WE DO NOT SHARE LEAKS.</p>
+        <p>PUBLIC INFORMATION ONLY.</p>
     </div>
 </footer>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
 
-    const animatedElements = document.querySelectorAll(
-        ".hero, .section-heading, .stat, .card, .method, .latest-entry"
-    );
-
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-    animatedElements.forEach((element, index) => {
-        element.style.setProperty(
-            "--animation-delay",
-            `${Math.min(index * 45, 300)}ms`
-        );
-
-        observer.observe(element);
+    document.querySelectorAll(".card, .stat").forEach((el, i) => {
+        el.style.setProperty("--delay", `${i * 60}ms`);
     });
 
+    const counters = document.querySelectorAll("[data-count]");
+
+    counters.forEach(counter => {
+        const target = Number(counter.dataset.count);
+        let current = 0;
+
+        if (!target) return;
+
+        const timer = setInterval(() => {
+            current++;
+            counter.textContent = current;
+
+            if (current >= target) clearInterval(timer);
+        }, 30);
+    });
 });
 </script>
 
 </body>
 </html>
-```

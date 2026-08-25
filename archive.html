@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEONIDA.RPF — Analysis</title>
+    <title>LEONIDA.RPF — Archive</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,13 +15,13 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="predictions.html">Predictions</a>
-            <a class="active" href="analysis.html">Analysis</a>
+            <a href="analysis.html">Analysis</a>
             <a href="opinions.html">Opinions</a>
             <a href="confirmed.html">Confirmed</a>
-            <a href="archive.html">Archive</a>
+            <a class="active" href="archive.html">Archive</a>
         </nav>
 
-        <div class="system-status"><span></span> ANALYSIS</div>
+        <div class="system-status"><span></span> ARCHIVE</div>
     </div>
 </header>
 
@@ -29,104 +29,121 @@
 
 <section class="page-header">
     <div class="container">
-        <span class="eyebrow">DATABASE / 02</span>
-        <h1>Analysis</h1>
+
+        <span class="eyebrow">DATABASE / 05</span>
+
+        <h1>Archive</h1>
+
         <p>
-            Detailed examinations of publicly available GTA VI material.
+            A chronological record of published LEONIDA.RPF entries.
         </p>
+
+        <div class="archive-search">
+            <input
+                type="search"
+                id="archiveSearch"
+                placeholder="SEARCH DATABASE..."
+                aria-label="Search archive"
+            >
+        </div>
+
     </div>
 </section>
+
 
 <section class="section">
     <div class="container">
 
         <div class="tabs">
             <button class="tab active" data-filter="all">ALL</button>
-            <button class="tab" data-filter="world">WORLD</button>
-            <button class="tab" data-filter="characters">CHARACTERS</button>
-            <button class="tab" data-filter="systems">SYSTEMS</button>
-            <button class="tab" data-filter="trailers">TRAILERS</button>
+            <button class="tab" data-filter="analysis">ANALYSIS</button>
+            <button class="tab" data-filter="prediction">PREDICTIONS</button>
+            <button class="tab" data-filter="opinion">OPINIONS</button>
+            <button class="tab" data-filter="confirmed">CONFIRMED</button>
         </div>
 
-        <div class="record-list">
 
-            <article class="record" data-category="world">
-                <div class="record-top">
-                    <span>ANL-001</span>
-                    <span>WORLD</span>
-                </div>
+        <div class="timeline">
 
-                <h2>Reading Leonida Through Its Environment</h2>
+            <div class="timeline-date">
+                <span>AUGUST 2026</span>
+            </div>
 
-                <p>
-                    An examination of the environments Rockstar has
-                    publicly shown and what they reveal about the world.
-                </p>
+            <article class="archive-entry" data-type="analysis">
+                <time datetime="2026-08-25">25.08.2026</time>
 
-                <div class="record-footer">
-                    <span>PUBLIC MATERIAL</span>
-                    <span>ANALYSIS</span>
-                </div>
-            </article>
-
-            <article class="record" data-category="characters">
-                <div class="record-top">
-                    <span>ANL-002</span>
-                    <span>CHARACTERS</span>
-                </div>
-
-                <h2>Jason and Lucia as a Narrative Pair</h2>
-
-                <p>
-                    Examining the relationship between the game's two
-                    central protagonists and the narrative structure
-                    Rockstar has presented publicly.
-                </p>
-
-                <div class="record-footer">
-                    <span>PUBLIC MATERIAL</span>
-                    <span>ANALYSIS</span>
+                <div>
+                    <span class="entry-type">ANALYSIS</span>
+                    <h2>
+                        <a href="analysis.html">
+                            Reading Leonida Through Its Environment
+                        </a>
+                    </h2>
+                    <p>
+                        Examination of publicly shown environments and
+                        geographic information.
+                    </p>
                 </div>
             </article>
 
-            <article class="record" data-category="systems">
-                <div class="record-top">
-                    <span>ANL-003</span>
-                    <span>SYSTEMS</span>
-                </div>
+            <article class="archive-entry" data-type="prediction">
+                <time datetime="2026-08-24">24.08.2026</time>
 
-                <h2>The Increasing Importance of World Simulation</h2>
-
-                <p>
-                    What publicly shown gameplay suggests about systemic
-                    behavior, NPCs, vehicles, and environmental interaction.
-                </p>
-
-                <div class="record-footer">
-                    <span>PUBLIC MATERIAL</span>
-                    <span>ANALYSIS</span>
+                <div>
+                    <span class="entry-type">PREDICTION</span>
+                    <h2>
+                        <a href="predictions.html">
+                            Leonida Will Extend Beyond Vice City
+                        </a>
+                    </h2>
+                    <p>
+                        A prediction based on publicly observable material.
+                    </p>
                 </div>
             </article>
 
-            <article class="record" data-category="trailers">
-                <div class="record-top">
-                    <span>ANL-004</span>
-                    <span>TRAILERS</span>
-                </div>
+            <article class="archive-entry" data-type="opinion">
+                <time datetime="2026-08-23">23.08.2026</time>
 
-                <h2>Trailer Frame Analysis</h2>
-
-                <p>
-                    Individual observations extracted from Rockstar's
-                    officially released footage.
-                </p>
-
-                <div class="record-footer">
-                    <span>OFFICIAL TRAILER</span>
-                    <span>ANALYSIS</span>
+                <div>
+                    <span class="entry-type">OPINION</span>
+                    <h2>
+                        <a href="opinions.html">
+                            GTA VI Should Not Try to Be GTA V Again
+                        </a>
+                    </h2>
+                    <p>
+                        An editorial examination of Rockstar's opportunity
+                        to redefine the series.
+                    </p>
                 </div>
             </article>
 
+
+            <div class="timeline-date">
+                <span>JULY 2026</span>
+            </div>
+
+            <article class="archive-entry" data-type="confirmed">
+                <time datetime="2026-07-28">28.07.2026</time>
+
+                <div>
+                    <span class="entry-type">CONFIRMED</span>
+                    <h2>
+                        <a href="confirmed.html">
+                            Vice City Returns
+                        </a>
+                    </h2>
+                    <p>
+                        Officially established information.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+        <div id="noResults" hidden>
+            <p>NO RECORDS FOUND.</p>
         </div>
 
     </div>
@@ -144,36 +161,68 @@
 <script>
 document.body.classList.add("loaded");
 
-document.querySelectorAll(".tab").forEach(tab => {
+const entries = document.querySelectorAll(".archive-entry");
+const tabs = document.querySelectorAll(".tab");
+const search = document.getElementById("archiveSearch");
+const noResults = document.getElementById("noResults");
+
+let activeFilter = "all";
+
+function updateArchive() {
+
+    const query = search.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    entries.forEach(entry => {
+
+        const type = entry.dataset.type;
+        const text = entry.textContent.toLowerCase();
+
+        const filterMatch =
+            activeFilter === "all" ||
+            type === activeFilter;
+
+        const searchMatch =
+            !query ||
+            text.includes(query);
+
+        const visible = filterMatch && searchMatch;
+
+        entry.style.display = visible ? "" : "none";
+
+        if (visible) {
+            visibleCount++;
+
+            entry.animate(
+                [
+                    { opacity: 0, transform: "translateY(8px)" },
+                    { opacity: 1, transform: "translateY(0)" }
+                ],
+                {
+                    duration: 280,
+                    easing: "cubic-bezier(.2,.8,.2,1)"
+                }
+            );
+        }
+    });
+
+    noResults.hidden = visibleCount !== 0;
+}
+
+tabs.forEach(tab => {
     tab.addEventListener("click", () => {
 
-        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        tabs.forEach(t => t.classList.remove("active"));
+
         tab.classList.add("active");
 
-        const filter = tab.dataset.filter;
+        activeFilter = tab.dataset.filter;
 
-        document.querySelectorAll(".record").forEach(record => {
-            const visible =
-                filter === "all" ||
-                record.dataset.category === filter;
-
-            record.style.display = visible ? "" : "none";
-
-            if (visible) {
-                record.animate(
-                    [
-                        { opacity: 0, transform: "translateY(8px)" },
-                        { opacity: 1, transform: "translateY(0)" }
-                    ],
-                    {
-                        duration: 300,
-                        easing: "cubic-bezier(.2,.8,.2,1)"
-                    }
-                );
-            }
-        });
+        updateArchive();
     });
 });
+
+search.addEventListener("input", updateArchive);
 </script>
 
 </body>

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LEONIDA.RPF predictions and theories surrounding GTA VI.">
-    <title>Predictions — LEONIDA.RPF</title>
+    <title>LEONIDA.RPF — Predictions</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,53 +20,107 @@
             <a href="confirmed.html">Confirmed</a>
             <a href="archive.html">Archive</a>
         </nav>
+
+        <div class="system-status"><span></span> PREDICTIONS</div>
     </div>
 </header>
 
 <main>
 
-<section class="hero">
+<section class="page-header">
     <div class="container">
-
-        <p class="eyebrow">SPECULATION</p>
-
+        <span class="eyebrow">DATABASE / 01</span>
         <h1>Predictions</h1>
-
-        <p class="intro">
-            Predictions based on publicly available information,
-            patterns, trailers, screenshots, and individual analysis.
+        <p>
+            Reasoned expectations about GTA VI based on observable
+            information, Rockstar's history, and analysis.
         </p>
-
-        <div class="notice">
-            <strong>PREDICTIONS ARE NOT CONFIRMATION.</strong>
-            <p>
-                Predictions are speculative by nature and may ultimately
-                prove to be incorrect.
-            </p>
-        </div>
-
     </div>
 </section>
 
 <section class="section">
     <div class="container">
 
-        <h2>Prediction Archive</h2>
+        <div class="tabs">
+            <button class="tab active" data-filter="all">ALL</button>
+            <button class="tab" data-filter="high">HIGH CONFIDENCE</button>
+            <button class="tab" data-filter="medium">MEDIUM</button>
+            <button class="tab" data-filter="low">LOW</button>
+        </div>
 
-        <article class="entry">
+        <div class="record-list">
 
-            <span class="tag">PREDICTION</span>
+            <article class="record" data-confidence="high">
+                <div class="record-top">
+                    <span>PRED-001</span>
+                    <span>HIGH CONFIDENCE</span>
+                </div>
 
-            <h3>Prediction archive begins here</h3>
+                <h2>Leonida will extend substantially beyond Vice City</h2>
 
-            <p class="meta">Entry 001 · Date</p>
+                <p>
+                    The available material suggests the game's world
+                    extends well beyond the traditional Vice City
+                    environment.
+                </p>
 
-            <p>
-                Future predictions can be documented here along with
-                the reasoning and publicly available evidence behind them.
-            </p>
+                <button class="expand">VIEW ANALYSIS +</button>
 
-        </article>
+                <div class="record-details">
+                    <p>
+                        This prediction is based on publicly visible
+                        environments, locations, roads, wildlife,
+                        and geographic references.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record" data-confidence="medium">
+                <div class="record-top">
+                    <span>PRED-002</span>
+                    <span>MEDIUM CONFIDENCE</span>
+                </div>
+
+                <h2>World systems will play a larger role than in GTA V</h2>
+
+                <p>
+                    Rockstar appears to be emphasizing environmental
+                    interaction and systemic world behavior.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        This remains a prediction rather than a confirmed
+                        feature.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record" data-confidence="low">
+                <div class="record-top">
+                    <span>PRED-003</span>
+                    <span>LOW CONFIDENCE</span>
+                </div>
+
+                <h2>Additional major regions may become accessible</h2>
+
+                <p>
+                    Geographic hints make additional explorable areas
+                    plausible, although the evidence remains limited.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        This entry should be treated as speculation.
+                    </p>
+                </div>
+            </article>
+
+        </div>
 
     </div>
 </section>
@@ -80,6 +133,44 @@
         <p>WE DO NOT SHARE LEAKS.</p>
     </div>
 </footer>
+
+<script>
+document.body.classList.add("loaded");
+
+document.querySelectorAll(".tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const filter = tab.dataset.filter;
+
+        document.querySelectorAll(".record").forEach(record => {
+            const match =
+                filter === "all" ||
+                record.dataset.confidence === filter;
+
+            record.style.display = match ? "" : "none";
+
+            if (match) {
+                requestAnimationFrame(() => record.classList.add("is-visible"));
+            }
+        });
+    });
+});
+
+document.querySelectorAll(".expand").forEach(button => {
+    button.addEventListener("click", () => {
+        const details = button.nextElementSibling;
+        details.classList.toggle("open");
+
+        button.textContent =
+            details.classList.contains("open")
+            ? "HIDE ANALYSIS −"
+            : "VIEW ANALYSIS +";
+    });
+});
+</script>
 
 </body>
 </html>

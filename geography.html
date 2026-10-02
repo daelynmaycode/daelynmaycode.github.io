@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LEONIDA.RPF — a geographic research archive of the state of Leonida in GTA VI: officially named places, environments, transport, water, wildlife, regions, relationships and what remains unknown.">
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f9f9" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://daelynmaycode.github.io/geography.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LEONIDA.RPF">
+    <meta property="og:title" content="LEONIDA.RPF — Get to Know Leonida">
+    <meta property="og:description" content="LEONIDA.RPF — a geographic research archive of the state of Leonida in GTA VI, documented from official sources.">
+    <meta property="og:url" content="https://daelynmaycode.github.io/geography.html">
+    <meta property="og:image" content="https://daelynmaycode.github.io/images/gta6skyline.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>LEONIDA.RPF — Get to Know Leonida</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var r=document.documentElement;var e=localStorage.getItem('leonida-entry-agreement-v1');if(e==='accepted'){r.setAttribute('data-entry-accepted','true');}else{r.setAttribute('data-entry-pending','true');}var t=localStorage.getItem('leonida-theme');if(t==='light'||t==='dark'){r.setAttribute('data-theme',t);}var m=localStorage.getItem('leonida-mode');if(m==='a11y'||m==='fast'){r.setAttribute('data-mode',m);}var a=JSON.parse(localStorage.getItem('leonida-a11y')||'{}');['motion','contrast','transparency','blur','text','font','focus'].forEach(function(k){if(a[k]){r.setAttribute('data-a11y-'+k,'on');}});}catch(e){}})();</script>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a class="logo" href="index.html" aria-label="LEONIDA.RPF home"><img src="images/Leonida-RPF-LOGO-header.png" alt="LEONIDA.RPF" width="112" height="56" decoding="async"></a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="geography.html" class="active" aria-current="page">Leonida</a>
+            <a href="predictions.html">Predictions</a>
+            <a href="weapons.html">Weapons</a>
+            <a href="editions.html">Editions</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="opinions.html">Opinions</a>
+            <a href="confirmed.html">Confirmed</a>
+            <a href="archive.html">Archive</a>
+            <a href="dossier.html">Dossier</a>
+        </nav>
+
+        <div class="nav-controls">
+            <div class="system-status"><span></span> GEOGRAPHIC ARCHIVE</div>
+            <div class="mode-switch" role="group" aria-label="Presentation mode">
+                <button class="mode-btn" type="button" data-mode-set="normal" aria-pressed="true">NORMAL</button>
+                <button class="mode-btn" type="button" data-mode-set="a11y" aria-pressed="false">A11Y</button>
+                <button class="mode-btn" type="button" data-mode-set="fast" aria-pressed="false">FAST</button>
+                <button class="mode-btn" type="button" data-a11y-panel aria-expanded="false" aria-controls="a11yPanel">OPTIONS</button>
+            </div>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle light and dark theme">LIGHT / DARK</button>
+        </div>
+    </div>
+</header>
+
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options" hidden>
+    <h3>ACCESSIBILITY</h3>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="motion"> REDUCE MOTION</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="contrast"> HIGH CONTRAST</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="transparency"> OPAQUE SURFACES</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="blur"> DISABLE BLUR</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="text"> LARGER TEXT</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="font"> LEGIBLE TYPE</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="focus"> STRONG FOCUS</label>
+</div>
+
+<a class="skip-link" href="#main">SKIP TO CONTENT</a>
+
+<main id="main">
+
+<section class="page-header">
+    <div class="container">
+        <span class="eyebrow">DATABASE / 09</span>
+
+        <h1>Get to Know Leonida</h1>
+
+        <p>
+            A geographic research archive of the state of Leonida — what
+            Rockstar has officially named, what can be observed in released
+            material, what is inferred, and what remains unknown. Regions,
+            places, environments, water, transport, wildlife, architecture,
+            economy and the relationships between them.
+        </p>
+
+        <div class="verification-bar">
+            <div>
+                <small class="source-cite">VERIFICATION DATE</small>
+                <strong id="verifiedDate">—</strong>
+            </div>
+            <div>
+                <small class="source-cite">OFFICIALLY NAMED PLACES</small>
+                <strong id="placeCount">—</strong>
+            </div>
+            <div>
+                <small class="source-cite">UNVERIFIED NAMES</small>
+                <strong id="unverifiedCount">—</strong>
+            </div>
+        </div>
+
+        <div class="notice">
+            <span class="notice-label">THE CENTRAL FINDING</span>
+            <strong>ROCKSTAR HAS OFFICIALLY NAMED SEVEN PLACES.</strong>
+            <p>
+                Not seventy. Seven. They are the titles of Rockstar's own
+                place artwork, the six destinations linked from its
+                &quot;Only in Leonida&quot; page, and one facility named in
+                official character copy. A much larger list of counties,
+                districts, roads, an airport and a raceway circulates online and
+                is <em>not</em> established — the community source carrying it
+                banners itself as possibly leaked. Those names are quarantined in
+                <a href="#unverified">Unidentified / Uncertain</a> and are never
+                mapped, counted, or used to infer structure.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">READ THIS FIRST</span>
+            <h2>How this section is built</h2>
+        </div>
+        <p class="claim">
+            Most of what circulates about Leonida's geography is not established.
+            Rather than draw a confident-looking map of places Rockstar has never
+            named, this archive records the boundary of the evidence itself — and
+            treats the gaps as the primary finding.
+        </p>
+        <div class="concept-key" id="evidenceKey"></div>
+    </div>
+</section>
+
+<section class="section" id="state">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">THE STATE</span>
+            <h2>What Leonida is</h2>
+        </div>
+        <p class="claim" id="stateQuote"></p>
+        <p class="claim" id="stateSummary"></p>
+
+        <div class="evidence-block" style="margin:26px 0">
+            <strong>WHY IT FEELS LIKE ONE PLACE.</strong>
+            <p style="margin:8px 0 0" id="stateThesis"></p>
+        </div>
+
+        <div class="detail-grid" id="stateKnown"></div>
+
+        <h3 class="entry-type" style="margin-top:34px">ESTABLISHED VS UNKNOWN</h3>
+        <div class="table-scroll" id="stateTable"></div>
+    </div>
+</section>
+
+<section class="section" id="hierarchy">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">GEOGRAPHIC HIERARCHY</span>
+            <h2>What Rockstar has actually divided</h2>
+        </div>
+        <p class="claim">
+            The hierarchy below is built strictly from official names. Where
+            Rockstar has not established a level, the level is shown as
+            <strong>NOT ESTABLISHED</strong> rather than filled with plausible
+            guesses. Note the absence of any administrative tier — Rockstar has
+            published no counties, districts or neighbourhoods.
+        </p>
+        <div class="record-list" id="hierarchyList"></div>
+    </div>
+</section>
+
+<section class="section" id="map">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">RELATION DIAGRAM</span>
+            <h2>How the places connect</h2>
+        </div>
+        <p class="claim">
+            This is <strong>not</strong> a map of Leonida. It is a relation
+            diagram: it plots the seven official places and the connections
+            official copy draws between them. It carries no borders, no
+            coordinates, no scale bar and no orientation, because none of those
+            are established. Treat the positions as arrangement, not geography.
+        </p>
+
+        <div class="geo-map">
+            <div class="geo-map__frame" id="geoMapFrame"></div>
+            <p class="geo-map__caption" id="geoMapCaption"></p>
+        </div>
+
+        <h3 class="entry-type" style="margin-top:30px">THE SAME DATA AS A LIST</h3>
+        <p class="claim" style="margin-top:10px">
+            The diagram above is decorative. Everything it shows is restated
+            here in text, because no relationship on this page is ever
+            communicated by position or colour alone.
+        </p>
+        <div class="record-list" id="relationList"></div>
+    </div>
+</section>
+
+
+<section class="section" id="places">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">OFFICIALLY NAMED PLACES</span>
+            <h2>Place dossiers</h2>
+        </div>
+        <p class="claim">
+            Every place below is named by Rockstar itself. For each one: what
+            the official record establishes, what is directly observable, and —
+            just as importantly — what Rockstar has not said. Use the filter or
+            search to narrow the archive.
+        </p>
+
+        <div class="geo-filter">
+            <span class="geo-filter__label">FILTER</span>
+            <div class="tabs" role="group" aria-label="Filter places by type" id="geoFilterTabs">
+                <button class="tab active" type="button" data-geo-filter="all" aria-pressed="true">ALL</button>
+                <button class="tab" type="button" data-geo-filter="city" aria-pressed="false">CITIES</button>
+                <button class="tab" type="button" data-geo-filter="town" aria-pressed="false">TOWNS</button>
+                <button class="tab" type="button" data-geo-filter="island-region" aria-pressed="false">ISLANDS</button>
+                <button class="tab" type="button" data-geo-filter="national-park" aria-pressed="false">NATURAL</button>
+                <button class="tab" type="button" data-geo-filter="facility" aria-pressed="false">FACILITIES</button>
+            </div>
+            <input class="geo-search" type="search" id="geoSearch" placeholder="SEARCH PLACES…" aria-label="Search place records">
+        </div>
+
+        <div class="geo-grid" id="placeGrid"></div>
+        <p class="geo-no-results" id="geoNoResults" hidden>NO PLACES MATCH THE CURRENT FILTER.</p>
+    </div>
+</section>
+
+<section class="section" id="environments">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">NATURAL ENVIRONMENTS</span>
+            <h2>Ecosystems — and the ones that are missing</h2>
+        </div>
+        <p class="claim">
+            The official record establishes a coastal urban zone, an island
+            chain and one protected upland area. It establishes no wetland, no
+            farmland and no forest. Those absences are recorded here as
+            findings rather than left as silence.
+        </p>
+        <div class="geo-layers" id="envList"></div>
+    </div>
+</section>
+
+<section class="section" id="water">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">WATER GEOGRAPHY</span>
+            <h2>Ocean, shore and what is unnamed</h2>
+        </div>
+        <p class="claim">
+            Coast and boat yards are established. No river, lake, bay or named
+            water body appears anywhere in the official record — which matters,
+            because a coastal state with an uncharacterised interior is a very
+            different proposition from one with mapped hydrology.
+        </p>
+        <div class="geo-layers" id="waterList"></div>
+    </div>
+</section>
+
+<section class="section" id="transport">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">TRANSPORTATION</span>
+            <h2>The largest gap in the record</h2>
+        </div>
+        <p class="claim">
+            Rockstar has named no highway, road, bridge, causeway, railway,
+            port, marina or airport anywhere in Leonida. Air and sea freight are
+            established only through smuggling references. That is not a
+            formatting gap — it is the single largest hole in the official
+            geographic record, and it is documented as such.
+        </p>
+        <div class="geo-layers" id="transportList"></div>
+    </div>
+</section>
+
+<section class="section" id="wildlife">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">WILDLIFE &amp; ECOLOGY</span>
+            <h2>Two mascots and a flock of birds</h2>
+        </div>
+        <p class="claim">
+            Official material names exactly one observed animal group — birds
+            flying &quot;in perfect formation&quot; — and two cultural mascots, an
+            alligator and a manatee. Mascot status is a branding fact, not an
+            ecological one, and this section keeps the two apart deliberately.
+        </p>
+        <div class="geo-layers" id="wildlifeList"></div>
+    </div>
+</section>
+
+<section class="section" id="weather">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">WEATHER &amp; CLIMATE</span>
+            <h2>Sunlight, and almost nothing else</h2>
+        </div>
+        <p class="claim">
+            &quot;The sunniest place in America&quot; is the most repeated piece of
+            environmental world-building Rockstar has published, appearing
+            across the site, the places page and official merchandise. No
+            temperature, rainfall, storm or fog data exists. This is
+            deliberately not a climate section, because there is no climate data
+            to summarise.
+        </p>
+        <div class="geo-layers" id="weatherList"></div>
+    </div>
+</section>
+
+
+<section class="section" id="architecture">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">ARCHITECTURE</span>
+            <h2>Built environment</h2>
+        </div>
+        <p class="claim">
+            Only Vice City has any architectural description, and even there the
+            record is a mood — neon, high-rises, a retro pastiche — rather than a
+            building type. Where GTA VI resembles real Miami, that resemblance is
+            marked as observable. No architectural inspiration is ever asserted,
+            because Rockstar has never stated one.
+        </p>
+        <div class="geo-layers" id="archList"></div>
+    </div>
+</section>
+
+<section class="section" id="economy">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">ECONOMIC GEOGRAPHY</span>
+            <h2>What people are officially shown doing</h2>
+        </div>
+        <p class="claim">
+            Geography to economy to infrastructure, read strictly from official
+            copy. No economic statistic is inferred from visual impression, and
+            none is published by Rockstar. The state-wide pattern is legible
+            even so: tourism everywhere, night-time commerce in the city,
+            recorded music bridging the towns, and contraband running out of the
+            Keys.
+        </p>
+        <div class="geo-layers" id="econList"></div>
+    </div>
+</section>
+
+<section class="section" id="culture">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">SOCIAL &amp; CULTURAL GEOGRAPHY</span>
+            <h2>Tourism culture, television and the Keys</h2>
+        </div>
+        <p class="claim">
+            Leonida's official cultural identity is a tourism identity, and
+            Rockstar has named exactly one piece of Leonida popular culture: the
+            state TV show <em>Macca the Gator</em>. Claims about who lives where,
+            or what any region's sub-culture is, are not established and are not
+            made.
+        </p>
+        <div class="geo-layers" id="cultureList"></div>
+    </div>
+</section>
+
+<section class="section" id="transitions">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">ENVIRONMENTAL TRANSITIONS</span>
+            <h2>Where one place becomes another</h2>
+        </div>
+        <p class="claim">
+            Transitions reveal how a world is constructed, but Rockstar has
+            published no boundary distances and no route descriptions. Every
+            distance field on this page therefore reads UNKNOWN. That the
+            transitions exist is a reasonable inference from the place list; how
+            far they take to cross is simply not published.
+        </p>
+        <div class="geo-layers" id="transitionList"></div>
+    </div>
+</section>
+
+<section class="section" id="history">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">HISTORICAL CONTEXT</span>
+            <h2>Fictional history and the continuity question</h2>
+        </div>
+        <p class="claim">
+            Leonida has a smuggling golden age, a state apparatus and a hit TV
+            show, but no dates. On continuity: GTA VI's relationship to Vice
+            City (2002) is a documented <em>look</em>, sold as the Vintage Vice
+            City Pack's flashback to &quot;when the neon burned brightest&quot;. That
+            is reinterpreted presentation, not confirmed narrative continuity —
+            the older game's plot, cast and map are not imported.
+        </p>
+        <div class="geo-layers" id="historyList"></div>
+    </div>
+</section>
+
+<section class="section" id="realworld">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">REAL-WORLD PARALLELS</span>
+            <h2>Leonida and Florida — kept apart</h2>
+        </div>
+        <p class="claim">
+            Real-world similarity is <strong>contextual evidence, not proof of
+            fictional geography</strong>. It is useful for explaining why Leonida
+            reads the way it does, and for nothing else. The most important row
+            below is the one that refuses an inference: real Florida's
+            Everglades is a wetland, and GTA VI has established no wetland at all.
+        </p>
+        <div class="table-scroll" id="realWorldTable"></div>
+    </div>
+</section>
+
+<section class="section" id="technical">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">TECHNICAL CONNECTIONS</span>
+            <h2>What the geography costs to build</h2>
+        </div>
+        <p class="claim">
+            Every entry here is <strong>analysis</strong>. None of it asserts that
+            Rockstar implemented any particular system, and the certainty is
+            labelled per row — including the weakest row, which is flagged as
+            speculation precisely because a national park is not evidence of a
+            streaming technique.
+        </p>
+        <div class="table-scroll" id="techTable"></div>
+    </div>
+</section>
+
+
+<section class="section" id="characters">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">CHARACTER &amp; LOCATION</span>
+            <h2>Who is officially placed where</h2>
+        </div>
+        <p class="claim">
+            Only links stated in official copy are recorded. This section feeds
+            the wider Leonida knowledge graph without inventing connections —
+            and note that most of the official place-to-character pairings come
+            from Rockstar's own destination pages rather than from the game.
+        </p>
+        <div class="table-scroll" id="charTable"></div>
+    </div>
+</section>
+
+<section class="section" id="unverified">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">UNIDENTIFIED / UNCERTAIN</span>
+            <h2>Names that circulate but are not established</h2>
+        </div>
+        <p class="claim">
+            These names appear in community maps, wikis and video essays. None is
+            attributable to Rockstar, and the principal source that compiles them
+            states on its own page that it may contain leaked content. They are
+            listed here so a visitor who meets them elsewhere can recognise them
+            for what they are.
+        </p>
+
+        <div class="notice" style="margin:0 0 24px">
+            <span class="notice-label">HANDLING</span>
+            <strong>NOT PLOTTED. NOT COUNTED. NOT INFERRED FROM.</strong>
+            <p>
+                Nothing in this section is drawn on the relation diagram, is
+                included in any total, or used as evidence for a Leonida
+                boundary. Crossed-out names below are not endorsements — they
+                are a record of what is circulating, so that it is not mistaken
+                later for something it is not.
+            </p>
+        </div>
+
+        <div id="unverifiedList"></div>
+    </div>
+</section>
+
+<section class="section" id="glossary">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">GLOSSARY</span>
+            <h2>The distinctions this page protects</h2>
+        </div>
+        <p class="claim">
+            Most geographic errors about Leonida come from collapsing these
+            terms. In particular: absence of evidence is not evidence of absence,
+            and a destination is not the same thing as a place.
+        </p>
+        <div class="glossary" id="glossaryList"></div>
+    </div>
+</section>
+
+<section class="section" id="evidence">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">LOCATION EVIDENCE RECORD</span>
+            <h2>Claim, status, source, limitations</h2>
+        </div>
+        <p class="claim">
+            Every material geographic claim on this page, with what its source
+            establishes and what it does not. Rows marked INFERRED are reasoning;
+            rows marked UNRESOLVED are recorded absences or rejected claims.
+        </p>
+        <div class="table-scroll evidence-table-wrap" id="evidenceTable"></div>
+    </div>
+</section>
+
+<section class="section" id="sources">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">PROVENANCE</span>
+            <h2>Sources</h2>
+        </div>
+        <p class="claim">
+            Official Rockstar properties first, then platform and merchandise
+            properties, then attributable developer statements. The real-world
+            source is included for comparison only and is never used to assert
+            Leonida geography. The third-party source is listed so it can be
+            identified and dismissed.
+        </p>
+        <div class="record-list" id="sourceList"></div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <strong>LEONIDA.RPF</strong>
+        <p>WE DO NOT SHARE LEAKS.</p>
+        <p>PUBLIC INFORMATION ONLY.</p>
+    </div>
+</footer>
+
+<noscript>
+<style>
+.card, .stat, .record, .method, .geo-card, .item, .timeline-entry, .glossary__row, .concept-key__item, .geo-layer, .geo-rel, .geo-quarantine {
+    opacity: 1 !important;
+    transform: none !important;
+}
+</style>
+<p class="geo-no-results">
+    This section is generated from a structured data file and needs
+    JavaScript enabled to display. All underlying records are plain data in
+    <code>js/geo-data.js</code>. The seven officially named places are Vice
+    City, the Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia, Mount Kalaga
+    National Park and the Leonida Penitentiary.
+</p>
+</noscript>
+
+<script src="js/geo-data.js"></script>
+
+<script>
+document.body.classList.add("loaded");
+
+/* ---------- helpers (mirrors editions.html) ---------- */
+function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+}
+
+function geoSource(id) { return GEO_SOURCES[id] || null; }
+
+function sourceLink(id, label) {
+    var s = geoSource(id);
+    if (!s) return null;
+    var a = el("a", "source-cite", label || s.typeLabel);
+    a.href = s.url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    return a;
+}
+
+/* Every source is NOT an official source. Only first-party Rockstar /
+   Take-Two material may carry an official label, so the call-to-action
+   states the tier the record actually holds rather than repeating one
+   official label across all of them. */
+function sourceActionLabel(type) {
+    switch (type) {
+        case "primary-official":
+        case "official-marketing":
+            return "OPEN OFFICIAL SOURCE ↗";
+        case "attributable-statement":
+            return "OPEN ATTRIBUTABLE SOURCE ↗";
+        case "real-world":
+            return "OPEN REAL-WORLD SOURCE ↗";
+        case "unverified":
+            return "OPEN THIRD-PARTY CLAIM ↗";
+        default:
+            return "OPEN SOURCE ↗";
+    }
+}
+function statusPill(key) {
+    var s = GEO_STATUS[key] || GEO_STATUS.unknown;
+    return el("span", "status-pill " + s.pill, s.label);
+}
+
+function fmtDate(iso) {
+    var d = new Date(iso + "T00:00:00");
+    if (isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+}
+
+function byId(id) { return document.getElementById(id); }
+
+function typeLabel(t) {
+    return ({
+        "city": "City",
+        "town": "Town",
+        "island-region": "Island region",
+        "national-park": "National park",
+        "facility": "Facility"
+    })[t] || t;
+}
+
+function isUnknown(s) { return /^UNKNOWN\b/.test(s || ""); }
+
+/* list renderer: a string starting UNKNOWN is styled as unknown */
+function bulletList(items) {
+    var ul = el("ul");
+    (items || []).forEach(function (t) {
+        var li = el("li", isUnknown(t) ? "is-unknown" : null, t);
+        ul.appendChild(li);
+    });
+    return ul;
+}
+
+function factRow(dl, label, items) {
+    if (!items || !items.length) return;
+    var row = el("div", "geo-facts__row");
+    row.appendChild(el("dt", null, label));
+    var dd = el("dd");
+    dd.appendChild(bulletList(items));
+    row.appendChild(dd);
+    dl.appendChild(row);
+}
+
+function factRowText(dl, label, text) {
+    if (!text) return;
+    var row = el("div", "geo-facts__row");
+    row.appendChild(el("dt", null, label));
+    row.appendChild(el("dd", isUnknown(text) ? "is-unknown" : null, text));
+    dl.appendChild(row);
+}
+
+/* ---------- header counters ---------- */
+(function initHeader() {
+    var vd = byId("verifiedDate");
+    if (vd) vd.textContent = fmtDate(GEO_VERIFIED) + " (" + GEO_VERIFIED + ")";
+
+    var pc = byId("placeCount");
+    if (pc) pc.textContent = GEO_PLACES.length + " PLACES · " + GEO_EVIDENCE.length + " EVIDENCE RECORDS";
+
+    var uc = byId("unverifiedCount");
+    if (uc) {
+        var n = GEO_UNVERIFIED.reduce(function (a, u) { return a + u.names.length; }, 0);
+        uc.textContent = n + " NAMES · " + GEO_UNVERIFIED.length + " GROUPS · 0 MAPPED";
+    }
+})();
+
+/* ---------- evidence key ---------- */
+(function renderEvidenceKey() {
+    var host = byId("evidenceKey");
+    if (!host) return;
+
+    [
+        { id: "official", name: "Officially named",
+          desc: "The name appears on a Rockstar property. This is the only category treated as fact on this page." },
+        { id: "observed", name: "Directly observed",
+          desc: "Visible in official released material. Observation is not naming — Rockstar can show a beach without calling it one." },
+        { id: "inferred", name: "Inferred",
+          desc: "Reasoning drawn from official evidence. Always labelled. Never presented as a Rockstar statement." },
+        { id: "unknown", name: "Unknown",
+          desc: "Rockstar has not said. Used instead of a plausible guess. Most of Leonida sits here, deliberately." },
+        { id: "unverified", name: "Unverified claim",
+          desc: "Circulating in community material with no attributable source. Quarantined, never mapped, never counted." }
+    ].forEach(function (k) {
+        var d = el("div", "concept-key__item");
+        d.setAttribute("data-concept", k.id);
+        d.appendChild(el("span", "concept-key__label", (GEO_STATUS[k.id] || {}).label || k.name.toUpperCase()));
+        d.appendChild(el("span", "concept-key__name", k.name));
+        d.appendChild(el("p", "concept-key__desc", k.desc));
+        host.appendChild(d);
+    });
+})();
+
+/* ---------- the state ---------- */
+(function renderState() {
+    var q = byId("stateQuote");
+    if (q) {
+        q.textContent = "OFFICIAL WORDING — \"" + GEO_STATE.officialQuote + "\". The site captions the setting \"" + GEO_STATE.officialCaption + "\" and sells state merchandise under the brand \"" + GEO_STATE.brand + "\".";
+    }
+    var s = byId("stateSummary");
+    if (s) s.textContent = GEO_STATE.summary;
+
+    var t = byId("stateThesis");
+    if (t) t.textContent = GEO_STATE.onePlaceThesis;
+
+    var k = byId("stateKnown");
+    if (k) {
+        GEO_STATE.known.forEach(function (item) {
+            var cell = el("div");
+            cell.appendChild(el("h4", null, "ESTABLISHED"));
+            cell.appendChild(el("p", null, item));
+            k.appendChild(cell);
+        });
+    }
+
+    var host = byId("stateTable");
+    if (!host) return;
+    var table = el("table", "data-table");
+    table.appendChild(el("caption", null, "What the official record establishes about the state, against what it leaves open."));
+
+    var thead = el("thead"), hr = el("tr");
+    ["ESTABLISHED BY ROCKSTAR", "NOT ESTABLISHED"].forEach(function (h) {
+        var th = el("th", null, h);
+        th.setAttribute("scope", "col");
+        hr.appendChild(th);
+    });
+    thead.appendChild(hr); table.appendChild(thead);
+
+    var tbody = el("tbody");
+    var max = Math.max(GEO_STATE.known.length, GEO_STATE.unknown.length);
+    for (var i = 0; i < max; i++) {
+        var tr = el("tr");
+        tr.appendChild(el("td", null, GEO_STATE.known[i] || "—"));
+        tr.appendChild(el("td", "limit-cell", GEO_STATE.unknown[i] || "—"));
+        tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    host.appendChild(table);
+})();
+
+
+/* ---------- hierarchy ---------- */
+(function renderHierarchy() {
+    var host = byId("hierarchyList");
+    if (!host) return;
+
+    var levels = [
+        { level: "LEVEL 0 — STATE", established: true,
+          items: ["State of Leonida — \"the state of Leonida\" (Trailer 1 synopsis)", "Brand: \"The Goodtime State\" (official merchandise)"] },
+        { level: "LEVEL 1 — CITY", established: true,
+          items: ["Vice City — \"Vice City, USA.\"", "Roughly 2x Los Santos in area (Rob Nelson)"] },
+        { level: "LEVEL 1 — REGION", established: true,
+          items: ["Leonida Keys — island chain", "Mount Kalaga National Park — protected upland"] },
+        { level: "LEVEL 2 — TOWN", established: true,
+          items: ["Grassrivers", "Port Gellhorn", "Ambrosia"] },
+        { level: "LEVEL 3 — FACILITY", established: true,
+          items: ["Leonida Penitentiary"] },
+        { level: "COUNTY / PARISH", established: false,
+          items: ["NOT ESTABLISHED. Rockstar has published no Leonida counties. A county list circulates online and is quarantined in Unidentified / Uncertain."] },
+        { level: "DISTRICT / NEIGHBOURHOOD", established: false,
+          items: ["NOT ESTABLISHED. No official district or neighbourhood name appears anywhere in the official record, inside Vice City or the Keys."] },
+        { level: "LANDMARK / FACILITY (public)", established: false,
+          items: ["NOT ESTABLISHED. No named hotel, stadium, bridge, port, airport or civic building has been published."] },
+        { level: "ROAD / WATERWAY", established: false,
+          items: ["NOT ESTABLISHED. No road, highway, river, lake or bay is named."] }
+    ];
+
+    levels.forEach(function (l) {
+        var r = el("article", "record");
+        if (!l.established) r.style.borderLeft = "3px solid var(--ep-disproven)";
+
+        var top = el("div", "record-top");
+        top.appendChild(el("span", null, l.level));
+        top.appendChild(l.established ? statusPill("official") : statusPill("unknown"));
+        r.appendChild(top);
+
+        r.appendChild(el("h2", l.established ? "location-head" : null,
+            l.established ? l.level : l.level + " — NOT ESTABLISHED"));
+
+        l.items.forEach(function (i) {
+            r.appendChild(el("p", /^NOT ESTABLISHED/.test(i) ? "is-unknown" : "location-name", i));
+        });
+
+        var foot = el("div", "record-footer");
+        foot.appendChild(el("span", null, l.established
+            ? "SOURCE: ROCKSTAR GAMES — OFFICIAL"
+            : "SOURCE: NONE — RECORDED ABSENCE"));
+        r.appendChild(foot);
+        host.appendChild(r);
+    });
+})();
+
+
+/* ---------- relation diagram (SVG) ---------- */
+(function renderMap() {
+    var host = byId("geoMapFrame");
+    if (!host) return;
+
+    var NS = "http://www.w3.org/2000/svg";
+    function svgEl(tag, attrs) {
+        var n = document.createElementNS(NS, tag);
+        for (var k in attrs) { if (Object.prototype.hasOwnProperty.call(attrs, k)) n.setAttribute(k, attrs[k]); }
+        return n;
+    }
+
+    /* Deliberate arrangement, not a map. Positions express
+       "dense coastal core" and "interior", nothing more. */
+    var POS = {
+        "vice-city": { x: 300, y: 150 },
+        "leonida-keys": { x: 500, y: 150 },
+        "grassrivers": { x: 300, y: 330 },
+        "port-gellhorn": { x: 470, y: 400 },
+        "ambrosia": { x: 160, y: 330 },
+        "mount-kalaga": { x: 130, y: 100 },
+        "leonida-penitentiary": { x: 400, y: 250 }
+    };
+
+    function keyFor(name) { return name.toLowerCase().replace(/\s+/g, "-"); }
+
+    var svg = svgEl("svg", {
+        viewBox: "0 0 620 470",
+        role: "group",
+        "aria-labelledby": "geoMapTitle geoMapDesc"
+    });
+
+    var svgTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    svgTitle.id = "geoMapTitle";
+    svgTitle.textContent = "Leonida relationship diagram — seven official places";
+    svg.appendChild(svgTitle);
+
+    var svgDesc = document.createElementNS("http://www.w3.org/2000/svg", "desc");
+    svgDesc.id = "geoMapDesc";
+    svgDesc.textContent =
+        "A schematic diagram, not a map. It plots the seven officially named " +
+        "places and the connections official copy draws between them. It carries " +
+        "no borders, coordinates, scale or orientation. Each point is a button " +
+        "that jumps to that place's dossier, and every connection is also listed " +
+        "in text in the section below.";
+    svg.appendChild(svgDesc);
+
+    svg.appendChild(svgEl("path", {
+        d: "M60,215 C150,175 250,180 330,160 C420,138 520,120 575,150",
+        "class": "geo-map__coast"
+    }));
+
+    var observed = GEO_RELATIONSHIPS.filter(function (r) { return r.status === "observed"; });
+    observed.forEach(function (r) {
+        var a = POS[keyFor(r.from)], b = POS[keyFor(r.to)];
+        if (!a || !b) return;
+        svg.appendChild(svgEl("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, "class": "geo-map__link" }));
+    });
+
+    GEO_PLACES.forEach(function (p) {
+        var pos = POS[p.id];
+        if (!pos) return;
+
+        var g = svgEl("g", { "class": "geo-map__node", "data-type": p.type, "data-place": p.id });
+        g.setAttribute("role", "button");
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("aria-label", p.name + " — " + typeLabel(p.type) + ". Jump to this place's dossier.");
+
+        g.appendChild(svgEl("circle", { cx: pos.x, cy: pos.y, r: 11 }));
+
+        var short = p.name === "Mount Kalaga National Park" ? "Mount Kalaga"
+                  : p.name === "Leonida Penitentiary" ? "Penitentiary"
+                  : p.name;
+        var t = svgEl("text", { x: pos.x, y: pos.y + 30 });
+        t.textContent = short;
+        g.appendChild(t);
+
+        function go() {
+            var card = document.querySelector('.geo-card[data-place="' + p.id + '"]');
+            if (!card) return;
+            var reduce = window.matchMedia &&
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            card.scrollIntoView({
+                behavior: reduce ? "auto" : "smooth",
+                block: "start"
+            });
+            var h = card.querySelector("h3");
+            if (h) { h.setAttribute("tabindex", "-1"); h.focus(); }
+        }
+        g.addEventListener("click", go);
+        g.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+        });
+
+        svg.appendChild(g);
+    });
+
+    host.appendChild(svg);
+
+    var cap = byId("geoMapCaption");
+    if (cap) {
+        cap.textContent = "RELATION DIAGRAM — NOT A MAP. No border, coordinate, scale bar or orientation is shown, because Rockstar has published none. Dotted arcs are the " +
+            observed.length +
+            " relationships stated in official copy. Placement is arranged for legibility: the dense coastal core sits centre, the interior protected area upper left. " +
+            "This figure repeats the text list below and adds no information of its own.";
+    }
+})();
+
+/* ---------- relationships as a list ---------- */
+(function renderRelations() {
+    var host = byId("relationList");
+    if (!host) return;
+
+    GEO_RELATIONSHIPS.forEach(function (r) {
+        var d = el("div", "geo-rel");
+        d.setAttribute("data-status", r.status);
+
+        d.appendChild(el("span", "geo-rel__end", r.from));
+        var a = el("span", "geo-rel__arrow", "───▶");
+        a.appendChild(el("span", null, r.kind + " · " + ((GEO_STATUS[r.status] || {}).label || "")));
+        d.appendChild(a);
+        d.appendChild(el("span", "geo-rel__end", r.to));
+        d.appendChild(el("p", "geo-rel__basis", r.basis));
+
+        host.appendChild(d);
+    });
+})();
+
+
+/* ---------- place dossiers ---------- */
+function buildPlaceCard(p) {
+    var card = el("article", "geo-card");
+    card.setAttribute("data-type", p.type);
+    card.setAttribute("data-place", p.id);
+    card.setAttribute("data-search", [
+        p.name, typeLabel(p.type), p.character, p.officialQuote || "",
+        (p.environment || []).join(" "), (p.humanActivity || []).join(" "),
+        (p.known || []).join(" ")
+    ].join(" ").toLowerCase());
+
+    /* media — use the place's own official screenshot as the lead image */
+    if (p.images && p.images.length) {
+        var fig = el("figure", "geo-card__media");
+        var img = el("img");
+        img.src = p.images[0].src;
+        img.alt = p.images[0].alt;
+        img.loading = "lazy";
+        img.decoding = "async";
+        fig.appendChild(img);
+        fig.appendChild(el("figcaption", "geo-card__type", typeLabel(p.type)));
+        card.appendChild(fig);
+    }
+
+    var body = el("div", "geo-card__body");
+
+    body.appendChild(el("h3", "geo-card__name", p.name));
+
+    if (p.officialQuote) {
+        var q = el("blockquote", "geo-card__quote", "“" + p.officialQuote + "”");
+        q.appendChild(el("cite", null, "OFFICIAL WORDING — ROCKSTAR GAMES"));
+        body.appendChild(q);
+    } else if (p.officialCaption) {
+        var q2 = el("blockquote", "geo-card__quote", "“" + p.officialCaption + "”");
+        q2.appendChild(el("cite", null, "OFFICIAL CAPTION — ROCKSTAR GAMES"));
+        body.appendChild(q2);
+    }
+
+    body.appendChild(el("p", "geo-card__character", p.character));
+
+    var facts = el("dl", "geo-facts");
+    factRowText(facts, "Scale", p.scale);
+    factRow(facts, "Environment", p.environment);
+    factRow(facts, "Built", p.built);
+    factRow(facts, "Human activity", p.humanActivity);
+    factRow(facts, "Established", p.known);
+    factRow(facts, "Unknown", p.unknown);
+    if (facts.childNodes.length) body.appendChild(facts);
+
+    if (p.images && p.images.length > 1) {
+        var shots = el("div", "geo-card__shots");
+        p.images.slice(1).forEach(function (im) {
+            var s = el("img");
+            s.src = im.src;
+            s.alt = im.alt;
+            s.loading = "lazy";
+            s.decoding = "async";
+            s.title = im.label + " — " + im.caption;
+            shots.appendChild(s);
+        });
+        body.appendChild(shots);
+    }
+
+    var foot = el("div", "geo-card__foot");
+    foot.appendChild(statusPill(p.status));
+    var vd = el("small", "source-cite", "VERIFIED " + GEO_VERIFIED);
+    vd.style.marginLeft = "auto";
+    foot.appendChild(vd);
+    body.appendChild(foot);
+
+    if (p.sources && p.sources.length) {
+        var links = el("div", "purchase-links");
+        links.style.marginTop = "2px";
+        p.sources.forEach(function (sid) {
+            var l = sourceLink(sid);
+            if (l) links.appendChild(l);
+        });
+        body.appendChild(links);
+    }
+
+    card.appendChild(body);
+    return card;
+}
+
+(function renderPlaces() {
+    var grid = byId("placeGrid");
+    if (!grid) return;
+
+    GEO_PLACES.forEach(function (p) { grid.appendChild(buildPlaceCard(p)); });
+
+    var tabs = byId("geoFilterTabs");
+    var search = byId("geoSearch");
+    var empty = byId("geoNoResults");
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".geo-card"));
+    var active = "all";
+
+    function apply() {
+        var q = (search && search.value || "").trim().toLowerCase();
+        var shown = 0;
+
+        cards.forEach(function (c) {
+            var okType = active === "all" || c.getAttribute("data-type") === active;
+            var okText = !q || (c.getAttribute("data-search") || "").indexOf(q) > -1;
+            var show = okType && okText;
+            c.hidden = !show;
+            if (show) shown++;
+        });
+
+        if (empty) empty.hidden = shown !== 0;
+    }
+
+    if (tabs) {
+        tabs.addEventListener("click", function (e) {
+            var btn = e.target.closest("[data-geo-filter]");
+            if (!btn) return;
+            active = btn.getAttribute("data-geo-filter");
+            tabs.querySelectorAll("[data-geo-filter]").forEach(function (b) {
+                var on = b === btn;
+                b.classList.toggle("active", on);
+                b.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+            apply();
+        });
+    }
+
+    if (search) search.addEventListener("input", apply);
+    apply();
+})();
+
+
+/* ---------- generic layer renderer ---------- */
+function buildLayer(o, opts) {
+    opts = opts || {};
+    var d = el("div", "geo-layer");
+    d.setAttribute("data-status", o.status);
+
+    var head = el("div", "geo-layer__head");
+    head.appendChild(el("h3", "geo-layer__name", o.name || o.activity || o.item || o.environment || o.topic || o.from));
+    if (opts.showPlace && o.to) {
+        head.appendChild(el("small", "source-cite", "→ " + o.to + (o.whatChanges ? "" : "")));
+    }
+    head.appendChild(statusPill(o.status));
+    d.appendChild(head);
+
+    if (o.character) d.appendChild(el("p", "geo-layer__body", o.character));
+
+    if (o.claim) d.appendChild(el("p", "geo-layer__body", o.claim));
+
+    if (o.detail) d.appendChild(el("p", "geo-layer__body", o.detail));
+
+    if (o.whatChanges) {
+        d.appendChild(el("p", "geo-layer__evidence", "WHAT CHANGES — " + o.whatChanges));
+    }
+
+    if (o.evidence) d.appendChild(el("p", "geo-layer__evidence", "EVIDENCE — " + o.evidence));
+    if (o.basis) d.appendChild(el("p", "geo-layer__evidence", "BASIS — " + o.basis));
+    if (o.implication) d.appendChild(el("p", "geo-layer__body", o.implication));
+    if (o.note) d.appendChild(el("p", "geo-layer__evidence", "NOTE — " + o.note));
+    if (o.separation) d.appendChild(el("p", "geo-layer__unknown", "SEPARATION — " + o.separation));
+    if (o.caution) d.appendChild(el("p", "geo-layer__unknown", "CAUTION — " + o.caution));
+    if (o.association) d.appendChild(el("p", "geo-layer__body", "ASSOCIATION — " + o.association));
+    if (o.overWhatDistance) d.appendChild(el("p", "geo-layer__unknown", "DISTANCE — " + o.overWhatDistance));
+    if (o.system) d.appendChild(el("p", "geo-layer__unknown", "SYSTEM — " + o.system));
+    if (o.abruptOrGradual) d.appendChild(el("p", "geo-layer__unknown", "ABRUPT OR GRADUAL — " + o.abruptOrGradual));
+    if (o.certainty) {
+        var c = el("span", "geo-tech__certainty", o.certainty);
+        c.style.marginTop = "10px";
+        d.appendChild(c);
+    }
+
+    var unknowns = [];
+    if (o.unknown) unknowns = Array.isArray(o.unknown) ? o.unknown : [o.unknown];
+    if (unknowns.length) {
+        var u = el("div", "geo-layer__unknown");
+        u.appendChild(el("strong", null, "UNKNOWN — "));
+        u.appendChild(bulletList(unknowns));
+        d.appendChild(u);
+    }
+
+    var tagVals = [];
+    if (o.places) tagVals = tagVals.concat(o.places);
+    if (o.observable) tagVals = tagVals.concat(o.observable);
+    if (o.where) tagVals.push(o.where);
+    if (o.kind) tagVals.push("KIND: " + o.kind);
+    if (o.category) tagVals.push(o.category);
+
+    if (tagVals.length) {
+        var tags = el("div", "geo-layer__tags");
+        tagVals.forEach(function (t) { tags.appendChild(el("span", "tag", t)); });
+        d.appendChild(tags);
+    }
+
+    return d;
+}
+
+function renderInto(id, items, opts) {
+    var host = byId(id);
+    if (!host) return;
+    items.forEach(function (o) { host.appendChild(buildLayer(o, opts)); });
+}
+
+renderInto("envList", GEO_ENVIRONMENTS);
+renderInto("waterList", GEO_WATER);
+renderInto("transportList", GEO_TRANSPORT);
+renderInto("wildlifeList", GEO_WILDLIFE);
+renderInto("weatherList", GEO_WEATHER);
+renderInto("archList", GEO_ARCHITECTURE);
+renderInto("econList", GEO_ECONOMY);
+renderInto("cultureList", GEO_CULTURE);
+renderInto("transitionList", GEO_TRANSITIONS, { showPlace: true });
+renderInto("historyList", GEO_HISTORY);
+
+/* ---------- real-world comparison table ---------- */
+(function renderRealWorld() {
+    var host = byId("realWorldTable");
+    if (!host) return;
+
+    var table = el("table", "data-table geo-rw");
+    table.appendChild(el("caption", null, "Real-world comparison is contextual. It explains Leonida's form; it never establishes Leonida's geography."));
+
+    var thead = el("thead"), hr = el("tr");
+    ["TOPIC", "LEONIDA — ESTABLISHED", "REAL WORLD", "PARALLEL", "SEPARATION"].forEach(function (h) {
+        var th = el("th", null, h);
+        th.setAttribute("scope", "col");
+        hr.appendChild(th);
+    });
+    thead.appendChild(hr); table.appendChild(thead);
+
+    var tbody = el("tbody");
+    GEO_REALWORLD.forEach(function (r) {
+        var tr = el("tr");
+        tr.appendChild(el("td", null, r.topic));
+
+        var tdL = el("td");
+        tdL.appendChild(el("span", "geo-rw__label", "LEONIDA"));
+        var pL = el("p", null, r.leonida);
+        tdL.appendChild(pL);
+        tr.appendChild(tdL);
+
+        tr.appendChild(el("td", null, r.real));
+        tr.appendChild(el("td", null, r.parallel));
+
+        var tdS = el("td", "limit-cell");
+        tdS.appendChild(el("p", "geo-rw__sep", r.separation));
+        tr.appendChild(tdS);
+
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    host.appendChild(table);
+})();
+
+
+/* ---------- technical analysis table ---------- */
+(function renderTech() {
+    var host = byId("techTable");
+    if (!host) return;
+
+    var table = el("table", "data-table");
+    table.appendChild(el("caption", null, "All rows are analysis. No row asserts that Rockstar implemented the system described."));
+
+    var thead = el("thead"), hr = el("tr");
+    ["ENVIRONMENT", "ENGINEERING IMPLICATION", "CERTAINTY", "CAUTION"].forEach(function (h) {
+        var th = el("th", null, h);
+        th.setAttribute("scope", "col");
+        hr.appendChild(th);
+    });
+    thead.appendChild(hr); table.appendChild(thead);
+
+    var tbody = el("tbody");
+    GEO_TECH.forEach(function (t) {
+        var tr = el("tr");
+        tr.appendChild(el("td", null, t.environment));
+        tr.appendChild(el("td", "claim-cell", t.implication));
+        var td = el("td");
+        td.appendChild(el("span", "geo-tech__certainty", t.certainty));
+        tr.appendChild(td);
+        tr.appendChild(el("td", "limit-cell", t.caution));
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    host.appendChild(table);
+})();
+
+/* ---------- character / location links ---------- */
+(function renderCharLinks() {
+    var host = byId("charTable");
+    if (!host) return;
+
+    var table = el("table", "data-table");
+    table.appendChild(el("caption", null, "Only links stated in official Rockstar copy. No inferred or fan-derived connections."));
+
+    var thead = el("thead"), hr = el("tr");
+    ["CHARACTER", "OFFICIALLY PLACED AT", "STATUS", "OFFICIAL BASIS"].forEach(function (h) {
+        var th = el("th", null, h);
+        th.setAttribute("scope", "col");
+        hr.appendChild(th);
+    });
+    thead.appendChild(hr); table.appendChild(thead);
+
+    var tbody = el("tbody");
+    GEO_CHARACTER_LINKS.forEach(function (c) {
+        var tr = el("tr");
+        tr.appendChild(el("td", null, c.character));
+        tr.appendChild(el("td", "region-name", c.place));
+        tr.appendChild(el("td", null, (GEO_STATUS[c.status] || {}).label || c.status));
+        tr.appendChild(el("td", null, c.basis));
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    host.appendChild(table);
+})();
+
+
+/* ---------- quarantine ---------- */
+(function renderUnverified() {
+    var host = byId("unverifiedList");
+    if (!host) return;
+
+    GEO_UNVERIFIED.forEach(function (u) {
+        var d = el("div", "geo-quarantine");
+
+        var head = el("div", "geo-quarantine__head");
+        head.appendChild(el("h3", "geo-quarantine__cat", u.category));
+        head.appendChild(el("span", "status-pill status-disproven", u.status));
+        d.appendChild(head);
+
+        var names = el("div", "geo-quarantine__names");
+        u.names.forEach(function (n) { names.appendChild(el("span", null, n)); });
+        d.appendChild(names);
+
+        function row(label, text) {
+            var r = el("p", "geo-quarantine__row");
+            r.appendChild(el("strong", null, label + " — "));
+            r.appendChild(document.createTextNode(text));
+            d.appendChild(r);
+        }
+        row("Claim made", u.claim);
+        row("Provenance", u.provenance);
+        row("Why it is not established", u.why);
+        row("What would settle it", u.doNext);
+
+        var foot = el("div", "record-footer");
+        foot.appendChild(el("span", null, "NOT MAPPED · NOT COUNTED · NOT INFERRED FROM"));
+        var l = sourceLink("gtaWiki");
+        if (l) foot.appendChild(l);
+        d.appendChild(foot);
+
+        host.appendChild(d);
+    });
+})();
+
+/* ---------- glossary ---------- */
+(function renderGlossary() {
+    var host = byId("glossaryList");
+    if (!host) return;
+    GEO_GLOSSARY.forEach(function (g) {
+        var d = el("div", "glossary__row");
+        d.appendChild(el("div", "glossary__term", g.term));
+        d.appendChild(el("p", "glossary__def", g.definition));
+        host.appendChild(d);
+    });
+})();
+
+/* ---------- evidence record ---------- */
+(function renderEvidence() {
+    var host = byId("evidenceTable");
+    if (!host) return;
+
+    var table = el("table", "data-table evidence-table");
+    table.appendChild(el("caption", null, "Every material geographic claim, with what its source establishes and what it does not."));
+
+    var thead = el("thead"), hr = el("tr");
+    ["ID", "CLAIM", "STATUS", "SOURCE", "WHAT THE SOURCE ESTABLISHES", "LIMITATIONS"].forEach(function (h) {
+        var th = el("th", null, h);
+        th.setAttribute("scope", "col");
+        hr.appendChild(th);
+    });
+    thead.appendChild(hr); table.appendChild(thead);
+
+    var tbody = el("tbody");
+    GEO_EVIDENCE.forEach(function (e) {
+        var tr = el("tr");
+        tr.appendChild(el("td", null, e.id));
+        tr.appendChild(el("td", "claim-cell", e.claim));
+        tr.appendChild(el("td", null, e.status.toUpperCase()));
+        tr.appendChild(el("td", null, (geoSource(e.sourceId) || {}).label || e.sourceId));
+        tr.appendChild(el("td", null, e.establishes));
+        tr.appendChild(el("td", "limit-cell", e.limitations));
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    host.appendChild(table);
+})();
+
+/* ---------- sources ---------- */
+(function renderSources() {
+    var host = byId("sourceList");
+    if (!host) return;
+
+    Object.keys(GEO_SOURCES).forEach(function (id) {
+        var s = GEO_SOURCES[id];
+        var r = el("article", "record");
+
+        var top = el("div", "record-top");
+        top.appendChild(el("span", null, s.id.toUpperCase()));
+        top.appendChild(el("span", null, s.typeLabel));
+        r.appendChild(top);
+
+        r.appendChild(el("h2", null, s.label));
+        r.appendChild(el("p", null, s.note));
+
+        var foot = el("div", "record-footer");
+        var a = el("a", "source-cite", sourceActionLabel(s.type));
+        a.href = s.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        foot.appendChild(a);
+        r.appendChild(foot);
+
+        host.appendChild(r);
+    });
+})();
+</script>
+
+<script src="js/entry-gate.js" defer></script>
+<script src="js/modes.js" defer></script>
+<script src="js/environment.js" defer></script>
+<script src="js/bgm-data.js" defer></script>
+<script src="js/player.js" defer></script>
+</body>
+</html>
+

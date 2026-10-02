@@ -1,6 +1,224 @@
+
+
+/* ============================================================
+   THEME ARCHITECTURE
+   Themes may alter: colors, backgrounds, materials, borders,
+   shadows, blur, transparency, surfaces, spacing, motion, icons.
+   Themes MUST NOT redefine what a font means — font tokens
+   above are normative and stable across every theme.
+   THEME 01 = Liquid Glass (dark default + light override).
+   ============================================================ */
+
+:root {
+    color-scheme: dark;
+
+    /* ===== SEMANTIC FONT TOKENS — normative roles, stable across themes =====
+       interface→Chalet · body→Helvetica · brand→Pricedown
+       location→SignPainter · evidence→Courier 12 MT · archive→Times CE
+       subtext→Arial · stamp→Stencil · classified→Steinberg · warning→Redemption */
+    --font-interface: "Chalet", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+    --font-body: "HelveticaBody", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    --font-brand: "Pricedown", "Arial Black", Impact, sans-serif;
+    --font-location: "SignPainterHouse", "Brush Script MT", cursive;
+    --font-evidence: "CourierEvidence", "Courier New", Courier, monospace;
+    --font-archive: "TimesArchive", "Times New Roman", Times, serif;
+    --font-subtext: "ArialSubtext", Arial, Helvetica, sans-serif;
+    --font-stamp: "StencilStamp", "Arial Black", Impact, sans-serif;
+    --font-classified: "SteinbergClassified", "Courier New", monospace;
+    --font-warning: "RedemptionWarning", Impact, "Arial Black", sans-serif;
+    --type-brand-size: clamp(2.8rem, 8vw, 5.5rem);
+    --type-h1-size: clamp(2rem, 5vw, 3rem);
+    --type-h2-size: 1.5rem;
+    --type-h3-size: 1.15rem;
+    --type-body-size: 1rem;
+    --type-small-size: .85rem;
+    --type-meta-size: .75rem;
+    --radius-lg: 14px;
+    --radius-pill: 999px;
+    --ease-out: cubic-bezier(.2, .8, .2, 1);
+
+    /* ---------- SURFACE / INK ---------- */
+    --bg: #0b0d10;
+    --bg-soft: #101318;
+    --bg-sunken: #0d1014;
+    --ink: #e8eaed;
+    --ink-strong: #ffffff;
+    --ink-muted: #aeb4bb;
+    --ink-faint: #8e969f;
+    --line: #24282e;
+    --line-soft: #292e35;
+    --line-strong: #353b43;
+    --accent: #7ee2a8;
+    --accent-ink: #0b0d10;
+
+    --radius: 14px;
+    --radius-sm: 9px;
+
+    /* glass material */
+    --glass-blur: 24px;
+    --glass-sat: 1.25;
+    --glass-nav-bg: rgba(13, 16, 20, 0.68);
+    --glass-panel-bg: rgba(16, 19, 24, 0.6);
+    --glass-ctl-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    --env-glow:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(126, 226, 168, 0.07), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 15% 10%, rgba(94, 200, 255, 0.06), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 85% 90%, rgba(255, 122, 182, 0.05), transparent 60%);
+
+    /* epistemic identity — stable meaning, theme-variable rendering */
+    --ep-confirmed: #7ee2a8;
+    --ep-reported: #f2c879;
+    --ep-observed: #7ec8e2;
+    --ep-inferred: #a9b4c0;
+    --ep-speculation: #8e969f;
+    --ep-disproven: #e27e7e;
+    --ep-unresolved: #d0a2f2;
+    /* Vice City environmental motion tokens — desynchronized 8–30s+ loops */
+    --ocean: 94, 200, 255;
+    --neon-pink: 255, 92, 170;
+    --neon-purple: 158, 106, 255;
+    --neon-amber: 255, 196, 110;
+    --sunset-a: 255, 138, 101;
+    --sunset-b: 120, 80, 200;
+    --atmo-speed-a: 23s;
+    --atmo-speed-b: 19s;
+    --atmo-speed-c: 27s;
+    --sky-cycle-speed: 31s;
+    --glass-sheen-speed: 14s;
+}
+
+[data-theme="light"] {
+    --bg: #f6f9f9;
+    --bg-soft: rgba(255, 255, 255, 0.72);
+    --bg-sunken: rgba(255, 255, 255, 0.55);
+    --ink: #1c2329;
+    --ink-strong: #0b0d10;
+    --ink-muted: #4d585f;
+    --ink-faint: #75808a;
+    --line: rgba(15, 30, 35, 0.1);
+    --line-soft: rgba(15, 30, 35, 0.08);
+    --line-strong: rgba(15, 30, 35, 0.16);
+    --accent: #0a7a4e;
+    --accent-ink: #ffffff;
+
+    --glass-nav-bg: rgba(255, 255, 255, 0.62);
+    --glass-panel-bg: rgba(255, 255, 255, 0.55);
+    --glass-ctl-bg: rgba(255, 255, 255, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.7);
+    --glass-shadow: 0 12px 40px rgba(60, 120, 130, 0.16);
+    --env-glow:
+        linear-gradient(180deg, rgba(178, 235, 242, 0.5), rgba(255, 255, 255, 0) 45%),
+        radial-gradient(ellipse 70% 50% at 20% 0%, rgba(178, 230, 255, 0.55), transparent 60%),
+        radial-gradient(ellipse 60% 45% at 85% 15%, rgba(255, 236, 200, 0.5), transparent 60%);
+
+    --ep-confirmed: #0a7a4e;
+    --ep-reported: #9a6a10;
+    --ep-observed: #0b6e99;
+    --ep-inferred: #54616c;
+    --ep-speculation: #75808a;
+    --ep-disproven: #b33737;
+    --ep-unresolved: #7a3fb5;
+    color-scheme: light;
+}
+
+
+
+/* ============================================================
+   LEONIDA.RPF — TYPOGRAPHY + TOKEN SYSTEM (CENTRALIZED)
+   Semantic font roles — themes MUST NOT redefine these.
+   --font-interface → Chalet (UI chrome)
+   --font-body → Helvetica (readable content)
+   --font-brand → Pricedown (brand lockups only)
+   --font-location → Sign Painter House (geography)
+   --font-evidence → Courier 12 MT Std (evidence/provenance)
+   --font-archive → Times New Roman CE (archival material)
+   --font-subtext → Arial (metadata/captions)
+   --font-stamp → Stencil Std (status stamps)
+   --font-classified → Steinberg ITC Std (restricted)
+   --font-warning → Redemption (warnings)
+   ============================================================ */
+
+@font-face {
+    font-family: "Chalet";
+    src: url("../fonts/Chalet-Interface.ttf") format("truetype");
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "HelveticaBody";
+    src: url("../fonts/Helvetica-Body.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Pricedown";
+    src: url("../fonts/Pricedown-Branding.otf") format("opentype");
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SignPainterHouse";
+    src: url("../fonts/SignPainter HouseScript-Locations.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CourierEvidence";
+    src: url("../fonts/Courier Twelve MT Std-Evidence.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "TimesArchive";
+    src: url("../fonts/Times CE Roman-Archive.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "ArialSubtext";
+    src: url("../fonts/ARIAL-Subtext.TTF") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "StencilStamp";
+    src: url("../fonts/StencilStd-UILabels.otf") format("opentype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SteinbergClassified";
+    src: url("../fonts/Stenberg ITC STD - ClassifiedStyleText.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "RedemptionWarning";
+    src: url("../fonts/Redemption - Warning.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
 }
+
+/* TYPOGRAPHY CONTRACT (all themes): interface→Chalet · body→Helvetica
+   brand→Pricedown · location→SignPainter · evidence→Courier 12 MT
+   archive→Times CE · subtext→Arial · stamp→Stencil
+   classified→Steinberg · warning→Redemption. */
 
 html {
     scroll-behavior: smooth;
@@ -8,16 +226,20 @@ html {
 
 body {
     margin: 0;
-    background: #0b0d10;
-    color: #e8eaed;
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    background: var(--bg);
+    background-image: var(--env-glow);
+    background-attachment: fixed;
+    color: var(--ink);
+    /* BODY ROLE → Helvetica: readable prose is the default voice. */
+    font-family: var(--font-body);
     line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
 }
 
 a {
@@ -29,14 +251,17 @@ a {
     margin: 0 auto;
 }
 
-/* HEADER */
+/* ---------- HEADER / NAV ---------- */
 
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(11, 13, 16, 0.96);
-    border-bottom: 1px solid #24282e;
+    background: var(--glass-nav-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 .nav {
@@ -48,10 +273,13 @@ header {
 }
 
 .logo {
-    color: #fff;
+    color: var(--ink-strong);
     text-decoration: none;
     font-weight: 800;
-    letter-spacing: .08em;
+    /* BRAND ROLE → Pricedown: wordmark only, never body copy. */
+    font-family: var(--font-brand);
+    font-size: 1.9rem;
+    letter-spacing: .04em;
     white-space: nowrap;
 }
 
@@ -60,10 +288,13 @@ nav {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 18px;
+    /* INTERFACE ROLE → Chalet: navigation chrome. */
+    font-family: var(--font-interface);
 }
 
 nav a {
-    color: #9098a1;
+    font-family: var(--font-interface);
+    color: var(--ink-muted);
     text-decoration: none;
     font-size: .9rem;
     transition: color .2s ease;
@@ -71,62 +302,200 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: #fff;
+    color: var(--ink-strong);
 }
 
-/* HERO */
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-subtext);
+    color: var(--accent);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    white-space: nowrap;
+}
+
+.system-status span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .35; }
+}
+
+/* ---------- HERO ---------- */
 
 .hero {
     padding: 85px 0 60px;
-    border-bottom: 1px solid #24282e;
+    border-bottom: 1px solid var(--line);
+}
+
+.dashboard-hero {
+    background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(126, 226, 168, 0.06), transparent),
+        var(--bg);
 }
 
 .eyebrow {
     margin: 0;
-    color: #8e969f;
-    font-size: .75rem;
+    font-family: var(--font-interface);
+    color: var(--ink-faint);
+    font-size: var(--type-meta-size);
     font-weight: 700;
     letter-spacing: .16em;
 }
 
+/* H1 ROLE → interface (Chalet). Brand lockups use .brand-lockup (Pricedown). */
 h1 {
     margin: 15px 0 20px;
-    color: #fff;
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    font-size: var(--type-h1-size);
     line-height: .95;
-    letter-spacing: -.05em;
+    letter-spacing: -.02em;
+}
+
+/* BRAND LOCKUP — hero identity heading only. Pricedown is branding,
+   never body copy or UI chrome. */
+.brand-lockup {
+    font-family: var(--font-brand);
+    font-size: var(--type-brand-size);
+    letter-spacing: .02em;
+    line-height: .95;
+}
+
+h1 span {
+    font-family: inherit;
+    color: var(--accent);
 }
 
 .intro {
     max-width: 720px;
     margin: 0;
-    color: #aeb4bb;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
     font-size: 1.08rem;
 }
 
-/* NOTICE */
+.terminal-line {
+    margin-bottom: 18px;
+    color: var(--accent);
+    /* EVIDENCE ROLE → Courier: terminal provenance line. */
+    font-family: var(--font-evidence);
+    font-size: .8rem;
+    letter-spacing: .1em;
+}
+
+.terminal-line::before {
+    content: "> ";
+    color: var(--ink-faint);
+}
+
+.dashboard-meta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 760px;
+    margin-top: 30px;
+    padding: 18px 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+}
+
+.dashboard-meta small {
+    display: block;
+    font-family: var(--font-subtext);
+    color: var(--ink-faint);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+.dashboard-meta strong {
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    font-size: .92rem;
+    letter-spacing: .04em;
+}
+
+/* ---------- NOTICE ---------- */
 
 .notice {
     max-width: 760px;
     margin-top: 32px;
     padding: 20px;
-    background: #111419;
-    border: 1px solid #343a42;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-strong);
+}
+
+.notice-label {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-subtext);
+    color: var(--ink-faint);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .16em;
 }
 
 .notice strong {
     display: block;
     margin-bottom: 6px;
-    color: #fff;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
     letter-spacing: .06em;
 }
 
 .notice p {
     margin: 0;
-    color: #999fa7;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
 }
 
-/* SECTIONS */
+.notice a {
+    font-family: var(--font-interface);
+    color: var(--accent);
+}
+
+/* ---------- PAGE HEADER ---------- */
+
+.page-header {
+    padding: 70px 0 45px;
+    border-bottom: 1px solid var(--line);
+}
+
+.page-header h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+.page-header p {
+    max-width: 720px;
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
+    font-size: 1.05rem;
+}
+
+.page-header .notice {
+    margin-top: 28px;
+}
+
+/* ---------- SECTIONS ---------- */
+
+/* Headings are interface chrome (Chalet). Body copy stays Helvetica. */
+.section h2,
+.section-heading h2,
+.card h3,
+.method h3,
+.archive-entry h2,
+.entry h3 { font-family: var(--font-interface); }
 
 .section {
     padding: 50px 0;
@@ -134,11 +503,66 @@ h1 {
 
 .section h2 {
     margin: 0 0 25px;
-    color: #fff;
+    color: var(--ink-strong);
     font-size: 1.6rem;
 }
 
-/* CARDS */
+.section-heading {
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    margin: 6px 0 25px;
+}
+
+/* ---------- STATS ---------- */
+
+.stats {
+    display: grid;
+    /* Auto-fit so adding a database section never needs a
+       hard-coded column count or a redesign. */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.stat {
+    display: block;
+    padding: 22px 18px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    text-decoration: none;
+    transition:
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.stat:hover {
+    border-color: var(--ink-faint);
+    transform: translateY(-2px);
+}
+
+.stat-value {
+    display: block;
+    /* INTERFACE ROLE → Chalet: database readout numerals. */
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.02em;
+}
+
+.stat-label {
+    font-family: var(--font-subtext);
+    display: block;
+    margin-top: 10px;
+    color: var(--ink-faint);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+/* ---------- CARDS ---------- */
 
 .grid {
     display: grid;
@@ -149,8 +573,8 @@ h1 {
 .card {
     display: block;
     padding: 24px;
-    background: #101318;
-    border: 1px solid #292e35;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
     text-decoration: none;
     transition:
         border-color .2s ease,
@@ -158,39 +582,397 @@ h1 {
 }
 
 .card:hover {
-    border-color: #555c66;
+    border-color: var(--ink-faint);
     transform: translateY(-2px);
 }
 
 .card h3 {
     margin: 0 0 7px;
-    color: #fff;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
 }
 
 .card p {
     margin: 0;
-    color: #969da6;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
 }
 
-/* ENTRIES */
+.card-index {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-subtext);
+    color: var(--ink-faint);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: var(--font-interface);
+    color: var(--accent);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+/* ---------- METHOD ---------- */
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.method {
+    padding: 22px 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+}
+
+.method span {
+    font-family: var(--font-subtext);
+    color: var(--ink-faint);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.method h3 {
+    margin: 10px 0 6px;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    font-size: 1.05rem;
+}
+
+.method p {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
+    font-size: .92rem;
+}
+
+/* ---------- TABS ---------- */
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tab {
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-interface);
+    color: var(--ink-muted);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    cursor: pointer;
+    transition:
+        border-color .2s ease,
+        color .2s ease,
+        background .2s ease;
+}
+
+.tab:hover {
+    border-color: var(--ink-faint);
+    color: var(--ink-strong);
+}
+
+.tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+
+/* ---------- RECORDS ---------- */
+
+.record-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.record {
+    padding: 26px 26px 24px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+}
+
+.record-top {
+    display: flex;
+    font-family: var(--font-evidence);
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    color: var(--ink-faint);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.record-top span:last-child {
+    margin-left: auto;
+    font-family: var(--font-evidence);
+    color: var(--accent);
+}
+
+.record h2 {
+    margin: 0 0 10px;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    font-size: 1.35rem;
+    letter-spacing: -.01em;
+}
+
+/* JS stagger hook — no visual styles beyond .record */
+.confirmed-record {
+}
+
+.record p {
+    margin: 0 0 12px;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
+}
+
+.record p:last-child {
+    margin-bottom: 0;
+}
+
+.record-footer {
+    display: flex;
+    font-family: var(--font-evidence);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+}
+
+.expand {
+    margin-top: 14px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-interface);
+    color: var(--ink-muted);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    cursor: pointer;
+}
+
+.expand:hover {
+    border-color: var(--accent);
+    color: var(--ink-strong);
+}
+
+.record-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.record-details.open {
+    max-height: 1200px;
+    opacity: 1;
+    margin-top: 18px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--line-strong);
+}
+
+.detail {
+    padding: 14px 16px;
+    background: var(--bg-sunken);
+    border: 1px solid var(--line);
+}
+
+.detail h4 {
+    margin: 0 0 6px;
+    font-family: var(--font-evidence);
+    color: var(--accent);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.detail p {
+    margin: 0;
+    font-size: .88rem;
+}
+
+/* ---------- VERIFICATION BAR ---------- */
+
+.verification-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 25px;
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-strong);
+}
+
+.verification-bar strong {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    letter-spacing: .06em;
+}
+
+.verified-dot {
+    font-family: var(--font-stamp);
+    color: var(--accent);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    white-space: nowrap;
+}
+
+/* ---------- ARCHIVE ---------- */
+
+.archive-search {
+    max-width: 460px;
+    margin-top: 28px;
+}
+
+.archive-search input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    font-family: var(--font-interface);
+    font-size: .85rem;
+    letter-spacing: .06em;
+}
+
+.archive-search input::placeholder {
+    color: var(--ink-faint);
+}
+
+.archive-search input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.timeline-date {
+    margin: 26px 0 12px;
+}
+
+.timeline-date:first-child {
+    margin-top: 0;
+}
+
+.timeline-date span {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-strong);
+    color: var(--ink-strong);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+}
+
+.archive-entry {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line-soft);
+}
+
+.archive-entry time {
+    color: var(--ink-faint);
+    font-family: var(--font-subtext);
+    font-size: .82rem;
+}
+
+.entry-type {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-family: var(--font-stamp);
+    color: var(--accent);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.archive-entry h2 {
+    margin: 0 0 6px;
+    font-family: var(--font-interface);
+    font-size: 1.15rem;
+}
+
+.archive-entry h2 a {
+    color: var(--ink-strong);
+    text-decoration: none;
+}
+
+.archive-entry h2 a:hover {
+    color: var(--accent);
+}
+
+.archive-entry p {
+    margin: 0;
+    font-family: var(--font-archive);
+    color: var(--ink-muted);
+    font-size: .95rem;
+}
+
+#noResults p {
+    padding: 30px 0;
+    color: var(--ink-faint);
+    letter-spacing: .1em;
+}
+
+/* ---------- LEGACY ENTRIES ---------- */
 
 .entry {
     padding: 25px 0;
-    border-top: 1px solid #292e35;
+    border-top: 1px solid var(--line-soft);
 }
 
 .entry h3 {
     margin: 8px 0;
-    color: #fff;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
 }
 
 .entry p {
-    color: #a0a7af;
+    font-family: var(--font-archive);
+    color: var(--ink-muted);
 }
 
 .meta {
+    font-family: var(--font-subtext);
     margin: 0;
-    color: #727a83 !important;
+    color: var(--ink-faint) !important;
     font-size: .78rem;
     text-transform: uppercase;
     letter-spacing: .08em;
@@ -200,26 +982,200 @@ h1 {
     display: inline-block;
     padding: 2px 8px;
     margin-right: 8px;
-    border: 1px solid #353b43;
-    color: #aeb4bb;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-interface);
+    color: var(--ink-muted);
     font-size: .7rem;
     letter-spacing: .05em;
 }
 
-/* FOOTER */
+/* ---------- FOOTER ---------- */
 
 footer {
     padding: 35px 0 50px;
-    border-top: 1px solid #24282e;
-    color: #777f88;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
     font-size: .8rem;
+}
+
+footer strong {
+    color: var(--ink-strong);
+    letter-spacing: .08em;
 }
 
 footer p {
     margin: 3px 0;
 }
 
-/* MOBILE */
+/* ---------- ENTRANCE ANIMATIONS ---------- */
+
+.card,
+.stat,
+.record,
+.method {
+    opacity: 0;
+    transform: translateY(14px);
+}
+
+body.loaded .card,
+body.loaded .stat,
+body.loaded .record,
+body.loaded .method {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity .5s ease var(--delay, 0ms),
+        transform .5s cubic-bezier(.2, .8, .2, 1) var(--delay, 0ms),
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.archive-entry {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+body.loaded .archive-entry {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity .45s ease,
+        transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* ============================================================
+   PRESENTATION MODES — normal (beautiful) · a11y (adaptable) ·
+   fast (responsive). One architecture, three priorities.
+   Theme/appearance, a11y/accommodation, mode/performance stay
+   architecturally separate and freely combinable.
+   ============================================================ */
+
+/* ---------- MODE SWITCH UI ---------- */
+
+.mode-switch {
+    display: flex;
+    gap: 6px;
+}
+
+.mode-btn {
+    padding: 8px 12px;
+    background: var(--glass-ctl-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    color: var(--ink-muted);
+    font-family: var(--font-interface);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        color .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.mode-btn:hover {
+    color: var(--ink-strong);
+    border-color: var(--accent);
+}
+
+.mode-btn[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+}
+
+.a11y-panel {
+    position: fixed;
+    top: 78px;
+    right: 18px;
+    z-index: 300;
+    width: 272px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--glass-panel-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+}
+
+.a11y-panel[hidden] {
+    display: none;
+}
+
+.a11y-panel h3 {
+    margin: 0 0 2px;
+    font-family: var(--font-interface);
+    color: var(--ink-strong);
+    font-size: .8rem;
+    letter-spacing: .12em;
+}
+
+.a11y-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-family: var(--font-interface);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--ink-muted);
+    transition: color .2s ease;
+}
+
+.a11y-row:hover {
+    color: var(--ink-strong);
+}
+
+.a11y-row input {
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    flex: none;
+}
+
+/* ---------- SKIP LINK + FOCUS ---------- */
+
+.skip-link {
+    position: fixed;
+    top: -52px;
+    left: 16px;
+    z-index: 400;
+    padding: 12px 18px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-interface);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    transition: top .2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+html[data-a11y-focus="on"] :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(var(--ocean), 0.28);
+}
+
+/* ---------- MOBILE ---------- */
 
 @media (max-width: 700px) {
 
@@ -238,15 +1194,2722 @@ footer p {
         gap: 10px 15px;
     }
 
+    .system-status {
+        display: none;
+    }
+
     .hero {
         padding: 60px 0 45px;
+    }
+
+    .page-header {
+        padding: 50px 0 35px;
     }
 
     .grid {
         grid-template-columns: 1fr;
     }
 
-    h1 {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-entry {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+h1 {
         font-size: clamp(2.7rem, 15vw, 4rem);
+    }
+}
+
+/* ---------- THEME 01 : LIQUID GLASS MATERIAL ---------- */
+
+.glass-navigation {
+    background: var(--glass-nav-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+}
+
+.glass-toolbar {
+    background: var(--glass-nav-bg);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.75)) saturate(var(--glass-sat));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.75)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+}
+
+.glass-panel {
+    background: var(--glass-panel-bg);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.6)) saturate(var(--glass-sat));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.6)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+}
+
+.glass-popover {
+    background: var(--glass-panel-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(calc(var(--glass-sat) * 1.1));
+    backdrop-filter: blur(var(--glass-blur)) saturate(calc(var(--glass-sat) * 1.1));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--glass-shadow);
+}
+
+.glass-control {
+    background: var(--glass-ctl-bg);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.4)) saturate(var(--glass-sat));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.4)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+}
+
+.glass-active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), var(--glass-shadow);
+}
+
+/* glass is chrome: nav, tags-as-controls, verification bar read as glass;
+   record bodies stay comparatively solid so evidence remains the object */
+.verification-bar,
+.timeline-date span,
+.tab,
+.expand,
+.archive-search input {
+    background: var(--glass-ctl-bg);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.5)) saturate(var(--glass-sat));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.5)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+}
+
+.tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.record,
+.card,
+.stat,
+.method,
+.notice,
+.dashboard-meta,
+.detail {
+    border-radius: var(--radius-sm);
+}
+
+/* ---------- EPISTEMIC STATUS PILLS ----------
+   Stable meaning across themes; rendering is theme-variable. */
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-ctl-bg);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.4)) saturate(var(--glass-sat));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.4)) saturate(var(--glass-sat));
+    white-space: nowrap;
+}
+
+.status-pill::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-confirmed { color: var(--ep-confirmed); border-color: currentColor; }
+.status-reported { color: var(--ep-reported); border-color: currentColor; }
+.status-observed { color: var(--ep-observed); border-color: currentColor; }
+.status-inferred { color: var(--ep-inferred); border-color: currentColor; }
+.status-speculation { color: var(--ep-speculation); border-color: currentColor; }
+.status-disproven { color: var(--ep-disproven); border-color: currentColor; }
+.status-unresolved { color: var(--ep-unresolved); border-color: currentColor; }
+
+.status-disproven.pill-strong {
+    text-decoration: line-through;
+}
+
+/* ---------- THEME TOGGLE ---------- */
+
+.theme-toggle {
+    padding: 8px 14px;
+    background: var(--glass-ctl-bg);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 0.4)) saturate(var(--glass-sat));
+    backdrop-filter: blur(calc(var(--glass-blur) * 0.4)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    font-family: var(--font-interface);
+    color: var(--ink-muted);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--ink-strong);
+}
+
+/* ---------- ACCESS / MOTION SAFETY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    body.loaded .card,
+    body.loaded .stat,
+    body.loaded .record,
+    body.loaded .method,
+    body.loaded .archive-entry {
+        transition: none;
+    }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    header { background: var(--bg); }
+    .glass-navigation,
+    .glass-toolbar,
+    .glass-panel,
+    .glass-popover,
+    .glass-control,
+    .verification-bar,
+    .timeline-date span,
+    .tab,
+    .expand,
+    .archive-search input,
+    .status-pill,
+    .theme-toggle {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        background: var(--bg-soft);
+    }
+}
+
+
+
+
+
+
+
+/* ============================================================
+   TYPOGRAPHY LAYER — normative semantic roles (applies to ALL themes).
+   Rules: brand=Pricedown | interface=Chalet | location=SignPainter |
+   body=Helvetica | evidence=Courier 12 MT | archive=Times CE | subtext=Arial |
+   stamp=Stencil | classified=Steinberg | warning=Redemption.
+   Later rules win: this layer overrides earlier generic assignments.
+   ============================================================ */
+.brand-lockup{font-family:var(--font-brand) !important;font-size:var(--type-brand-size);letter-spacing:.02em;line-height:.95;}
+h1.brand-lockup span{font-family:var(--font-brand) !important;}
+.logo{font-family:var(--font-brand) !important;font-size:1.9rem;letter-spacing:.04em;}
+nav,nav a,.tab,.expand,.filter-btn,.archive-search input,.archive-search input::placeholder,.theme-toggle,.card-link,.method h3,.card h3,.record h2,.entry h3,.section-heading h2,.archive-entry h2,.archive-entry h2 a,.stat-value,.verification-bar strong,.dashboard-meta strong{font-family:var(--font-interface) !important;}
+.system-status,.dashboard-meta small,.record-top,.record-top span,.record-top span:last-child,.notice-label,.meta,.card-index,.method span,.detail h4,.entry-type,.archive-date,.archive-type,.tag{font-family:var(--font-subtext) !important;}
+.record-footer,.record-footer span,.terminal-line,.evidence-tag,.record-details p,.detail-grid p,.detail-grid div p{font-family:var(--font-evidence) !important;}
+.status-pill,.verified-dot{font-family:var(--font-stamp) !important;letter-spacing:.14em;}
+.record>p,.notice p,.page-header p,.intro,.card p,.method p{font-family:var(--font-body) !important;}
+.archive-entry p,.entry p,.archive-record{font-family:var(--font-archive) !important;}
+.location-name,.location-head{font-family:var(--font-location) !important;}
+.claim{font-family:var(--font-body) !important;}
+.evidence-block{font-family:var(--font-evidence) !important;background:var(--glass-panel-bg);border:1px solid var(--line);border-left:3px solid var(--accent);padding:14px 16px;font-size:.82rem;line-height:1.55;}
+.source-cite{font-family:var(--font-evidence) !important;font-size:.72rem;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase;}
+.stamp{font-family:var(--font-stamp) !important;letter-spacing:.14em;text-transform:uppercase;}
+.classified-notice{font-family:var(--font-classified) !important;border:1px dashed var(--ep-disproven);padding:16px 18px;font-size:.9rem;letter-spacing:.06em;}
+
+/* ============================================================
+   VICE CITY ENVIRONMENTAL MOTION SYSTEM
+   Many small systems moving together, never synchronized.
+   Interface reactions: 200–400ms. Environmental loops: 17–48s.
+   Identity survives prefers-reduced-motion via color/material.
+   ============================================================ */
+
+/* ---------- 1. AMBIENT ATMOSPHERE ---------- */
+
+.atmosphere {
+    position: fixed;
+    inset: -6%;
+    z-index: -3;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 45% 35% at 82% 22%, rgba(var(--neon-pink), 0.07), transparent 60%),
+        radial-gradient(ellipse 40% 30% at 68% 85%, rgba(var(--neon-purple), 0.06), transparent 60%),
+        radial-gradient(ellipse 30% 22% at 12% 30%, rgba(var(--neon-amber), 0.05), transparent 65%);
+    animation:
+        atmo-drift-a var(--atmo-speed-a) ease-in-out infinite alternate,
+        atmo-drift-b var(--atmo-speed-b) ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* independent hue drift — composes with the transform loop above */
+@keyframes atmo-drift-b {
+    0%   { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(10deg); }
+}
+
+.atmosphere::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 35% at 50% 108%, rgba(var(--ocean), 0.12), transparent 70%),
+        radial-gradient(ellipse 35% 25% at 90% 60%, rgba(var(--sunset-a), 0.05), transparent 60%);
+    animation: atmo-drift-c var(--atmo-speed-c) ease-in-out infinite alternate;
+}
+
+/* slow sunset sky-cycle: daylight → golden → sunset → blue hour → night */
+.atmosphere::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(200deg,
+        transparent 55%,
+        rgba(var(--sunset-a), 0.04) 72%,
+        rgba(var(--sunset-b), 0.05) 86%,
+        transparent 100%);
+    background-size: 100% 300%;
+    animation: sky-cycle var(--sky-cycle-speed) ease-in-out infinite alternate;
+    opacity: .8;
+}
+
+@keyframes sky-cycle {
+    0%   { background-position: 50% 0%; }
+    50%  { background-position: 50% 55%; }
+    100% { background-position: 50% 100%; }
+}
+
+@keyframes atmo-drift-a {
+    0%   { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+    100% { transform: translate3d(1.5%, 1.2%, 0) scale(1.04); }
+}
+
+@keyframes atmo-drift-c {
+    0%   { transform: translate3d(0.8%, 0.5%, 0); opacity: .7; }
+    100% { transform: translate3d(-0.9%, -0.4%, 0); opacity: 1; }
+}
+
+/* neon bloom pulses — independent phases, never synchronized */
+.atmo-neon {
+    position: fixed;
+    width: 46vmax;
+    height: 46vmax;
+    border-radius: 50%;
+    z-index: -4;
+    pointer-events: none;
+    filter: blur(70px);
+    will-change: transform, opacity;
+}
+
+.atmo-neon.n1 {
+    top: -18vmax;
+    right: -14vmax;
+    background: radial-gradient(circle, rgba(var(--neon-pink), .10), transparent 65%);
+    animation: neon-breathe 21s ease-in-out infinite;
+}
+
+.atmo-neon.n2 {
+    bottom: -20vmax;
+    left: -16vmax;
+    background: radial-gradient(circle, rgba(var(--ocean), .09), transparent 65%);
+    animation: neon-breathe 27s ease-in-out infinite 6s;
+}
+
+.atmo-neon.n3 {
+    top: 30%;
+    left: 42%;
+    width: 30vmax;
+    height: 30vmax;
+    background: radial-gradient(circle, rgba(var(--neon-purple), .06), transparent 65%);
+    animation: neon-breathe 33s ease-in-out infinite 12s;
+}
+
+@keyframes neon-breathe {
+    0%, 100% { opacity: .5; transform: scale(1) translate3d(0, 0, 0); }
+    50%      { opacity: 1; transform: scale(1.07) translate3d(1.2%, -1%, 0); }
+}
+
+/* coastal haze at the horizon */
+.atmo-haze {
+    position: fixed;
+    inset: auto 0 0 0;
+    height: 34vh;
+    z-index: -3;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+        transparent,
+        rgba(var(--ocean), 0.05) 60%,
+        rgba(var(--ocean), 0.08));
+    animation: haze-shimmer 17s ease-in-out infinite alternate;
+}
+
+@keyframes haze-shimmer {
+    0%   { opacity: .45; transform: translateY(1.5%); }
+    100% { opacity: .8; transform: translateY(0); }
+}
+
+.warning-notice{font-family:var(--font-warning) !important;font-size:1.1rem;letter-spacing:.05em;color:var(--ep-disproven);border:1px solid var(--ep-disproven);padding:14px 18px;}
+
+/* ---------- 2. GLASS REACTING TO ENVIRONMENT ---------- */
+
+/* anchor surfaces for pseudo-element light layers */
+header,
+.verification-bar,
+.record,
+.card,
+.stat {
+    position: relative;
+}
+
+/* light sheen traveling across glass chrome */
+header::after,
+.verification-bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg,
+        transparent 42%,
+        rgba(255, 255, 255, 0.045) 50%,
+        transparent 58%);
+    background-size: 260% 100%;
+    animation: glass-sheen var(--glass-sheen-speed) linear infinite;
+}
+
+@keyframes glass-sheen {
+    0%   { background-position: 130% 0; }
+    100% { background-position: -130% 0; }
+}
+
+/* borders catch environmental neon */
+.record::before,
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s ease;
+    background:
+        radial-gradient(ellipse 60% 45% at 78% 0%, rgba(var(--neon-pink), 0.08), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 12% 100%, rgba(var(--ocean), 0.07), transparent 60%);
+}
+
+.record:hover::before,
+.card:hover::before {
+    opacity: 1;
+}
+
+/* ---------- 3. PARALLAX (restrained depth) ---------- */
+
+@media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+
+    .atmosphere {
+        translate: 0 calc(var(--scroll-y, 0) * -0.04px);
+    }
+
+    .atmo-neon.n1 {
+        translate: calc(var(--scroll-y, 0) * -0.025px) calc(var(--scroll-y, 0) * -0.02px);
+    }
+
+    .atmo-neon.n2 {
+        translate: calc(var(--scroll-y, 0) * -0.05px) calc(var(--scroll-y, 0) * -0.035px);
+    }
+
+    .atmo-neon.n3 {
+        translate: 0 calc(var(--scroll-y, 0) * -0.015px);
+    }
+
+    .dashboard-hero,
+    .page-header {
+        translate: 0 calc(var(--scroll-y, 0) * -0.06px);
+        opacity: calc(1 - var(--scroll-y, 0) * 0.0006);
+    }
+}
+
+/* ---------- 4. CURSOR AS LIGHT SOURCE ---------- */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .6s ease;
+    background:
+        radial-gradient(600px circle at var(--mx, 50%) var(--my, 30%), rgba(var(--ocean), 0.05), transparent 55%),
+        radial-gradient(400px circle at calc(var(--mx, 50%) + 18%) calc(var(--my, 30%) + 12%), rgba(var(--neon-pink), 0.03), transparent 60%);
+}
+
+body.cursor-lit::after {
+    opacity: 1;
+}
+
+/* cards catch pointer light */
+.card,
+.stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::after,
+.stat::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .35s ease;
+    background: radial-gradient(240px circle at var(--lx, 50%) var(--ly, 50%), rgba(255, 255, 255, 0.06), transparent 55%);
+}
+
+.card:hover::after,
+.stat:hover::after {
+    opacity: 1;
+}
+
+/* ---------- 5. HOVER TUNING (200–400ms, no bounce) ---------- */
+
+.tab,
+.theme-toggle {
+    transition:
+        border-color .25s ease,
+        color .25s ease,
+        background .25s ease,
+        box-shadow .35s ease;
+}
+
+.tab:hover,
+.theme-toggle:hover {
+    box-shadow:
+        0 0 22px rgba(var(--ocean), 0.18),
+        inset 0 0 12px rgba(255, 255, 255, 0.03);
+}
+
+.record,
+.card {
+    transition:
+        translate .35s var(--ease-out),
+        border-color .3s ease,
+        box-shadow .35s ease;
+}
+
+.record:hover,
+.card:hover {
+    translate: 0 -2px;
+    box-shadow: var(--glass-shadow);
+}
+
+.evidence-block {
+    transition:
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.evidence-block:hover {
+    border-left-color: var(--accent);
+    background: var(--bg-soft);
+}
+/* ---------- 6. PAGE TRANSITIONS ---------- */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: vt-fade-out 260ms var(--ease-out) both;
+}
+
+::view-transition-new(root) {
+    animation: vt-resolve 420ms var(--ease-out) both;
+}
+
+@keyframes vt-fade-out {
+    to { opacity: 0; filter: blur(6px) saturate(1.2); }
+}
+
+@keyframes vt-resolve {
+    from {
+        opacity: 0;
+        filter: blur(10px) saturate(1.3) brightness(1.06);
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        filter: none;
+        transform: none;
+    }
+}
+
+/* ---------- 7. DATABASE MOTION (filter = contextual fade/resolve) ---------- */
+
+.record.filtering,
+.archive-entry.filtering {
+    opacity: 0;
+    translate: 0 4px;
+    transition:
+        opacity .22s ease,
+        translate .22s ease;
+}
+
+/* expanded evidence resolves through glass */
+.record-details {
+    transition:
+        max-height .4s var(--ease-out),
+        opacity .35s ease;
+}
+
+.record-details.open {
+    opacity: 1;
+}
+
+/* ---------- 8. REDUCED MOTION — identity via color/material, not movement ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .atmosphere,
+    .atmosphere::before,
+    .atmosphere::after,
+    .atmo-neon,
+    .atmo-haze,
+    header::after,
+    .verification-bar::after {
+        animation: none !important;
+    }
+
+    .atmosphere,
+    .atmo-neon,
+    .atmo-haze {
+        translate: none !important;
+        transform: none !important;
+    }
+
+    .dashboard-hero,
+    .page-header {
+        translate: none !important;
+        opacity: 1 !important;
+    }
+
+    body::after,
+    .card::after,
+    .stat::after {
+        display: none;
+    }
+
+    .record:hover,
+    .card:hover {
+        translate: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 1ms !important;
+    }
+
+    .record.filtering,
+    .archive-entry.filtering {
+        opacity: 1;
+        translate: none;
+    }
+}
+
+/* ---------- 9. LEGACY FALLBACK ---------- */
+
+@supports not (translate: 1px) {
+
+    .atmosphere,
+    .atmo-neon,
+    .dashboard-hero,
+    .page-header {
+        translate: none !important;
+    }
+}
+
+/* location signage: environmental neon illumination */
+.location-name,
+.location-head {
+    transition: text-shadow .45s ease;
+}
+
+.location-name:hover,
+.location-head:hover {
+    text-shadow:
+        0 0 24px rgba(var(--neon-pink), 0.35),
+        0 0 60px rgba(var(--ocean), 0.2);
+}
+
+/* ============================================================
+   PRESENTATION MODE BEHAVIOUR
+   normal → full glass + ambient motion (default: no attribute)
+   a11y   → adaptable: motion off, opaque surfaces, larger text
+   fast   → responsive: no blur, no loops, no transitions
+   The granular html[data-a11y-*] flags below layer on top of any
+   mode. Theme (appearance) · mode (performance) · a11y
+   (accommodation) stay independent and freely combinable.
+   ============================================================ */
+
+/* ---------- CONTROL CLUSTER ---------- */
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ---------- FAST MODE: RESPONSIVE ---------- */
+
+html[data-mode="fast"] header,
+html[data-mode="fast"] .theme-toggle,
+html[data-mode="fast"] .a11y-panel,
+html[data-mode="fast"] .tab,
+html[data-mode="fast"] .expand,
+html[data-mode="fast"] .archive-search input,
+html[data-mode="fast"] .status-pill,
+html[data-mode="fast"] .mode-btn,
+html[data-mode="fast"] .bgm-bar,
+html[data-mode="fast"] .bgm-panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+html[data-mode="fast"] .atmosphere,
+html[data-mode="fast"] .atmosphere::before,
+html[data-mode="fast"] .atmosphere::after,
+html[data-mode="fast"] .atmo-neon,
+html[data-mode="fast"] .atmo-haze,
+html[data-mode="fast"] header::after,
+html[data-mode="fast"] .verification-bar::after {
+    animation: none !important;
+    display: none;
+}
+
+html[data-mode="fast"] body::after,
+html[data-mode="fast"] .card::after,
+html[data-mode="fast"] .stat::after {
+    display: none;
+}
+
+html[data-mode="fast"] .atmosphere,
+html[data-mode="fast"] .atmo-neon,
+html[data-mode="fast"] .dashboard-hero,
+html[data-mode="fast"] .page-header {
+    translate: none !important;
+}
+
+html[data-mode="fast"] .record,
+html[data-mode="fast"] .card,
+html[data-mode="fast"] .record-details,
+html[data-mode="fast"] .archive-entry,
+html[data-mode="fast"] .theme-toggle,
+html[data-mode="fast"] .bgm-bar,
+html[data-mode="fast"] .bgm-panel,
+html[data-mode="fast"] .bgm-btn,
+html[data-mode="fast"] .bgm-track {
+    transition: none;
+}
+
+html[data-mode="fast"] .record:hover,
+html[data-mode="fast"] .card:hover {
+    translate: none;
+}
+
+html[data-mode="fast"] ::view-transition-old(root),
+html[data-mode="fast"] ::view-transition-new(root) {
+    animation: none;
+}
+
+/* ---------- A11Y MODE: ADAPTABLE (intelligent defaults) ---------- */
+
+html[data-mode="a11y"] {
+    --glass-nav-bg: var(--bg);
+    --glass-panel-bg: var(--bg);
+    --glass-ctl-bg: var(--bg);
+    --glass-border: var(--line-strong);
+    --glass-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    font-size: 112.5%;
+}
+
+html[data-mode="a11y"] header,
+html[data-mode="a11y"] .theme-toggle,
+html[data-mode="a11y"] .a11y-panel,
+html[data-mode="a11y"] .tab,
+html[data-mode="a11y"] .mode-btn,
+html[data-mode="a11y"] .bgm-bar,
+html[data-mode="a11y"] .bgm-panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+html[data-mode="a11y"] .atmosphere,
+html[data-mode="a11y"] .atmosphere::before,
+html[data-mode="a11y"] .atmosphere::after,
+html[data-mode="a11y"] .atmo-neon,
+html[data-mode="a11y"] .atmo-haze,
+html[data-mode="a11y"] header::after,
+html[data-mode="a11y"] .verification-bar::after {
+    animation: none !important;
+}
+
+html[data-mode="a11y"] .atmosphere,
+html[data-mode="a11y"] .atmo-neon,
+html[data-mode="a11y"] .dashboard-hero,
+html[data-mode="a11y"] .page-header {
+    translate: none !important;
+}
+
+html[data-mode="a11y"] .record:hover,
+html[data-mode="a11y"] .card:hover {
+    translate: none;
+}
+
+html[data-mode="a11y"] ::view-transition-old(root),
+html[data-mode="a11y"] ::view-transition-new(root) {
+    animation-duration: 1ms !important;
+}
+
+/* ---------- GRANULAR ACCOMMODATIONS (html[data-a11y-*="on"]) ---------- */
+
+/* reduce motion */
+html[data-a11y-motion="on"] .atmosphere,
+html[data-a11y-motion="on"] .atmosphere::before,
+html[data-a11y-motion="on"] .atmosphere::after,
+html[data-a11y-motion="on"] .atmo-neon,
+html[data-a11y-motion="on"] .atmo-haze,
+html[data-a11y-motion="on"] header::after,
+html[data-a11y-motion="on"] .verification-bar::after {
+    animation: none !important;
+}
+
+html[data-a11y-motion="on"] body::after,
+html[data-a11y-motion="on"] .card::after,
+html[data-a11y-motion="on"] .stat::after {
+    display: none;
+}
+
+html[data-a11y-motion="on"] .atmosphere,
+html[data-a11y-motion="on"] .atmo-neon,
+html[data-a11y-motion="on"] .dashboard-hero,
+html[data-a11y-motion="on"] .page-header {
+    translate: none !important;
+}
+
+html[data-a11y-motion="on"] .record:hover,
+html[data-a11y-motion="on"] .card:hover {
+    translate: none;
+}
+
+html[data-a11y-motion="on"] ::view-transition-old(root),
+html[data-a11y-motion="on"] ::view-transition-new(root) {
+    animation-duration: 1ms !important;
+}
+
+/* high contrast — dark default, light override */
+html[data-a11y-contrast="on"] {
+    --ink: #ffffff;
+    --ink-strong: #ffffff;
+    --ink-muted: #dbe1e7;
+    --ink-faint: #bcc4cc;
+    --line: #4b535c;
+    --line-soft: #3d454e;
+    --line-strong: #6d767f;
+    --glass-border: rgba(255, 255, 255, 0.42);
+}
+
+html[data-a11y-contrast="on"][data-theme="light"] {
+    --ink: #000000;
+    --ink-strong: #000000;
+    --ink-muted: #1d252b;
+    --ink-faint: #39424a;
+    --line: rgba(15, 30, 35, 0.42);
+    --line-soft: rgba(15, 30, 35, 0.32);
+    --line-strong: rgba(15, 30, 35, 0.58);
+    --glass-border: rgba(15, 30, 35, 0.42);
+}
+
+/* opaque surfaces */
+html[data-a11y-transparency="on"] {
+    --glass-nav-bg: var(--bg);
+    --glass-panel-bg: var(--bg);
+    --glass-ctl-bg: var(--bg);
+    --glass-border: var(--line-strong);
+}
+
+/* disable blur */
+html[data-a11y-blur="on"] header,
+html[data-a11y-blur="on"] .theme-toggle,
+html[data-a11y-blur="on"] .a11y-panel,
+html[data-a11y-blur="on"] .tab,
+html[data-a11y-blur="on"] .expand,
+html[data-a11y-blur="on"] .archive-search input,
+html[data-a11y-blur="on"] .status-pill,
+html[data-a11y-blur="on"] .mode-btn,
+html[data-a11y-blur="on"] .bgm-bar,
+html[data-a11y-blur="on"] .bgm-panel {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* larger text (rem-based root scale, so every rem size grows) */
+html[data-a11y-text="on"] {
+    font-size: 118.75%;
+}
+
+html[data-a11y-text="on"] body,
+html[data-a11y-text="on"] .intro,
+html[data-a11y-text="on"] .claim,
+html[data-a11y-text="on"] .record > p,
+html[data-a11y-text="on"] .card p,
+html[data-a11y-text="on"] .method p,
+html[data-a11y-text="on"] .notice p {
+    line-height: 1.75;
+}
+
+/* legible type — swap decorative roles for readable ones */
+html[data-a11y-font="on"] {
+    --font-brand: var(--font-interface);
+    --font-location: var(--font-body);
+    --font-stamp: var(--font-interface);
+    --font-classified: var(--font-evidence);
+    --font-warning: var(--font-interface);
+}
+
+/* ---------- MODE / A11Y MOBILE LAYOUT ---------- */
+
+@media (max-width: 700px) {
+
+    .nav-controls {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .a11y-panel {
+        top: auto;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+    }
+}
+
+/* ---------- OS PREFERENCE: INCREASED CONTRAST ----------
+   Honours `prefers-contrast: more` automatically. A manual
+   high-contrast toggle always takes precedence (the :not() guard
+   keeps the OS preference from overriding an explicit choice). */
+
+@media (prefers-contrast: more) {
+
+    html:not([data-a11y-contrast="on"]) {
+        --ink: #ffffff;
+        --ink-strong: #ffffff;
+        --ink-muted: #dbe1e7;
+        --ink-faint: #bcc4cc;
+        --line: #4b535c;
+        --line-soft: #3d454e;
+        --line-strong: #6d767f;
+        --glass-border: rgba(255, 255, 255, 0.42);
+    }
+
+    html:not([data-a11y-contrast="on"])[data-theme="light"] {
+        --ink: #000000;
+        --ink-strong: #000000;
+        --ink-muted: #1d252b;
+        --ink-faint: #39424a;
+        --line: rgba(15, 30, 35, 0.42);
+        --line-soft: rgba(15, 30, 35, 0.32);
+        --line-strong: rgba(15, 30, 35, 0.58);
+        --glass-border: rgba(15, 30, 35, 0.42);
+    }
+}
+
+/* ============================================================
+   DATA TABLE — structural tables for dossiers and registries.
+   Font roles preserved: interface for headers (Chalet), subtext
+   for cells (Arial), evidence (Courier) for inline citations.
+   ============================================================ */
+
+.table-scroll {
+    overflow-x: auto;
+    margin: 18px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-family: var(--font-subtext);
+    font-size: .8rem;
+    line-height: 1.5;
+}
+
+.table-scroll .data-table {
+    margin: 0;
+}
+
+.data-table caption {
+    text-align: left;
+    font-family: var(--font-interface);
+    font-size: .7rem;
+    letter-spacing: .12em;
+    color: var(--ink-muted);
+    padding-bottom: 10px;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid var(--line);
+    padding: 9px 11px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.data-table th {
+    font-family: var(--font-interface);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--ink-strong);
+    background: var(--glass-ctl-bg);
+}
+
+.data-table td {
+    color: var(--ink-muted);
+}
+
+.data-table code {
+    font-family: var(--font-evidence);
+    font-size: .78em;
+    color: var(--ink-faint);
+}
+
+.classified-notice + .table-scroll,
+.warning-notice + .table-scroll {
+    margin-top: 22px;
+}
+
+/* ============================================================
+   BGM PLAYER — fixed bottom deck (injected by js/player.js)
+   Glass tokens, text-first states, existing focus conventions.
+   ============================================================ */
+
+body.has-bgm {
+    padding-bottom: 78px;
+}
+
+.bgm {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    pointer-events: none;   /* only the deck itself catches clicks */
+}
+
+.bgm-bar,
+.bgm-panel {
+    pointer-events: auto;
+}
+
+.bgm-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    min-height: 64px;
+    padding: 10px 16px;
+    background: var(--glass-nav-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border-top: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* ---------- now playing ---------- */
+
+.bgm-now {
+    display: grid;
+    gap: 1px;
+    min-width: 0;
+    max-width: 300px;
+    flex: 0 1 auto;
+}
+
+.bgm-state {
+    font-family: var(--font-interface);
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    color: var(--ink-faint);
+}
+
+.bgm-state[data-state="playing"] { color: var(--accent); }
+.bgm-state[data-state="paused"]  { color: var(--ep-reported); }
+.bgm-state[data-state="error"]   { color: var(--ep-disproven); }
+
+.bgm-title {
+    font-family: var(--font-interface);
+    font-size: .88rem;
+    font-weight: 700;
+    color: var(--ink-strong);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bgm-sub {
+    font-family: var(--font-interface);
+    font-size: .63rem;
+    letter-spacing: .05em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---------- buttons ---------- */
+
+.bgm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    background: var(--glass-ctl-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.bgm-btn svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.bgm-btn:hover {
+    color: var(--ink-strong);
+    border-color: var(--accent);
+}
+
+.bgm-btn[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+}
+
+.bgm-btn-text {
+    width: auto;
+    min-width: 34px;
+    padding: 0 13px;
+}
+
+.bgm-btn-text span {
+    font-family: var(--font-interface);
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    white-space: nowrap;
+}
+
+.bgm-btn.bgm-play {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+}
+
+.bgm-btn.bgm-play:hover {
+    filter: brightness(1.08);
+}
+
+.bgm-transport {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ---------- seek / time ---------- */
+
+.bgm-seekwrap {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 1 1 200px;
+    min-width: 150px;
+}
+
+.bgm-time {
+    font-family: var(--font-evidence);
+    font-size: .72rem;
+    color: var(--ink-faint);
+    min-width: 36px;
+    text-align: center;
+}
+
+/* ---------- extra controls ---------- */
+
+.bgm-extra {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ---------- range inputs ---------- */
+
+.bgm input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--accent);
+    margin: 0;
+}
+
+.bgm input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--glass-ctl-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.bgm input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+}
+
+.bgm input[type="range"]::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--glass-ctl-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.bgm input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+}
+
+.bgm-seek { flex: 1 1 auto; min-width: 90px; }
+.bgm-vol  { width: 82px; }
+
+/* ---------- playlist panel ---------- */
+
+.bgm-panel {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 16px;
+    width: min(440px, calc(100vw - 32px));
+    max-height: min(60vh, 460px);
+    display: flex;
+    flex-direction: column;
+    background: var(--glass-panel-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+    overflow: hidden;
+}
+
+.bgm-panel[hidden] {
+    display: none;
+}
+
+.bgm-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 13px 14px 9px;
+}
+
+.bgm-album {
+    font-family: var(--font-interface);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--ink-strong);
+}
+
+.bgm-count {
+    font-family: var(--font-interface);
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--ink-faint);
+}
+
+.bgm-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 8px 8px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.bgm-track {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 9px 10px;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--ink-muted);
+    font-family: var(--font-interface);
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.bgm-track:hover {
+    background: var(--glass-ctl-bg);
+    color: var(--ink-strong);
+}
+
+.bgm-track.is-current {
+    background: var(--glass-ctl-bg);
+    border-color: var(--glass-border);
+}
+
+.bgm-track.is-current .bgm-track-title {
+    color: var(--ink-strong);
+}
+
+.bgm-track.is-playing .bgm-track-title {
+    color: var(--accent);
+}
+
+.bgm-num {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: var(--glass-ctl-bg);
+    border: 1px solid var(--glass-border);
+    font-size: .64rem;
+    font-weight: 700;
+    color: var(--ink-faint);
+}
+
+.bgm-track.is-current .bgm-num {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+}
+
+.bgm-track-title {
+    display: block;
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+.bgm-track-meta {
+    display: block;
+    margin-top: 2px;
+    font-size: .61rem;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+}
+
+.bgm-track-time {
+    font-family: var(--font-evidence);
+    font-size: .7rem;
+    color: var(--ink-faint);
+}
+
+/* equalizer marker — only on the track that is actively playing */
+
+.bgm-eq {
+    display: none;
+    align-items: flex-end;
+    gap: 2px;
+    height: 14px;
+}
+
+.bgm-track.is-playing .bgm-eq {
+    display: flex;
+}
+
+.bgm-eq i {
+    width: 3px;
+    height: 14px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform-origin: bottom;
+    animation: bgm-eq 900ms ease-in-out infinite;
+}
+
+.bgm-eq i:nth-child(2) { animation-delay: 150ms; }
+.bgm-eq i:nth-child(3) { animation-delay: 300ms; }
+
+@keyframes bgm-eq {
+    0%, 100% { transform: scaleY(.3); }
+    50%      { transform: scaleY(1); }
+}
+
+.bgm-panel-foot {
+    padding: 9px 14px 11px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-interface);
+    font-size: .6rem;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+}
+
+/* screen-reader-only live region */
+.bgm-live {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.bgm :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* motion parity: eq respects reduced-motion + a11y + fast mode */
+@media (prefers-reduced-motion: reduce) {
+    .bgm-eq i { animation: none; }
+    .bgm-btn, .bgm-track { transition: none; }
+}
+
+html[data-a11y-motion="on"] .bgm-eq i,
+html[data-mode="fast"] .bgm-eq i {
+    animation: none !important;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 980px) {
+    .bgm-btn-text span { display: none; }
+    .bgm-now { max-width: 220px; }
+}
+
+@media (max-width: 760px) {
+    body.has-bgm { padding-bottom: 104px; }
+
+    .bgm-bar {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+        grid-template-areas:
+            "list now  now  transport"
+            "seek seek seek extra";
+        gap: 8px 10px;
+        padding: 9px 10px;
+        min-height: 0;
+    }
+
+    .bgm-bar [data-bgm="list"] { grid-area: list; }
+    .bgm-now                    { grid-area: now; max-width: none; }
+    .bgm-transport              { grid-area: transport; justify-self: end; }
+    .bgm-seekwrap               { grid-area: seek; min-width: 0; }
+    .bgm-extra                  { grid-area: extra; justify-self: end; }
+
+    .bgm-sub { display: none; }
+
+    .bgm-vol { display: none; }   /* mute button still available */
+
+    .bgm-panel {
+        left: 8px;
+        right: 8px;
+        width: auto;
+    }
+}
+
+
+
+
+/* ============================================================
+   GTA VI EDITIONS & PURCHASE REFERENCE
+   A purchase archive, not a storefront. Concept separation is
+   enforced structurally: edition, format, upgrade, bonus and
+   collector product each get their own visual grammar so they
+   can never be mistaken for one another.
+   ============================================================ */
+
+/* ---------- CONCEPT KEY — the four distinctions ---------- */
+.concept-key {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.concept-key__item {
+    padding: 16px 16px 14px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--ck, var(--ink-faint));
+}
+
+.concept-key__item[data-concept="game-edition"]     { --ck: var(--ep-confirmed); }
+.concept-key__item[data-concept="upgrade"]          { --ck: var(--ep-reported); }
+.concept-key__item[data-concept="purchase-format"]  { --ck: var(--ep-observed); }
+.concept-key__item[data-concept="preorder-benefit"] { --ck: var(--ep-unresolved); }
+.concept-key__item[data-concept="collector-product"]{ --ck: var(--ep-inferred); }
+
+.concept-key__label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--ck);
+    font-family: var(--font-interface);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+.concept-key__name {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--ink-strong);
+    font-family: var(--font-interface);
+    font-size: .92rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
+.concept-key__desc {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: .84rem;
+    line-height: 1.55;
+}
+
+/* ---------- EDITION CARDS ---------- */
+.edition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+}
+
+.edition-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-top: 3px solid var(--accent);
+}
+
+.edition-card[data-category="game-edition"]      { border-top-color: var(--ep-confirmed); }
+.edition-card[data-category="upgrade"]           { border-top-color: var(--ep-reported); }
+.edition-card[data-category="collector-product"] { border-top-color: var(--ep-inferred); }
+.edition-card[data-category="preorder-benefit"]  { border-top-color: var(--ep-unresolved); }
+
+.edition-card__media {
+    position: relative;
+    margin: 0;
+    background: var(--bg-sunken);
+    border-bottom: 1px solid var(--line-soft);
+    overflow: hidden;
+}
+
+.edition-card__media img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.edition-card__media--contain img { object-fit: contain; padding: 18px; }
+
+.edition-card__cat {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, .66);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    font-family: var(--font-stamp);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.edition-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ---------- PURCHASE LINKS ---------- */
+.purchase-links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.purchase-link {
+    display: inline-block;
+    padding: 7px 13px;
+    background: var(--glass-ctl-bg);
+    border: 1px solid var(--line-strong);
+    color: var(--ink-muted);
+    font-family: var(--font-interface);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-decoration: none;
+    transition: border-color .2s ease, color .2s ease;
+}
+
+.purchase-link:hover { border-color: var(--accent); color: var(--ink-strong); }
+
+/* ---------- ITEM / CONTENT LISTS ---------- */
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.item {
+    padding: 15px 16px;
+    background: var(--bg-sunken);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+}
+
+.item__name {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ink-strong);
+    font-family: var(--font-interface);
+    font-size: .93rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+.item__type {
+    display: inline-block;
+    margin-bottom: 7px;
+    padding: 2px 8px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-faint);
+    font-family: var(--font-evidence);
+    font-size: .64rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.item__desc { margin: 0; color: var(--ink-muted); font-size: .87rem; line-height: 1.55; }
+
+.item-list--destinations .item { border-left-color: var(--ep-reported); }
+.item-list--collectible .item  { border-left-color: var(--ep-inferred); }
+
+/* ---------- EVIDENCE RECORD TABLE ---------- */
+.evidence-table-wrap { margin: 20px 0; }
+.evidence-table { min-width: 780px; }
+
+.evidence-table caption {
+    text-align: left;
+    color: var(--ink-muted);
+    font-family: var(--font-body);
+    font-size: .9rem;
+    padding-bottom: 12px;
+}
+
+.evidence-table td:first-child {
+    font-family: var(--font-evidence);
+    font-size: .72rem;
+    letter-spacing: .06em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+}
+
+
+/* ---------- TIMELINE ENTRIES ---------- */
+.timeline-entry {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line-soft);
+}
+
+.timeline-entry time {
+    color: var(--accent);
+    font-family: var(--font-evidence);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.timeline-entry h3 {
+    margin: 0 0 5px;
+    color: var(--ink-strong);
+    font-family: var(--font-interface);
+    font-size: 1.05rem;
+}
+
+.timeline-entry p { margin: 0 0 8px; color: var(--ink-muted); font-size: .92rem; line-height: 1.6; }
+
+/* ---------- REGIONAL TABLE ---------- */
+.region-table td.region-name {
+    color: var(--ink-strong);
+    font-family: var(--font-interface);
+    font-weight: 700;
+    letter-spacing: .04em;
+    white-space: nowrap;
+}
+
+/* ---------- FILTER BAR ---------- */
+.ed-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.ed-filter__label {
+    color: var(--ink-faint);
+    font-family: var(--font-evidence);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.ed-filter .tab { min-height: 40px; }
+
+.ed-search {
+    flex: 1 1 220px;
+    min-width: 200px;
+    max-width: 340px;
+    padding: 10px 14px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    font-family: var(--font-interface);
+    font-size: .82rem;
+    letter-spacing: .05em;
+    min-height: 40px;
+}
+
+.ed-search::placeholder { color: var(--ink-faint); }
+.ed-search:focus { outline: none; border-color: var(--accent); }
+
+.ed-no-results {
+    padding: 34px 0;
+    color: var(--ink-muted);
+    font-family: var(--font-body);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 760px) {
+    .glossary__row,
+    .timeline-entry,
+    .edition-card__row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .glossary__term { letter-spacing: .14em; }
+    .edition-card__row dt { padding-top: 0; }
+    .concept-key { grid-template-columns: 1fr; }
+    .edition-card__media img { height: 180px; }
+    .ed-search { max-width: none; }
+}
+
+@media (max-width: 520px) {
+    .ed-filter .tab { flex: 1 1 calc(50% - 5px); text-align: center; }
+}
+
+/* ---------- ACCESSIBILITY INTEGRATION ---------- */
+[data-a11y-blur="on"] .purchase-link,
+[data-a11y-blur="on"] .ed-search,
+[data-a11y-blur="on"] .ed-filter .tab { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+
+[data-a11y-contrast="on"] .concept-key__item,
+[data-a11y-contrast="on"] .edition-card,
+[data-a11y-contrast="on"] .item,
+[data-a11y-contrast="on"] .timeline-entry { border-width: 2px; }
+
+[data-a11y-motion="on"] .ed-filter .tab,
+[data-a11y-motion="on"] .purchase-link { transition: none; }
+
+[data-a11y-text="on"] .edition-card__tagline,
+[data-a11y-text="on"] .concept-key__desc,
+[data-a11y-text="on"] .glossary__def,
+[data-a11y-text="on"] .timeline-entry p,
+[data-a11y-text="on"] .item__desc { line-height: 1.75; }
+
+.evidence-table td.claim-cell { color: var(--ink-strong); font-size: .82rem; }
+.evidence-table td.limit-cell { color: var(--ink-faint); font-size: .78rem; }
+
+/* ---------- PRICE TABLE ---------- */
+.price-table td.amount {
+    font-family: var(--font-interface);
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--ink-strong);
+    white-space: nowrap;
+}
+
+.price-table td.amount--unknown {
+    font-family: var(--font-evidence);
+    font-size: .72rem;
+    font-weight: 400;
+    color: var(--ink-faint);
+    letter-spacing: .1em;
+}
+
+/* ---------- GLOSSARY ---------- */
+.glossary { display: grid; gap: 10px; margin: 0; }
+
+.glossary__row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line-soft);
+}
+
+.glossary__term {
+    color: var(--accent);
+    font-family: var(--font-interface);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+}
+
+.glossary__def { margin: 0; color: var(--ink-muted); font-size: .92rem; line-height: 1.6; }
+
+    flex: 1;
+    padding: 20px 20px 18px;
+}
+
+.edition-card__head h3 {
+    margin: 0 0 6px;
+    color: var(--ink-strong);
+    font-family: var(--font-interface);
+    font-size: 1.2rem;
+    letter-spacing: .01em;
+}
+
+.edition-card__tagline {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.edition-card__rows { margin: 0; display: grid; gap: 7px; }
+
+.edition-card__row {
+    display: grid;
+    grid-template-columns: 108px 1fr;
+    gap: 10px;
+    font-size: .84rem;
+}
+
+.edition-card__row dt {
+    color: var(--ink-faint);
+    font-family: var(--font-evidence);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding-top: 2px;
+}
+
+.edition-card__row dd { margin: 0; color: var(--ink-muted); }
+
+.edition-card__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line-strong);
+}
+
+.edition-card__price {
+    color: var(--ink-strong);
+    font-family: var(--font-interface);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
+.edition-card__price small {
+    display: block;
+    color: var(--ink-faint);
+    font-family: var(--font-evidence);
+    font-size: .66rem;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+
+/* ============================================================
+   GET TO KNOW LEONIDA — geography.html
+   Added after the editions block. Reuses every existing token
+   (--bg-soft, --line, --ink-*, --ep-*, --glass-panel-bg) so the
+   section inherits theme, mode and all seven a11y flags without
+   any new colour decisions.
+   ============================================================ */
+
+/* ---- filter bar (mirrors .ed-filter) ---- */
+.geo-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 18px;
+    padding: 14px 16px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+}
+
+.geo-filter__label {
+    font-family: var(--font-subtext);
+    font-size: .68rem;
+    letter-spacing: .18em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+}
+
+.geo-filter .tabs { flex: 1 1 320px; }
+
+.geo-search {
+    flex: 1 1 200px;
+    min-width: 0;
+    padding: 9px 12px;
+    font-family: var(--font-interface);
+    font-size: .82rem;
+    letter-spacing: .06em;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+}
+
+.geo-no-results {
+    font-family: var(--font-subtext);
+    font-size: .74rem;
+    letter-spacing: .14em;
+    color: var(--ink-faint);
+}
+
+/* ---- place dossier cards ---- */
+.geo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+.geo-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--gc, var(--ink-faint));
+}
+
+.geo-card[data-type="city"]           { --gc: var(--ep-confirmed); }
+.geo-card[data-type="island-region"]  { --gc: var(--ep-observed); }
+.geo-card[data-type="town"]           { --gc: var(--ep-reported); }
+.geo-card[data-type="national-park"]  { --gc: var(--ep-inferred); }
+.geo-card[data-type="facility"]       { --gc: var(--ep-unresolved); }
+
+.geo-card__media {
+    position: relative;
+    margin: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.geo-card__media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.geo-card__type {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 3px 9px;
+    font-family: var(--font-subtext);
+    font-size: .62rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--glass-panel-bg, rgba(0, 0, 0, .72));
+    border: 1px solid var(--line);
+}
+
+.geo-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 12px;
+    padding: 20px 20px 18px;
+}
+
+/* Geographic identity keeps the location font role, exactly as
+   .location-name does elsewhere in the project. */
+.geo-card__name {
+    margin: 0;
+    font-family: var(--font-location);
+    font-size: 1.85rem;
+    line-height: 1.1;
+    color: var(--ink-strong);
+}
+
+.geo-card__quote {
+    margin: 0;
+    padding: 10px 13px;
+    font-family: var(--font-archive);
+    font-size: .92rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    background: var(--bg);
+    border-left: 2px solid var(--gc, var(--ink-faint));
+}
+
+.geo-card__quote cite {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-evidence);
+    font-size: .64rem;
+    font-style: normal;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.geo-card__character {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+}
+
+.geo-facts { margin: 0; display: grid; gap: 10px; }
+
+.geo-facts__row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 10px;
+    align-items: start;
+}
+
+.geo-facts__row dt {
+    font-family: var(--font-subtext);
+    font-size: .62rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-top: 2px;
+}
+
+.geo-facts__row dd { margin: 0; }
+
+.geo-facts__row ul {
+    margin: 0;
+    padding-left: 16px;
+    display: grid;
+    gap: 5px;
+}
+
+.geo-facts__row li {
+    font-family: var(--font-body);
+    font-size: .88rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+}
+
+.geo-facts__row li.is-unknown {
+    font-family: var(--font-evidence);
+    font-size: .76rem;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+}
+
+.geo-card__shots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 0;
+}
+
+.geo-card__shots img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: 1px solid var(--line-soft);
+}
+
+.geo-card__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 13px;
+    border-top: 1px dashed var(--line-strong);
+}
+
+.geo-card__foot .source-cite { margin-left: auto; }
+
+
+/* ---- schematic map -------------------------------------------------
+   Deliberately NOT a map of Leonida. It plots the seven official
+   places as a RELATION diagram with no borders, no coordinates
+   and no scale bar, because none of those are established. The
+   dotted field signals "relative position only". Every point is
+   a real button with an accessible name, and the section below
+   carries the same information as a plain list.                  */
+.geo-map {
+    position: relative;
+    margin: 22px 0 8px;
+    padding: 18px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+}
+
+.geo-map__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 320px;
+    background: var(--bg);
+    border: 1px dashed var(--line-strong);
+    overflow: hidden;
+}
+
+.geo-map__frame svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.geo-map__coast {
+    fill: none;
+    stroke: var(--ep-observed);
+    stroke-width: 2;
+    stroke-dasharray: 6 5;
+    opacity: .55;
+}
+
+.geo-map__link {
+    fill: none;
+    stroke: var(--ink-faint);
+    stroke-width: 1.4;
+    stroke-dasharray: 4 4;
+    opacity: .7;
+}
+
+.geo-map__node {
+    display: block;
+    cursor: pointer;
+    font-family: var(--font-location);
+    text-anchor: middle;
+}
+
+.geo-map__node circle {
+    fill: var(--bg);
+    stroke: var(--gn, var(--ink-faint));
+    stroke-width: 2.5;
+    transition: fill .15s ease;
+}
+
+.geo-map__node text {
+    fill: var(--ink-strong);
+    font-size: 15px;
+}
+
+.geo-map__node:hover circle,
+.geo-map__node:focus-visible circle { fill: var(--gn, var(--ink-faint)); }
+
+.geo-map__node:hover text,
+.geo-map__node:focus-visible text { fill: var(--ink); }
+
+.geo-map__node[data-type="city"]          { --gn: var(--ep-confirmed); }
+.geo-map__node[data-type="island-region"] { --gn: var(--ep-observed); }
+.geo-map__node[data-type="town"]          { --gn: var(--ep-reported); }
+.geo-map__node[data-type="national-park"] { --gn: var(--ep-inferred); }
+.geo-map__node[data-type="facility"]      { --gn: var(--ep-unresolved); }
+
+.geo-map__caption {
+    margin: 12px 0 0;
+    font-family: var(--font-evidence);
+    font-size: .7rem;
+    line-height: 1.6;
+    letter-spacing: .06em;
+    color: var(--ink-faint);
+}
+
+/* ---- layer panels (environment / water / transport / wildlife) ---- */
+.geo-layers { display: grid; gap: 16px; }
+
+.geo-layer {
+    padding: 18px 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--lc, var(--ink-faint));
+}
+
+.geo-layer[data-status="official"]   { --lc: var(--ep-confirmed); }
+.geo-layer[data-status="observed"]   { --lc: var(--ep-observed); }
+.geo-layer[data-status="inferred"]   { --lc: var(--ep-inferred); }
+.geo-layer[data-status="unknown"]    { --lc: var(--ep-unresolved); }
+.geo-layer[data-status="unverified"] { --lc: var(--ep-disproven); }
+
+.geo-layer__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.geo-layer__name {
+    margin: 0;
+    font-family: var(--font-location);
+    font-size: 1.35rem;
+    color: var(--ink-strong);
+}
+
+.geo-layer__head .status-pill { margin-left: auto; }
+
+.geo-layer p { margin: 0 0 8px; }
+
+.geo-layer__body {
+    font-family: var(--font-body);
+    font-size: .9rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+}
+
+.geo-layer__evidence {
+    font-family: var(--font-evidence);
+    font-size: .78rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+}
+
+.geo-layer__unknown {
+    margin: 8px 0 0;
+    padding: 9px 12px;
+    font-family: var(--font-evidence);
+    font-size: .74rem;
+    line-height: 1.6;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+    background: var(--bg);
+    border: 1px dashed var(--line-strong);
+}
+
+.geo-layer__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+
+/* ---- relationship list ---- */
+.geo-rel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: baseline;
+    padding: 15px 18px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+}
+
+.geo-rel__end {
+    flex: 0 1 auto;
+    font-family: var(--font-location);
+    font-size: 1.2rem;
+    color: var(--ink-strong);
+    overflow-wrap: anywhere;
+}
+
+.geo-rel__arrow {
+    font-family: var(--font-evidence);
+    font-size: .68rem;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+}
+
+.geo-rel__arrow span {
+    display: block;
+    font-family: var(--font-subtext);
+    color: var(--ink-muted);
+}
+
+.geo-rel__basis {
+    flex: 1 1 100%;
+    margin: 6px 0 0;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line-strong);
+    font-family: var(--font-body);
+    font-size: .88rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+}
+
+/* ---- quarantine panel ---- */
+.geo-quarantine {
+    padding: 20px 22px;
+    background: var(--bg-soft);
+    border: 1px solid var(--ep-disproven);
+    border-left-width: 3px;
+}
+
+.geo-quarantine + .geo-quarantine { margin-top: 14px; }
+
+.geo-quarantine__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.geo-quarantine__cat {
+    margin: 0;
+    font-family: var(--font-location);
+    font-size: 1.3rem;
+    color: var(--ink-strong);
+}
+
+.geo-quarantine__names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 0;
+    padding: 12px;
+    background: var(--bg);
+    border: 1px dashed var(--line-strong);
+}
+
+.geo-quarantine__names span {
+    padding: 3px 8px;
+    font-family: var(--font-evidence);
+    font-size: .72rem;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+    text-decoration: line-through;
+    text-decoration-color: var(--ep-disproven);
+}
+
+.geo-quarantine__row { margin: 0 0 9px; }
+
+.geo-quarantine__row strong {
+    font-family: var(--font-subtext);
+    font-size: .66rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+/* ---- real-world comparison table cells ---- */
+.geo-rw p { margin: 0 0 7px; }
+.geo-rw p:last-child { margin-bottom: 0; }
+
+.geo-rw__label {
+    font-family: var(--font-subtext);
+    font-size: .64rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.geo-rw__sep {
+    margin-top: 9px !important;
+    padding: 9px 11px;
+    font-family: var(--font-evidence);
+    font-size: .74rem;
+    line-height: 1.6;
+    color: var(--ink-strong);
+    background: var(--bg);
+    border-left: 2px solid var(--ep-unresolved);
+}
+
+/* ---- technical analysis ---- */
+.geo-tech__certainty {
+    display: inline-block;
+    padding: 2px 8px;
+    font-family: var(--font-stamp);
+    font-size: .62rem;
+    letter-spacing: .12em;
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+
+/* ---- a11y + fast mode integration ------------------------------------
+   No geographic relationship is ever communicated by colour,
+   animation, position or decoration alone: every node and edge
+   also carries a text label, and the map is duplicated as a list. */
+html[data-a11y-motion="on"] .geo-map__node circle { transition: none; }
+
+html[data-a11y-contrast="on"] .geo-map__coast,
+html[data-a11y-contrast="on"] .geo-map__link { opacity: 1; }
+
+html[data-a11y-contrast="on"] .geo-map__node circle { stroke-width: 4; }
+
+html[data-a11y-text="on"] .geo-card__name,
+html[data-a11y-text="on"] .geo-layer__name,
+html[data-a11y-text="on"] .geo-quarantine__cat,
+html[data-a11y-text="on"] .geo-rel__end { font-size: 1.15rem; }
+
+html[data-a11y-transparency="on"] .geo-card__type { background: var(--bg); }
+
+html[data-a11y-focus="on"] .geo-map__node:focus-visible circle {
+    stroke-width: 5;
+    stroke-dasharray: 3 2;
+}
+
+html[data-mode="fast"] .geo-map__node circle { transition: none; }
+
+/* ---- responsive ----------------------------------------------------
+   Relationships wrap into stacked blocks; the map becomes a tall
+   portrait frame so labels stay legible instead of shrinking.     */
+@media (max-width: 720px) {
+    .geo-grid { grid-template-columns: 1fr; }
+
+    .geo-card__shots { grid-template-columns: repeat(2, 1fr); }
+
+    .geo-facts__row { grid-template-columns: 1fr; gap: 3px; }
+
+    .geo-map { padding: 12px; }
+
+    .geo-map__frame { aspect-ratio: 4 / 5; min-height: 420px; }
+
+    .geo-rel__end { flex: 1 1 100%; font-size: 1.05rem; }
+
+    .geo-rel__arrow { flex: 1 1 100%; }
+}
+
+
+
+/* ============================================================
+   FINAL QUALITY PASS — BRAND / ENTRY / NAVIGATION ENHANCEMENTS
+   ============================================================ */
+
+/* Global logo uses the supplied transparent LEONIDA.RPF mark. */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    width: 112px;
+    height: 56px;
+    overflow: visible;
+    text-indent: 0;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+    width: 112px;
+    height: 56px;
+    object-fit: contain;
+    object-position: left center;
+    border: 0;
+}
+
+.logo:hover img {
+    filter: brightness(1.06) saturate(1.04);
+}
+
+.logo:focus-visible {
+    border-radius: var(--radius-sm);
+}
+
+/* Native multi-page View Transitions provide continuity without requiring
+   a fragile SPA rewrite. Browsers that do not support them ignore this. */
+@view-transition {
+    navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) {
+        animation: leonida-root-out 180ms var(--ease-out) both;
+    }
+
+    ::view-transition-new(root) {
+        animation: leonida-root-in 280ms var(--ease-out) both;
+    }
+}
+
+@keyframes leonida-root-out {
+    from { opacity: 1; filter: blur(0); }
+    to { opacity: 0; filter: blur(5px); }
+}
+
+@keyframes leonida-root-in {
+    from { opacity: 0; filter: blur(5px); transform: translateY(5px); }
+    to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+/* Entry agreement: compact, legible, serious, and intentionally not a
+   legal-contract wall of text. */
+html[data-entry-pending="true"] body > :not(.entry-gate) {
+    visibility: hidden;
+}
+
+html[data-entry-pending="true"] {
+    overflow: hidden;
+}
+
+.entry-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    isolation: isolate;
+}
+
+.entry-gate__backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(var(--neon-purple), .15), transparent 42%),
+        rgba(5, 7, 9, .72);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    backdrop-filter: blur(14px) saturate(1.15);
+}
+
+.entry-gate__panel {
+    position: relative;
+    width: min(700px, 100%);
+    max-height: min(88vh, 760px);
+    overflow: auto;
+    padding: clamp(28px, 5vw, 48px);
+    background: var(--glass-panel-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: calc(var(--radius) * 1.25);
+    box-shadow: 0 24px 90px rgba(0,0,0,.42);
+    opacity: 0;
+    transform: translateY(10px) scale(.985);
+}
+
+.entry-gate.is-ready .entry-gate__panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 180ms var(--ease-out), transform 240ms var(--ease-out);
+}
+
+.entry-gate.is-leaving .entry-gate__panel {
+    opacity: 0;
+    transform: translateY(-6px) scale(.99);
+    transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.entry-gate__brand {
+    font-family: var(--font-brand);
+    font-size: 1.55rem;
+    color: var(--ink-strong);
+    letter-spacing: .04em;
+}
+
+.entry-gate__eyebrow,
+.entry-gate__foot {
+    font-family: var(--font-subtext);
+    color: var(--ink-faint);
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.entry-gate__eyebrow { margin: 10px 0 18px; }
+.entry-gate__foot { margin: 18px 0 0; }
+
+.entry-gate__title {
+    margin: 0 0 16px;
+    font-family: var(--font-interface);
+    font-size: clamp(1.45rem, 3.4vw, 2.15rem);
+    line-height: 1.08;
+    letter-spacing: .015em;
+    color: var(--ink-strong);
+}
+
+.entry-gate__copy {
+    margin: 0 0 14px;
+    font-family: var(--font-body);
+    color: var(--ink-muted);
+    font-size: 1rem;
+    line-height: 1.68;
+}
+
+.entry-gate__rule {
+    padding: 14px 16px;
+    border-left: 3px solid var(--accent);
+    background: var(--glass-ctl-bg);
+}
+
+.entry-gate__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.entry-gate__actions button {
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
+    font-family: var(--font-interface);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    cursor: pointer;
+}
+
+.entry-gate__accept {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent) !important;
+}
+
+.entry-gate__decline {
+    background: transparent;
+    color: var(--ink-muted);
+}
+
+.entry-gate__accept:hover,
+.entry-gate__decline:hover {
+    transform: translateY(-1px);
+}
+
+.entry-gate__accept:active,
+.entry-gate__decline:active {
+    transform: translateY(0);
+}
+
+[data-a11y-contrast="on"] .entry-gate__backdrop {
+    background: rgba(0,0,0,.9);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+[data-a11y-transparency="on"] .entry-gate__panel,
+html[data-mode="a11y"] .entry-gate__panel {
+    background: var(--bg);
+}
+
+[data-a11y-blur="on"] .entry-gate__backdrop,
+[data-a11y-blur="on"] .entry-gate__panel {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+[data-a11y-font="on"] .entry-gate__brand,
+[data-a11y-font="on"] .entry-gate__title,
+[data-a11y-font="on"] .entry-gate__actions button {
+    font-family: var(--font-interface);
+}
+
+html[data-mode="fast"] .entry-gate__backdrop {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+html[data-mode="fast"] .entry-gate__panel,
+html[data-a11y-motion="on"] .entry-gate__panel {
+    transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .entry-gate__panel,
+    .entry-gate.is-ready .entry-gate__panel,
+    .entry-gate.is-leaving .entry-gate__panel {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo,
+    .logo img {
+        width: 96px;
+        height: 52px;
+    }
+
+    .entry-gate {
+        padding: 14px;
+    }
+
+    .entry-gate__panel {
+        max-height: 92vh;
+        padding: 24px 20px;
+        border-radius: var(--radius);
+    }
+
+    .entry-gate__actions {
+        flex-direction: column;
+    }
+
+    .entry-gate__actions button {
+        width: 100%;
     }
 }

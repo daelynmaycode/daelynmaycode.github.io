@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LEONIDA.RPF — full technical research dossier on Rockstar's open-world technology, GTA III to GTA VI.">
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f9f9" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://daelynmaycode.github.io/dossier.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="LEONIDA.RPF">
+    <meta property="og:title" content="LEONIDA.RPF — Technical Dossier">
+    <meta property="og:description" content="LEONIDA.RPF — full technical research dossier on Rockstar's open-world technology, GTA III to GTA VI.">
+    <meta property="og:url" content="https://daelynmaycode.github.io/dossier.html">
+    <meta property="og:image" content="https://daelynmaycode.github.io/images/gta6skyline.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>LEONIDA.RPF — Technical Dossier</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var r=document.documentElement;var e=localStorage.getItem('leonida-entry-agreement-v1');if(e==='accepted'){r.setAttribute('data-entry-accepted','true');}else{r.setAttribute('data-entry-pending','true');}var t=localStorage.getItem('leonida-theme');if(t==='light'||t==='dark'){r.setAttribute('data-theme',t);}var m=localStorage.getItem('leonida-mode');if(m==='a11y'||m==='fast'){r.setAttribute('data-mode',m);}var a=JSON.parse(localStorage.getItem('leonida-a11y')||'{}');['motion','contrast','transparency','blur','text','font','focus'].forEach(function(k){if(a[k]){r.setAttribute('data-a11y-'+k,'on');}});}catch(e){}})();</script>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a class="logo" href="index.html" aria-label="LEONIDA.RPF home"><img src="images/Leonida-RPF-LOGO-header.png" alt="LEONIDA.RPF" width="112" height="56" decoding="async"></a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="predictions.html">Predictions</a>
+            <a href="weapons.html">Weapons</a>
+            <a href="geography.html">Leonida</a>
+            <a href="editions.html">Editions</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="opinions.html">Opinions</a>
+            <a href="confirmed.html">Confirmed</a>
+            <a href="archive.html">Archive</a>
+            <a class="active" href="dossier.html" aria-current="page">Dossier</a>
+        </nav>
+
+        <div class="nav-controls">
+            <div class="system-status"><span></span> DOSSIER</div>
+            <div class="mode-switch" role="group" aria-label="Presentation mode">
+                <button class="mode-btn" type="button" data-mode-set="normal" aria-pressed="true">NORMAL</button>
+                <button class="mode-btn" type="button" data-mode-set="a11y" aria-pressed="false">A11Y</button>
+                <button class="mode-btn" type="button" data-mode-set="fast" aria-pressed="false">FAST</button>
+                <button class="mode-btn" type="button" data-a11y-panel aria-expanded="false" aria-controls="a11yPanel">OPTIONS</button>
+            </div>
+            <button class='theme-toggle' type='button' data-theme-toggle aria-label='Toggle light and dark theme'>LIGHT / DARK</button>
+        </div>
+    </div>
+</header>
+
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options" hidden>
+    <h3>ACCESSIBILITY</h3>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="motion"> REDUCE MOTION</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="contrast"> HIGH CONTRAST</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="transparency"> OPAQUE SURFACES</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="blur"> DISABLE BLUR</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="text"> LARGER TEXT</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="font"> LEGIBLE TYPE</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="focus"> STRONG FOCUS</label>
+</div>
+
+<a class="skip-link" href="#main">SKIP TO CONTENT</a>
+
+<main id="main">
+
+<section class="page-header">
+    <div class="container">
+        <span class="eyebrow">DATABASE / DOSSIER</span>
+        <h1>Technical Dossier</h1>
+        <p>
+            A single, inspectable model of how Rockstar has advanced the
+            technical boundaries of the open-world game — built from public
+            evidence, with every claim labelled by epistemic status.
+        </p>
+
+        <div class="notice">
+            <span class="notice-label">EVIDENCE STANDARD</span>
+            <strong>SOURCE → OBSERVATION → CONTEXT → INFERENCE → HYPOTHESIS.</strong>
+            <p>
+                Nothing here is promoted from one category to another. Where the
+                public record is silent, the domain is marked OPEN rather than
+                filled with assumption. No leaked material is analysed,
+                reproduced, or linked.
+            </p>
+        </div>
+
+        <div class="warning-notice">
+            RESEARCH LIMITS: A FIRST PASS, NOT A COMPLETE MODEL.
+        </div>
+
+        <div class="notice">
+            <span class="notice-label">AUGMENTATION PASS — 2 OCT 2026</span>
+            <strong>SECTIONS N–R AND EVIDENCE ROWS EV-19+ ARE THE PRODUCT OF A GAP-DISCOVERY PASS.</strong>
+            <p>
+                The original sections were audited for weak sourcing, single-source
+                claims, missing domains and unexamined failure modes. New research was
+                added where it introduced evidence, sources, mechanisms or
+                counterpoints. Where the audit contradicted an existing claim, the
+                claim was flagged and corrected in Section N — not silently rewritten.
+            </p>
+        </div>
+
+        <p>
+            Two primary-adjacent documents could not be fully read for this
+            revision — Rockstar's Newswire delay post (JavaScript-rendered,
+            returned empty) and Rockstar's GDC audio talk (fetch size limit).
+            Two long analytical articles were truncated mid-body. Where that
+            truncation removes evidence, the domain is marked
+            <span class="status-pill status-unresolved">OPEN</span> rather than
+            inferred around.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">CONTENTS</span>
+            <h2>Sections A – R</h2>
+        </div>
+
+        <div class="grid">
+            <a class="card" href="#a"><span class="card-index">A</span><h3>Executive Overview</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#b"><span class="card-index">B</span><h3>Domain Findings</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#c"><span class="card-index">C</span><h3>Historical Timeline</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#d"><span class="card-index">D</span><h3>Evidence Registry</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#e"><span class="card-index">E</span><h3>Observation Registry</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#f"><span class="card-index">F</span><h3>Inference Registry</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#g"><span class="card-index">G</span><h3>Hypothesis Registry</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#h"><span class="card-index">H</span><h3>Assumption Registry</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#i"><span class="card-index">I</span><h3>Contradictions</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#j"><span class="card-index">J</span><h3>Unknowns</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#k"><span class="card-index">K</span><h3>Research Gaps</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#l"><span class="card-index">L</span><h3>Cross-System Analysis</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#m"><span class="card-index">M</span><h3>Evolution Model</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#n"><span class="card-index">N</span><h3>Coverage Audit &amp; Corrections</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#o"><span class="card-index">O</span><h3>New Domain Findings</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#p"><span class="card-index">P</span><h3>Historical Deep Findings</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#q"><span class="card-index">Q</span><h3>Failure Modes &amp; Negative Evidence</h3><span class="card-link">JUMP →</span></a>
+            <a class="card" href="#r"><span class="card-index">R</span><h3>Gap Register Update</h3><span class="card-link">JUMP →</span></a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="a">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION A</span>
+            <h2>Executive Technical Overview</h2>
+        </div>
+
+        <p>
+            The public evidence supports a defensible model of
+            <strong>what Rockstar has prioritised</strong> — scale, density,
+            authored content, ray-traced lighting, and streaming — and of the
+            constraint it has consistently refused to concede: frame-rate. It
+            does not support claims about internal architecture beyond the
+            streaming-centred picture Rockstar itself described in 2013, and it
+            supports no numeric budget of any kind.
+        </p>
+
+        <div class="section-heading">
+            <span class="eyebrow">DEMONSTRATED</span>
+            <h3>What the evidence establishes</h3>
+        </div>
+
+        <div class="method-grid">
+
+            <article class="method">
+                <span>01</span>
+                <h3>Current-gen console only, on RAGE</h3>
+                <p>PS5 and Xbox Series X/S, single-player, 19 Nov 2026, no announced PC version.</p>
+            </article>
+
+            <article class="method">
+                <span>02</span>
+                <h3>Locked 30fps target</h3>
+                <p>Confirmed by Rob Nelson via press; a 48,242-frame scan found a tighter 30fps lock than any prior GTA.</p>
+            </article>
+
+            <article class="method">
+                <span>03</span>
+                <h3>Ray-traced GI + reflections</h3>
+                <p>Indirect light bounce, and reflections containing information absent from screen space. General shadows remain shadow-map based.</p>
+            </article>
+
+            <article class="method">
+                <span>04</span>
+                <h3>A genuine RAGE generational step</h3>
+                <p>A from-the-ground-up title with a modern PBR pipeline — not an iteration on a 360/PS3-era foundation.</p>
+            </article>
+
+            <article class="method">
+                <span>05</span>
+                <h3>~10× GTA V's authored animation content</h3>
+                <p>Rockstar's own figures: &gt;600,000 vs ~55,000 (and ~300,000 in RDR2). Content volume — not a runtime metric.</p>
+            </article>
+
+            <article class="method">
+                <span>06</span>
+                <h3>Streaming remains the architectural spine</h3>
+                <p>Unchanged in principle since GTA III, scaling in scope; the PS5 SSD removes its original binding constraint.</p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">STRONGLY SUGGESTED</span>
+            <h3>Inference — reasoning exposed, not confirmation</h3>
+        </div>
+
+        <div class="evidence-block">
+            Selective ray tracing (GI + reflections, shadows traded away); SSR
+            retained as an RT fallback; a modern PBR materials pipeline built
+            from the ground up; strand-based hair extended to NPCs with likely
+            distance-based reduction; an animation-update loop continuous from
+            GTA V through RDR2 to GTA VI; and a deliberately
+            density-protected, frame-rate-spent design.
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">PLAUSIBLE / UNPROVEN</span>
+            <h3>Hypothesis-grade only</h3>
+        </div>
+
+        <div class="classified-notice">
+            Continued Euphoria-lineage behavioural physics (NaturalMotion ceased
+            licensing Euphoria in 2017 — retention, replacement, and an in-house
+            fork are all equally plausible and none is evidenced); tiered NPC
+            simulation scheduling; hybrid software + hardware ray tracing; and
+            any statement whatsoever about RAGE's threading, job system, memory
+            model, audio engine, or tooling stack.
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">DIRECTION</span>
+            <h3>The load-bearing finding</h3>
+        </div>
+
+        <p class="claim">
+            Rockstar's evolution is not primarily a rendering story. Rendering is
+            the visible tip. The load-bearing change across five generations is a
+            streaming-and-budget architecture repeatedly re-tuned to convert new
+            hardware headroom into <strong>world density, simulation breadth, and
+            authored content volume</strong> rather than into frame-rate. The
+            30fps target in 2026 — on hardware whose SSD and ray-tracing
+            capabilities are brand new — is the strongest single piece of
+            evidence for that thesis.
+        </p>
+
+    </div>
+</section>
+
+<section class="section" id="b">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION B</span>
+            <h2>Domain-by-Domain Findings</h2>
+        </div>
+
+        <p>
+            A domain counts as researched only when it establishes what is
+            publicly documented, what is directly observable, what changed
+            historically, what technical problem is being solved, what
+            constraints matter, what competing explanations exist, and what
+            remains unknown. By that standard, <strong>no domain is
+            COMPLETE</strong>.
+        </p>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>DOMAIN STATUS MATRIX — evidence level and standing</caption>
+                <thead>
+                    <tr><th>Domain</th><th>What is established publicly</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rendering &amp; Graphics</td>
+                        <td>RTGI, RT reflections, PBR pipeline, strand-based hair; evidence from independent analysis, not Rockstar documentation</td>
+                        <td><span class="status-pill status-observed">PARTIAL</span></td>
+                    </tr>
+                    <tr>
+                        <td>World Streaming &amp; Memory</td>
+                        <td>Streaming as architectural backbone (III→V, on-record); SSD use (official); no VI internals</td>
+                        <td><span class="status-pill status-observed">PARTIAL</span></td>
+                    </tr>
+                    <tr>
+                        <td>Physics &amp; Simulation</td>
+                        <td>Historical Euphoria usage only; nothing for GTA VI</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Animation</td>
+                        <td>Content volume (Rockstar figures); strand hair; legacy update-loop artefact</td>
+                        <td><span class="status-pill status-observed">PARTIAL</span></td>
+                    </tr>
+                    <tr>
+                        <td>NPC AI &amp; Simulation</td>
+                        <td>Dedicated NPC team; authored variety; third-party opinion</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pedestrian Density</td>
+                        <td>A measured 102-character frame in promotional material</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Vehicle Simulation</td>
+                        <td>Nothing beyond RT material fidelity on vehicles</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Environmental Systems</td>
+                        <td>Weather and wildlife claims in headline form only</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weather &amp; Atmosphere</td>
+                        <td>"Completely re-done" weather claim; no mechanism</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Destruction &amp; Interaction</td>
+                        <td>Nothing. No evidence in either direction</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Audio Technology</td>
+                        <td>PS5 Tempest 3D AudioTech (platform API, not engine)</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Engine Architecture</td>
+                        <td>RAGE lineage (AGE→RAGE); streaming-centred design; middleware posture</td>
+                        <td><span class="status-pill status-observed">PARTIAL</span></td>
+                    </tr>
+                    <tr>
+                        <td>Development Tooling</td>
+                        <td>Nothing beyond historical middleware names</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Technical Scalability</td>
+                        <td>Platform list; uniform 30fps target across a wide GPU spread</td>
+                        <td><span class="status-pill status-observed">PARTIAL</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hardware Transitions</td>
+                        <td>Independently documented per generation; Rockstar response evidenced</td>
+                        <td><span class="status-pill status-confirmed">STRONG</span></td>
+                    </tr>
+                    <tr>
+                        <td>Performance Budgets</td>
+                        <td>Framerate and a 2025 video resolution only. No budgets exist publicly</td>
+                        <td><span class="status-pill status-unresolved">OPEN</span></td>
+                    </tr>
+                    <tr>
+                        <td>Historical Evolution</td>
+                        <td>Well-evidenced III→2018; post-2018 gaps</td>
+                        <td><span class="status-pill status-observed">PARTIAL</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">KEY CLAIMS</span>
+            <h2>Most Evidentially Important</h2>
+        </div>
+
+        <div class="record-list">
+
+            <article class="record">
+                <div class="record-top">
+                    <span>DSR-001</span>
+                    <span>RENDERING</span>
+                    <span>GTA VI</span><span class="status-pill status-observed">OBSERVED</span>
+                </div>
+
+                <h2>Ray-traced global illumination and reflections, but not shadows</h2>
+
+                <p>
+                    The defining rendering shift is ray-traced indirect lighting
+                    and ray-traced reflections. General shadows appear to remain
+                    shadow-map based — a budget trade rather than a capability
+                    limit.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: Digital Foundry Trailer 2 breakdown (8 May 2025);
+                        63-screenshot analysis (24 Jun 2026); Extended Look
+                        analysis (28 Aug 2026). OBSERVATION: reflections contain
+                        information absent from screen space (vehicle undersides in
+                        puddles; transparent surfaces both reflecting and
+                        transmitting); indirect light bounce from vehicle lights;
+                        sun and most local shadows shadow-map based with variable
+                        penumbra. CONTEXT: ray-traced reflections debuted in GTA V
+                        Enhanced, which DF reads as a trial run. INFERENCE:
+                        information unavailable to SSR is the structural signature
+                        of ray tracing. ALTERNATIVES: hero-asset reflection probes
+                        or hand-faked cubemap detail in curated press shots.
+                        LIMITATIONS: press assets of unestablished real-time
+                        status; no Rockstar document names the technique.
+                        CONFIDENCE: medium-high for RTGI + RT reflections; low for
+                        any specific GI algorithm.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record">
+                <div class="record-top">
+                    <span>DSR-002</span>
+                    <span>STREAMING</span>
+                    <span>III → VI</span><span class="status-pill status-confirmed">CONFIRMED</span>
+                </div>
+
+                <h2>Streaming is the invariant spine; the SSD removes its original constraint</h2>
+
+                <p>
+                    Rockstar's own technical leads described streaming as "the
+                    backbone of everything we do." It is conceptually continuous
+                    from GTA III to GTA V; the PS5 SSD removes the storage
+                    bandwidth constraint that shaped the original design.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: MCV/Develop, "Inside Rockstar North – Part 3: The
+                        Tech," 5 Oct 2013 (Adam Fowler, technical director; Phil
+                        Hooker, associate technical director); PlayStation.Blog,
+                        24 Jun 2026. OBSERVATION: GTA III "was just streaming
+                        geometry and textures from the disc," with collisions,
+                        animations and world descriptions in system memory; by
+                        GTA V "pretty much everything is in a streaming state,"
+                        including the AI nav mesh. SIE: the PS5 SSD enables
+                        "near-instant load times." CONTEXT: GTA III streaming was
+                        devised by Fowler with Benzies and Garbut after rewriting
+                        chunks of RenderWare. INFERENCE: an invariant core, scaled
+                        in scope, not replaced. ALTERNATIVES: a generation can
+                        justify a rewrite — DF calls GTA VI a "step change."
+                        LIMITATIONS: 2013 comments may not describe GTA VI; no
+                        VI-specific streaming detail or budget is public.
+                        CONFIDENCE: high for III–V continuity; medium-low for
+                        direct VI continuity.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record">
+                <div class="record-top">
+                    <span>DSR-003</span>
+                    <span>ANIMATION</span>
+                    <span>SEP 2026</span><span class="status-pill status-confirmed">CONFIRMED</span>
+                </div>
+
+                <h2>"Over 600,000 animations" — a content figure, not a runtime metric</h2>
+
+                <p>
+                    Rockstar gave three totals to the New York Times: &gt;600,000
+                    (GTA VI), ~300,000 (RDR2), ~55,000 (GTA V). The widely
+                    circulated "11×" is newsroom arithmetic, not a studio figure.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: Rockstar Games to The New York Times, 27 Aug 2026,
+                        via TechRadar / GameSpot / GamesIndustry.biz; de-mythed by
+                        gta6-life (29 Aug 2026). OBSERVATION: three totals only;
+                        Rockstar gave no ratio; 600,000 ÷ 55,000 = 10.9. Aaron
+                        Garbut: "We art-directed each individual one of them." A
+                        dedicated Los Angeles NPC team exists. CONTEXT: Rob Nelson
+                        links density to headcount ("our team has doubled in
+                        size"). INFERENCE: a >10× content multiplier with an
+                        explicitly authored character shows the generational
+                        budget going into content volume. ALTERNATIVES: the figure
+                        may count transitions, variants or blend nodes rather than
+                        distinct clips. LIMITATIONS: ">600,000" is a floor, not a
+                        count; Rockstar has not defined what counts as one
+                        animation; the NPC/lead split is unknown; authored count
+                        is not a runtime performance metric and must not be
+                        converted into an animation-system claim. CONFIDENCE: high
+                        for the numbers as statements; medium for
+                        interpretability.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="c">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION C</span>
+            <h2>Historical Technology Timeline</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>GENERATIONAL RECORD — what changed, and what did not</caption>
+                <thead>
+                    <tr><th>Era</th><th>Title / event</th><th>Documented technical development</th><th>Tier</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2001</td>
+                        <td>GTA III</td>
+                        <td>Streaming invented (Fowler with Benzies and Garbut); geometry and textures streamed from disc; collisions, animations and world descriptions resident in memory; built by rewriting chunks of RenderWare</td>
+                        <td><span class="status-pill status-reported">2</span></td>
+                    </tr>
+                    <tr>
+                        <td>2002</td>
+                        <td>Angel Studios acquired</td>
+                        <td>AGE (Angel Game Engine) acquired with the studio and later renamed to RAGE</td>
+                        <td><span class="status-pill status-speculation">5</span></td>
+                    </tr>
+                    <tr>
+                        <td>2004–06</td>
+                        <td>RenderWare exit; RAGE created</td>
+                        <td>EA acquires Criterion; Rockstar opens the RAGE Technology Group. First RAGE title: Table Tennis (2006)</td>
+                        <td><span class="status-pill status-speculation">5</span></td>
+                    </tr>
+                    <tr>
+                        <td>2008</td>
+                        <td>GTA IV</td>
+                        <td>First Rockstar title with Euphoria (Dynamic Motion Synthesis); integrated into RAGE at source level</td>
+                        <td><span class="status-pill status-speculation">5</span></td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>Red Dead Redemption</td>
+                        <td>Second Euphoria title</td>
+                        <td><span class="status-pill status-speculation">5</span></td>
+                    </tr>
+                    <tr>
+                        <td>2013</td>
+                        <td>GTA V</td>
+                        <td>"Everything in a streaming state," including AI nav mesh; ~55,000 animations (per Rockstar, 2026); some GTA III-era code possibly survives</td>
+                        <td><span class="status-pill status-reported">2</span></td>
+                    </tr>
+                    <tr>
+                        <td>2018</td>
+                        <td>RDR2</td>
+                        <td>Newly evolved RAGE; proper TAA; first per-object motion blur in Rockstar history; native 4K on Xbox One X; ~300,000 animations; RAGE animation-update judder persists</td>
+                        <td><span class="status-pill status-observed">3</span></td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>Network intrusion disclosed</td>
+                        <td>Take-Two 8-K: unauthorised access to confidential information "including early development footage for the next Grand Theft Auto"</td>
+                        <td><span class="status-pill status-reported">2</span></td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td>GTA V Enhanced</td>
+                        <td>Ray-traced reflections added — read by analysts as a trial run for GTA VI; constrained by a non-PBR asset pipeline</td>
+                        <td><span class="status-pill status-observed">3</span></td>
+                    </tr>
+                    <tr>
+                        <td>2025–26</td>
+                        <td>GTA VI</td>
+                        <td>RTGI + RT reflections; ground-up PBR; strand hair including NPCs; &gt;600,000 animations; dedicated NPC team; SSD near-instant loads; locked 30fps on all consoles; two delays to 19 Nov 2026</td>
+                        <td><span class="status-pill status-confirmed">1–3</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            <strong>Continuity answers.</strong> <em>Streaming:</em> architecturally
+            continuous (III→V confirmed, VI inferred). <em>Animation:</em> content
+            massively expanded; the update loop appears unchanged in character —
+            the judder artefact survives V→RDR2→VI. <em>Character physics:</em>
+            historically Euphoria; unknown for VI. <em>Rendering:</em> the one
+            domain with a documented break — PBR pipeline plus ray tracing.
+        </p>
+
+    </div>
+</section>
+
+<section class="section" id="d">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION D</span>
+            <h2>Evidence Registry</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>Structured record of sources — and what each actually establishes</caption>
+                <thead>
+                    <tr><th>ID</th><th>Source</th><th>Tier</th><th>What it establishes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>EV-01</td><td>Take-Two 8-K, 19 Sep 2022</td><td>2</td><td>Verbatim: unauthorised access and download of confidential information "including early development footage for the next Grand Theft Auto"; services unaffected; "Work on the game will continue as planned"; no anticipated long-term effect on timelines</td></tr>
+                    <tr><td>EV-02</td><td>MCV/Develop, 5 Oct 2013 (Fowler, Hooker)</td><td>2</td><td>Streaming as "backbone of everything we do"; GTA III vs V streaming scope; AI nav mesh streamed; Euphoria/Scaleform/Bink the only external tools; RenderWare rewrite</td></tr>
+                    <tr><td>EV-03</td><td>Digital Foundry, Trailer 2, 8 May 2025</td><td>3/5</td><td>20:9 letterbox; base-PS5 capture note; internal 2560×1152; FSR-1-like upscaler inference; RTGI light-bounce reading; cutscene-heavy</td></tr>
+                    <tr><td>EV-04</td><td>Digital Foundry, Extended Look, 28 Aug 2026</td><td>3/5</td><td>30fps target; strand hair with secondary motion; shadow-map shadows; trade-offs in image quality and animation smoothness rather than systemic scale <em>(article truncated in this revision)</em></td></tr>
+                    <tr><td>EV-05</td><td>Digital Foundry, vs GTA 5 Enhanced, 2 Sep 2026</td><td>3/5</td><td>"Step change" for RAGE; ground-up PBR; RT reflections in GTA V EE as a trial; animation-update judder continuity V→RDR2→VI</td></tr>
+                    <tr><td>EV-06</td><td>Digital Foundry, 63 screenshots, 24 Jun 2026</td><td>3/5</td><td>RT reflections across surfaces; SSR likely retained as fallback; transparent-surface ray tracing. Press assets — real-time status unestablished</td></tr>
+                    <tr><td>EV-07</td><td>Digital Foundry, 60fps realism, 28 Aug 2026</td><td>3/5</td><td>Nelson→30fps via Flow Games; 48,242-frame scan; tighter 30fps lock than any predecessor; consistent frame-pacing</td></tr>
+                    <tr><td>EV-08</td><td>Digital Foundry, RDR2 analysis, 25 Oct 2018</td><td>3/5</td><td>TAA and per-object motion blur as Rockstar firsts; native 4K on Xbox One X <em>(truncated in this revision)</em></td></tr>
+                    <tr><td>EV-09</td><td>PlayStation.Blog, 24 Jun 2026 (Mary Yee, SIE)</td><td>1</td><td>Official: PS5 SSD → "near-instant load times"; Tempest 3D AudioTech; DualSense haptics, adaptive triggers, speaker; Ultimate Edition; pre-orders 25 Jun</td></tr>
+                    <tr><td>EV-10</td><td>Rockstar → The New York Times, 27 Aug 2026</td><td>5→1</td><td>Three animation totals only; no ratio given; dedicated NPC team; Garbut: "We art-directed each individual one of them"</td></tr>
+                    <tr><td>EV-11</td><td>Rob Nelson → IGN / Flow Games, 27–28 Aug 2026</td><td>5→1</td><td>Density as "an exciting challenge"; team doubled in size; RDR2 cited as the origin of the ambition; 30fps</td></tr>
+                    <tr><td>EV-12</td><td>Wikipedia, RAGE</td><td>5</td><td>Engine lineage AGE→RAGE; RAGE Technology Group; middleware list (Bink, Bullet, Euphoria); platform list</td></tr>
+                    <tr><td>EV-13</td><td>Wikipedia, Euphoria</td><td>5</td><td>Dynamic Motion Synthesis mechanism; Rockstar adoption order; integrated into RAGE source; 2017 licensing halt</td></tr>
+                    <tr><td>EV-14</td><td>Wikipedia, GTA VI</td><td>5</td><td>Credits (Nelson, Garbut, Humphries, Wiafe); RAGE; PS5 + Xbox Series X/S; 19 Nov 2026; dev began after 2018; teams doubled; Feb 2022 confirm; Dec 2023 reveal; two delays; 2022 and 2026 leaks</td></tr>
+                    <tr><td>EV-15</td><td>gta6-life, 29 Aug 2026</td><td>5</td><td>De-mythologises "11×": 10.9 is newsroom arithmetic, not Rockstar's; caveats on the 600k figure</td></tr>
+                    <tr><td>EV-16</td><td>gamegpu, 8 Sep 2026</td><td>6</td><td>Community count of 102 characters in one promotional frame (61 rooftop + 41 street)</td></tr>
+                    <tr><td>EV-17</td><td>GamesRadar+, 27 Aug 2026</td><td>5</td><td>IO Interactive AI programmer: "at least 10 years ahead"; "every character is simulated individually"</td></tr>
+                    <tr><td>EV-18</td><td>Insider Gaming, 24 Jun 2026</td><td>5</td><td>Reading of the PS5 blog for next-to-no loading screens; physical editions ship download codes, not discs</td></tr>
+                    <tr><td>EV-19</td><td>GDC Vault — "The Sound of Grand Theft Auto V" (Alastair MacGregor, Rockstar North, GDC 2014)</td><td>1/3</td><td>Primary talk record: audio approaches "building on and evolving" RDR and GTA IV, plus real-time synthesis and DSP; speaker and abstract confirmed</td></tr>
+                    <tr><td>EV-20</td><td>4Gamer.net report of the GDC 2014 audio talk, 21 Mar 2014</td><td>3</td><td>RAGE Audio name and GTA IV lineage; GTA V BGM/dialogue 2× and metadata 4× over IV while wave memory stayed ~unchanged; Synthetic Audio Tool (real-time SFX synthesis to minimise memory load); 949 static ambient SFX zones vs ~86 in IV</td></tr>
+                    <tr><td>EV-21</td><td>Obbe Vermeij blog, Nov 2023 (ex-Rockstar North Technical Director; preserved via archive.org and GitHub gist after removal)</td><td>2</td><td>Primary developer testimony: GTA III streaming was "the hardest technical challenge," coded by Adam Fowler, covering map, vehicles, peds, SFX, music and scripts; CD track-layout optimisation; hidden 5–10% air-resistance zones where streaming could not cope; Portland strip redesigned; table-driven cyclic weather scheduler with script overrides; III/VC/SA network games scrapped, IV first shipped</td></tr>
+                    <tr><td>EV-22</td><td>Game Maker's Toolkit, "How Rockstar fit an entire city into PlayStation 2 memory," 7 May 2026 (Mark Brown)</td><td>3/4</td><td>Independent reconstruction: PS2 DVD 4.7GB at 5–6MB/s vs 32MB RAM at 3.2GB/s; Liberty City ≈130MB (77MB models + 45MB textures); Portland 600+ unique models; sector-plus-player-square streaming; VC altitude-LOD for helicopters; SA countryside spacing as a streaming device; GTA IV roadworks on Algonquin's longest road as the same speed-mitigation pattern</td></tr>
+                    <tr><td>EV-23</td><td>Rockstar Senior Engine Programmer listing, Edinburgh (via Built In; removed 9 May 2025)</td><td>1</td><td>Employer-authored scope of the Engine team: memory management, streaming game data, population systems, LOD, scene management, scripting engine; multithreading and streaming as required experience; brief cites "rapid player movement, limited system memory" as the design condition</td></tr>
+                    <tr><td>EV-24</td><td>Game Informer cover story, 29 Sep 2026 (co-promoted by Rockstar Newswire)</td><td>1/5</td><td>Weather "re-engineered… much more localized and persistent"; Owen Shepherd (VP art for lighting and rendering) quotes on dynamic cloudscapes, wind occlusion, wet-surface persistence; 170+ animal species; Heat system; six named regions; map 2× GTA V; hurricanes confirmed, frequency declined</td></tr>
+                    <tr><td>EV-25</td><td>IGN roundup of the Game Informer story, 29 Sep 2026</td><td>5</td><td>Aaron Garbut: "Normally you compromise scale for detail or detail for interaction… this project we went the other way — everything is dialed up"; NPC body variation; area-appropriate contextual clothing (Kane)</td></tr>
+                    <tr><td>EV-26</td><td>Digital Foundry, Extended Look analysis, 28 Aug 2026 (full text recovered this pass)</td><td>3</td><td>Extended Look reads as 1440p native on base PS5 without DRS and without FSR2/TAAU — a spatial upscale to 4K; possible limited cutscene-specific RT shadows in close-ups; 30fps video master distributed to Netflix/YouTube; higher frame rates reported as a post-launch consideration</td></tr>
+                    <tr><td>EV-27</td><td>Digital Foundry, "Is 60FPS Actually Realistic?", 28 Aug 2026</td><td>3</td><td>33.3ms cadence "maintained with care"; CPU and GPU "fully saturate the hardware"; 16.7ms "no way… without compromising the world"; 60fps framed as a PS6/next-Xbox prospect; fidelity-over-performance identified as the series' 3D-era pattern</td></tr>
+                    <tr><td>EV-28</td><td>PureXbox relay of Digital Foundry, 28 Aug 2026</td><td>5→3</td><td>Direct DF quotations: resolution fixed at 1440p; a single dropped frame "breaks the illusion"; capture shows "no way to regain enough… frames to hit 16.7ms… without compromising the world"</td></tr>
+                    <tr><td>EV-29</td><td>Digital Foundry, "Missing Ferris Wheel Reflection," 19 Jun 2026</td><td>3</td><td>Hybrid RT-plus-SSR confirmed by direct observation; BVH object-exclusion (reflections via a manually managed BVH excluding non-essential objects) as the explanation for the missing Ferris wheel reflection; RT water reflection brighter than the source object because AO and shadowing are not carried over; no SSR occlusion artifacts but a subtle SSR cut-off at screen edge</td></tr>
+                    <tr><td>EV-30</td><td>Digital Foundry, "Visuals Evolved — GTA 6 vs GTA V Enhanced," 2 Sep 2026</td><td>3</td><td>Generational jump as "a reflection of a generation or two beyond"; visible judder from GTA V → RDR2 → GTA VI described as ending "for the first time ever in gameplay"; lighting as "the technical bridge" the RT upgrade had been building toward; hair/clothing/skin lighting contrasted as generational</td></tr>
+                    <tr><td>EV-31</td><td>GTA BOOM relay of DF Series S outlook, 12 May 2025</td><td>5→4</td><td>Reported Series S RAM constraints "may cause Rockstar to disable ray-traced features"; resolution "may settle on 720p" on Series S — conditional, reported rather than confirmed</td></tr>
+                    <tr><td>EV-32</td><td>WhenGTA6 source-verified guide, 1 Sep 2026</td><td>5</td><td>No official install or download size announced as of that date; pre-orders begin 12 Nov 2026; official physical Standard Edition shown as disc-less code with box and physical map; PC platform unannounced (source guide corroborates EV-18 independently)</td></tr>
+                    <tr><td>EV-33</td><td>MCV/Develop "Inside Rockstar North" Parts 1 and 4, 3–7 Oct 2013</td><td>2</td><td>Danny Bowden quotes Leslie Benzies on a three-protagonist idea for San Andreas rejected "from a tech point of view… that's three times as much memory, three types of animation"; Aaron Garbut on the map-first pipeline: geography before architecture, six-to-eight-person pre-production for 9–12 months, street-level research (pre-Google Street View), ~150 artists on V, area ownership model</td></tr>
+                    <tr><td>EV-34</td><td>IGN, Mashable and Game Informer platform listings vs a Kotaku newsletter, 2026</td><td>5</td><td>Conflicting platform reporting: IGN/Mashable/GI list PS5 and Xbox Series X|S with no PC line; a Kotaku product copy states "Grand Theft Auto VI — PlayStation 5, Xbox, and PC"</td></tr>
+                    <tr><td>EV-35</td><td>GTA6Session session guide, 2 Jul 2026</td><td>6</td><td>GTA Online runs peer-to-peer hosted by one player's console with 30-player sessions (16 on PS3/360); cites court filings reported by Insider Gaming for ≥32-player GTA VI Online sessions — the filing itself not read; treat as unverified</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="classified-notice">
+            NOT OBTAINABLE IN THIS PASS: Rockstar Newswire delay post (JavaScript-rendered,
+            empty response); Rockstar GDC audio talk (exceeded fetch size limit);
+            Rockstar support platform page (timeout — platform facts instead sourced
+            to Wikipedia and the SIE blog).
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="e">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION E</span>
+            <h2>Observation Registry</h2>
+        </div>
+
+        <p>What can be directly seen or measured, before any interpretation.</p>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>OBS-01</h4><p>Extended Look master is 30fps; 48,242 frames scanned; near-locked with consistent frame-pacing.</p></div>
+            <div class="detail"><h4>OBS-02</h4><p>Trailer 2 internal render ≈ 2560×1152 in a ~20:9 letterbox; trailer text indicates base-PS5 capture.</p></div>
+            <div class="detail"><h4>OBS-03</h4><p>Reflections contain information absent from screen space — vehicle undersides visible in puddles; transparent surfaces both reflect and transmit.</p></div>
+            <div class="detail"><h4>OBS-04</h4><p>Indirect light bounce from vehicle lights colours surrounding walls in low light.</p></div>
+            <div class="detail"><h4>OBS-05</h4><p>Strand-based hair with secondary motion (base-to-tip, delayed follow-through, snap-back) on leads and many NPCs.</p></div>
+            <div class="detail"><h4>OBS-06</h4><p>Sun and most local shadows are shadow-map based with variable penumbra; minor, subdued close-up aliasing.</p></div>
+            <div class="detail"><h4>OBS-07</h4><p>102 characters counted in one promotional frame — 61 on a rooftop terrace, 41 pedestrians below.</p></div>
+            <div class="detail"><h4>OBS-08</h4><p>GTA V Enhanced ray-traced reflections read as "off" because the title lacks a PBR materials pipeline.</p></div>
+            <div class="detail"><h4>OBS-09</h4><p>The RAGE animation-update judder is present in GTA VI gameplay — the first time it has been seen in gameplay rather than cutscenes.</p></div>
+            <div class="detail"><h4>OBS-10</h4><p>Physical GTA VI editions ship download codes, not discs.</p></div>
+            <div class="detail"><h4>OBS-11</h4><p>DF Extended Look reads 1440p native on base PS5 with no dynamic resolution scaling and no evidence of FSR2 or TAAU — the 4K output comes from a spatial upscale (EV-26).</p></div>
+            <div class="detail"><h4>OBS-12</h4><p>The Vice City pier Ferris wheel is absent from its water reflection while the surrounding buildings appear — an object-excluded RT reflection, not a disabled effect (EV-29).</p></div>
+            <div class="detail"><h4>OBS-13</h4><p>RT water reflections read brighter than the source objects (AO and shadowing not carried over); no SSR-style occlusion artifacts, but a subtle SSR cut-off at the screen edge (EV-29).</p></div>
+            <div class="detail"><h4>OBS-14</h4><p>Weather is visibly localized: bright sun in one area with a downpour in the distance; puddles persist after storms pass; rainbows appear after showers (Game Informer, 29 Sep 2026).</p></div>
+            <div class="detail"><h4>OBS-15</h4><p>GTA V shipped 949 static ambient SFX zones against ~86 in GTA IV, with BGM/dialogue 2× and metadata 4× over IV while wave memory stayed approximately unchanged (GDC 2014 report).</p></div>
+            <div class="detail"><h4>OBS-16</h4><p>GTA III placed hidden 5–10% air-resistance zones where streaming could not cope and obstructed Portland's main strip; GTA IV placed roadworks along Algonquin's longest road (Vermeij 2023; GMTK 2026).</p></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="f">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION F</span>
+            <h2>Inference Registry</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>Conclusions drawn from evidence — with the reasoning exposed</caption>
+                <thead>
+                    <tr><th>#</th><th>Inference</th><th>Why it follows</th><th>Strength</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>F1</td><td>GTA VI uses RTGI and RT reflections</td><td>Reflection content impossible in screen space; two independent DF passes; GTA V EE precedent</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F2</td><td>RT shadows largely dropped as a budget trade</td><td>2023 DF reading plus observed shadow-map shadows in 2026 material</td><td><span class="status-pill status-inferred">MEDIUM</span></td></tr>
+                    <tr><td>F3</td><td>A modern PBR pipeline, built ground-up</td><td>DF wording; explicit contrast with GTA V EE's non-PBR constraint</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F4</td><td>A strand/segment hair system</td><td>Base-to-tip motion, follow-through and snap-back are difficult to fake with cards</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F5</td><td>SSR retained as an RT fallback</td><td>Analyst forward-looking statement about coverage gaps</td><td><span class="status-pill status-inferred">MEDIUM</span></td></tr>
+                    <tr><td>F6</td><td>Streaming architecture continuous III→VI</td><td>Single architect's on-record account; the SSD removes the original constraint</td><td><span class="status-pill status-inferred">MED-HIGH</span></td></tr>
+                    <tr><td>F7</td><td>Radius/priority residency for world assets</td><td>Hooker's description of "the immediate area around the player"</td><td><span class="status-pill status-inferred">MEDIUM</span></td></tr>
+                    <tr><td>F8</td><td>Density-protected, frame-rate-spent design</td><td>Trade-offs landed in image quality and animation smoothness "rather than systemic scale or fidelity"</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F9</td><td>Tiered NPC simulation</td><td>Only architecturally viable model at shown densities; consistent with Rockstar framing density as "a challenge"</td><td><span class="status-pill status-inferred">MEDIUM</span></td></tr>
+                    <tr><td>F10</td><td>Authored + procedural + physically-driven animation blend</td><td>600k authored clips, the Euphoria lineage, and hair dynamics together</td><td><span class="status-pill status-inferred">MEDIUM</span></td></tr>
+                    <tr><td>F11</td><td>CPU — not GPU or storage — is the current binding constraint</td><td>A uniform 30fps target across a wide GPU spread; analyst consensus on CPU limits</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F12</td><td>Content volume is a deliberate generational strategy</td><td>&gt;10× animation content, a dedicated team, and doubled headcount</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F13</td><td>RT reflections are configured per-object for cost management</td><td>A single object missing from an otherwise intact reflection, with the surrounding scene present (EV-29)</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                    <tr><td>F14</td><td>Audio content growth has historically been absorbed by synthesis, not memory</td><td>2×/4× content over IV on ~flat wave memory, with a purpose-built synthesis tool "to minimise memory load" (EV-19/20)</td><td><span class="status-pill status-inferred">MEDIUM</span></td></tr>
+                    <tr><td>F15</td><td>Rockstar has repeatedly masked streaming limits with gameplay-level countermeasures</td><td>Documented independently in III (drag zones, strip redesign) and IV (roadworks) (EV-21/22)</td><td><span class="status-pill status-observed">MED-HIGH</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="g">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION G</span>
+            <h2>Hypothesis Registry</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>Technically plausible explanations that remain unconfirmed</caption>
+                <thead>
+                    <tr><th>#</th><th>Hypothesis</th><th>Basis</th><th>Would be falsified by</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>H1</td><td>GTA VI retains Euphoria, or a descendant/fork, for behavioural character animation</td><td>Historical source-level integration into RAGE; a licensing halt does not imply removal</td><td>Rockstar crediting a different behaviour system, or technical credits with no NaturalMotion involvement</td></tr>
+                    <tr><td>H2</td><td>A tiered level-of-detail simulation scheduler drives crowd density</td><td>Architectural necessity at 102-character frames</td><td>Evidence of uniform full-fidelity simulation at extreme distance</td></tr>
+                    <tr><td>H3</td><td>Ray tracing uses a software + hardware hybrid</td><td>A 2023 analyst inference, relayed second-hand</td><td>A technical talk describing a single-mode RT pipeline</td></tr>
+                    <tr><td>H4</td><td>Strand hair and NPC detail reduce with distance</td><td>DF's own forward-looking caveat</td><td>Screenshots or gameplay showing uniform hair fidelity at distance</td></tr>
+                    <tr><td>H5</td><td>Omitting RT shadows is a deliberate CPU/GPU budget decision</td><td>Concurrent RTGI and RT-reflection cost on base consoles</td><td>A shipped RT-shadow mode on current-gen hardware</td></tr>
+                    <tr><td>H6</td><td>"Near-instant loads" implies aggressive streaming and pre-load design, not an absence of streaming</td><td>Streaming is architecturally invariant, so it cannot simply be removed</td><td>Evidence of a fully resident, non-streamed world model</td></tr>
+                    <tr><td>H7</td><td>GTA VI retains gameplay-level streaming mitigations (speed-gated geometry, layout-induced slowdown) observable on open highways</td><td>The III drag-zone and IV roadworks pattern is independently documented twice (EV-21/22); Florida's long straights invite high-speed traversal</td><td>Unrestricted top-speed driving across the full map with no streaming artifacts at design limits</td></tr>
+                    <tr><td>H8</td><td>Spawn, density and LOD are one engine subsystem sharing a single population budget</td><td>The Engine team's job brief lists population systems and LOD under one ownership (EV-23)</td><td>Separate gameplay teams owning spawn logic, or a 2025 org chart that does not describe the VI-era structure</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="h">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION H</span>
+            <h2>Assumption Registry</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>Explicit premises required to construct the model — none are evidence</caption>
+                <thead>
+                    <tr><th>#</th><th>Assumption</th><th>Why it is needed</th><th>Standing</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>A1</td><td>Marketing and press assets broadly represent shipping-GTA-VI technology direction</td><td>They are the only pre-release visual evidence</td><td><span class="status-pill status-speculation">ASSUMPTION</span> — assets may be curated or cutscene-biased; analysts flag exactly this</td></tr>
+                    <tr><td>A2</td><td>The 600,000 figure counts authored animation assets</td><td>Best reading of "art-directed each individual one"</td><td><span class="status-pill status-speculation">ASSUMPTION</span> — Rockstar never defined the term</td></tr>
+                    <tr><td>A3</td><td>Independent pixel and frame analysis is methodologically sound</td><td>It is the only independent technical analysis available</td><td><span class="status-pill status-speculation">ASSUMPTION</span> — accepted methodological trust</td></tr>
+                    <tr><td>A4</td><td>Historical RAGE continuity extends to GTA VI where no contrary evidence exists</td><td>Needed to construct any historical model at all</td><td><span class="status-pill status-speculation">ASSUMPTION</span> — explicitly non-probative</td></tr>
+                    <tr><td>A5</td><td>Secondary relays of Rockstar quotes reproduce them accurately</td><td>The primary text sits behind paywalls</td><td><span class="status-pill status-speculation">ASSUMPTION</span> — multiple independent relays agree</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="i">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION I</span>
+            <h2>Contradiction Registry</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>Conflicting evidence and competing interpretations — treated explicitly, not silently resolved</caption>
+                <thead>
+                    <tr><th>#</th><th>Conflict</th><th>Sources</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>I1</td><td>"11× GTA V" versus what Rockstar actually said</td><td>ComicBook/TechRadar headlines vs gta6-life's arithmetic</td><td><span class="status-pill status-disproven">RESOLVED — DISPROVEN</span> as a Rockstar figure; 10.9 is newsroom division</td></tr>
+                    <tr><td>I2</td><td>RAGE middleware composition</td><td>Wikipedia lists Bullet; the 2013 MCV interview names only Euphoria, Scaleform and Bink</td><td><span class="status-pill status-unresolved">UNRESOLVED</span> — RAGE's rigid-body solver cannot be named</td></tr>
+                    <tr><td>I3</td><td>"Twice RDR2" versus "over 10× GTA V"</td><td>Same three numbers, different framings</td><td><span class="status-pill status-confirmed">RESOLVED</span> — both true (2.0× and 10.9×); the divergence is rhetorical</td></tr>
+                    <tr><td>I4</td><td>"Animations" versus "unique animations"</td><td>NYT relay says "animations"; one outlet says "unique animations"</td><td><span class="status-pill status-unresolved">UNRESOLVED</span> — the "unique" qualifier appears to be a reporting embellishment</td></tr>
+                    <tr><td>I5</td><td>Curated screenshot fidelity versus gameplay fidelity</td><td>63 showcase screenshots versus repeated analyst caution</td><td><span class="status-pill status-unresolved">UNRESOLVED BY DESIGN</span> — press assets; cutscene shots permit extra lighting</td></tr>
+                    <tr><td>I6</td><td>"Every character is simulated individually" versus the 30fps budget reality</td><td>IO Interactive programmer versus the documented density/frame-rate trade-off</td><td><span class="status-pill status-unresolved">UNRESOLVED</span> — "simulated" is undefined; likely stateful, not full-fidelity</td></tr>
+                    <tr><td>I7</td><td>PC at launch versus console-only</td><td>A Kotaku product copy says "PS5, Xbox, and PC"; IGN, Mashable and Game Informer list console only (EV-34)</td><td><span class="status-pill status-unresolved">UNRESOLVED</span> — specific platform listings weigh against PC; official Rockstar store is authoritative and unread</td></tr>
+                    <tr><td>I8</td><td>Temporal upscaler in Trailer 2 versus spatial upscale in the Extended Look</td><td>Trailer 2 footage read as FSR-1-like (2560×1152) versus DF's 1440p-spatial reading with no temporal upscaler (EV-26)</td><td><span class="status-pill status-unresolved">UNRESOLVED</span> — pre-release assets may use different pipelines; re-check at launch with retail captures</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="j">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION J</span>
+            <h2>Unknowns</h2>
+        </div>
+
+        <p>Important questions that cannot currently be answered from public evidence.</p>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>UNK-01</h4><p>Any CPU, GPU, memory, VRAM, streaming or simulation budget for any Rockstar title.</p></div>
+            <div class="detail"><h4>UNK-02</h4><p>Runtime entity counts, simulation frequencies, or AI tick rates.</p></div>
+            <div class="detail"><h4>UNK-03</h4><p>Whether NPC simulation is tiered, and measured by what metric.</p></div>
+            <div class="detail"><h4>UNK-04</h4><p>Whether Euphoria or a successor is used in GTA VI.</p></div>
+            <div class="detail"><h4>UNK-05</h4><p>RAGE's rigid-body solver, job system, threading model, memory manager, and entity model.</p></div>
+            <div class="detail"><h4>UNK-06</h4><p>GTA VI's LOD scheme, whether virtualized geometry is used, and its streaming algorithm.</p></div>
+            <div class="detail"><h4>UNK-07</h4><p>Audio engine architecture, and its coupling to weather and AI systems.</p></div>
+            <div class="detail"><h4>UNK-08</h4><p>The development tooling stack.</p></div>
+            <div class="detail"><h4>UNK-09</h4><p>Xbox Series S versus Series X differentials — resolution, density, effects quality.</p></div>
+            <div class="detail"><h4>UNK-10</h4><p>Whether a PC version exists or is planned, and how it would scale.</p></div>
+            <div class="detail"><h4>UNK-11</h4><p>The definition of the &gt;600,000 figure, and its split between NPCs and leads.</p></div>
+            <div class="detail"><h4>UNK-12</h4><p>Whether the 102-character frame reflects runtime simulation or authored staging.</p></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="k">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION K</span>
+            <h2>Research Gaps</h2>
+        </div>
+
+        <p>Areas where evidence is insufficient, and the specific next action required.</p>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>GAP-01</h4><p>Read the full Extended Look analysis — truncated here; likely contains geometry, streaming and crowd detail that cannot currently be cited.</p></div>
+            <div class="detail"><h4>GAP-02</h4><p>Read the full 2018 RDR2 analysis — needed for the historical streaming, AI and lighting baseline.</p></div>
+            <div class="detail"><h4>GAP-03</h4><p>Obtain Rockstar's GDC audio talks (GTA V 2014; RDR2) — the only public route into the audio domain.</p></div>
+            <div class="detail"><h4>GAP-04</h4><p>Recover the verbatim Rockstar Newswire delay posts — for exact official wording and stated reasoning.</p></div>
+            <div class="detail"><h4>GAP-05</h4><p>Search Rockstar job postings and technical credits for RAGE, streaming, AI, audio and tooling terminology — the main public window into internals.</p></div>
+            <div class="detail"><h4>GAP-06</h4><p>Locate any Rockstar technical talk from the post-2018 RDR2 and GTA VI era.</p></div>
+            <div class="detail"><h4>GAP-07</h4><p>Establish the provenance of the pre-Extended-Look demo referenced by gta6-life.</p></div>
+            <div class="detail"><h4>GAP-08</h4><p>Trace the hurricane, rainbow and "dynamic weather" claims back to their Rockstar statement of origin.</p></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="l">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION L</span>
+            <h2>Cross-System Analysis</h2>
+        </div>
+
+        <p>
+            The central tension of GTA VI is <strong>density versus
+            frame-rate</strong>, and it is decided in the CPU.
+        </p>
+
+        <div class="evidence-block">
+            HARDWARE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;ENGINE DECISION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;OBSERVABLE RESULT<br>
+            PS5 SSD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;streaming residency model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;"near-instant" loads, no loading screens<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(III-era principle, SSD-scale)<br>
+            RT GPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;RTGI + RT reflections,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;photographic lighting, RT reflections,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SSR fallback, shadow maps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puddles; RT shadows traded away<br>
+            CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;density held constant,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;LOCKED 30fps; 60fps deferred to PS6<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(the unpriced constraint)&nbsp;&nbsp;frame-rate spent instead<br>
+            CONTENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&gt;600k authored animations,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;varied, individually art-directed NPCs<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dedicated NPC team, studio doubled
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">CASCADES</span>
+            <h3>Consequences, exposed</h3>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>1 · Streaming → density</h4><p>Removing storage latency allows more world to be resident or near-resident, permitting the shown densities — and making streaming <em>less visible</em> even as its role increases. Streaming is not removed; it is hidden.</p></div>
+            <div class="detail"><h4>2 · Ray tracing → shadow trade</h4><p>Spending the RT budget on GI and reflections strongly encourages shadows to remain raster/shadow-map based. Ray tracing is therefore selective, not pervasive.</p></div>
+            <div class="detail"><h4>3 · Density + RT → frame-rate</h4><p>Per-pixel indirect light and many simulated, animated entities collide in the same frame budget — producing the fixed 30fps. The clearest evidence that Rockstar chose density over smoothness.</p></div>
+            <div class="detail"><h4>4 · Content volume → memory, not CPU</h4><p>600,000 authored animations is a memory and streaming problem before it is a runtime problem. Its coupling is via animation footprint and streaming, not per-frame cost — which is exactly why it must not be read as a performance claim.</p></div>
+            <div class="detail"><h4>5 · The historical pattern</h4><p>Each generation, the removed constraint (storage → memory → latency) funds scale; the unremoved constraint (CPU simulation and render budget) sets frame-rate. GTA VI is the cleanest instance yet: new storage and RT headroom, same 30fps.</p></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="m">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION M</span>
+            <h2>Technical Evolution Model</h2>
+        </div>
+
+        <p>The strongest evidence-supported account of how the technology evolved.</p>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>PHASE 1 — Invention (2001)</h4><p>Rockstar bets on background streaming of geometry and textures, rewriting chunks of RenderWare. Streaming becomes the engine's spine and the company's core competency.</p></div>
+            <div class="detail"><h4>PHASE 2 — Consolidation (2006–2013)</h4><p>Rockstar builds its own engine on acquired AGE, buys only specialist middleware (Euphoria for character behaviour; Scaleform; Bink), and by GTA V escalates to "everything in a streaming state," including the AI nav mesh.</p></div>
+            <div class="detail"><h4>PHASE 3 — Fidelity push (2018)</h4><p>RDR2 arrives as a "newly evolved RAGE" with modern image-quality tooling (TAA, per-object motion blur) and native 4K on Xbox One X — while preserving legacy update-loop characteristics, the judder.</p></div>
+            <div class="detail"><h4>PHASE 4 — Ray-tracing rehearsal (2025)</h4><p>RT reflections are trialled in GTA V Enhanced on a non-PBR asset base — an architectural dead end the team demonstrably learned from, since GTA VI ships a ground-up PBR pipeline.</p></div>
+            <div class="detail"><h4>PHASE 5 — Generational step (2026)</h4><p>A ground-up PBR title on evolved RAGE, combining RTGI and RT reflections (shadows traded), strand hair, extreme authored density and SSD-scale streaming — all pinned to a locked 30fps because the CPU, not the storage or the GPU, is the binding constraint.</p></div>
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">FALSIFIABILITY</span>
+            <h3>How this model can fail</h3>
+        </div>
+
+        <div class="classified-notice">
+            If a future Rockstar technical talk, or a 60fps mode on current-gen
+            consoles, appears <em>without</em> a documented reduction in density or
+            streaming scope, then the "CPU-bound, density-protected" reading of
+            Phase 5 fails and this model requires revision.
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="synthesis">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">FINAL SYNTHESIS</span>
+            <h2>What the Evidence Defensibly Tells Us</h2>
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">DEMONSTRATED</span>
+            <h3>High confidence</h3>
+        </div>
+
+        <p>
+            Streaming as the invariant architectural spine (documented for III→V;
+            strongly indicated for VI), now riding an SSD that removes its
+            original binding constraint. Ray-traced GI and reflections as the
+            defining rendering shift, with shadows deliberately kept off the RT
+            path. A ground-up PBR pipeline described by the only independent
+            technical analysts as a step change rather than an iteration. An
+            order-of-magnitude content expansion in animation with an explicitly
+            authored, individually art-directed NPC approach, backed by a doubled
+            studio and a dedicated NPC team. A locked 30fps console target across
+            a wide GPU spread, described as a choice to preserve scale.
+        </p>
+
+        <div class="section-heading">
+            <span class="eyebrow">STRONGLY SUGGESTED</span>
+            <h3>Inference grade</h3>
+        </div>
+
+        <p>
+            Selective ray tracing (GI and reflections, not shadows) as a budget
+            decision. Strand-based hair extended to NPCs, with likely distance
+            reduction. Density over frame-rate as an explicit design value. A
+            blended authored, procedural and physically-driven animation model.
+            A streaming architecture whose scope, not concept, has changed.
+        </p>
+
+        <div class="section-heading">
+            <span class="eyebrow">PLAUSIBLE BUT UNPROVEN</span>
+            <h3>Hypothesis grade</h3>
+        </div>
+
+        <p>
+            Continued Euphoria-lineage behavioural physics. Tiered NPC simulation
+            scheduling. Hybrid software and hardware ray tracing. And any
+            statement about RAGE's threading, job system, memory model, audio
+            engine, or tooling.
+        </p>
+
+        <div class="warning-notice">
+            THE BOTTOM LINE: THE PUBLIC EVIDENCE SUPPORTS WHAT ROCKSTAR PRIORITISES, NOT HOW RAGE WORKS.
+        </div>
+
+        <p class="claim">
+            The evidence supports a defensible model of what Rockstar has
+            prioritised — scale, density, authored content, ray-traced lighting,
+            and streaming — and of the constraint it has consistently refused to
+            concede: frame-rate. It does <strong>not</strong> support any claim
+            about Rockstar's internal architecture beyond the streaming-centred
+            picture Rockstar itself described in 2013, and it supports
+            <strong>no</strong> numeric budget of any kind. Domains such as audio,
+            tooling, vehicle simulation, destruction and AI internals are OPEN on
+            public evidence — not merely thin.
+        </p>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">RESEARCH MATRIX</span>
+            <h2>Domain Standing at a Glance</h2>
+        </div>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <caption>No domain is COMPLETE. Only hardware-generation transitions approach completeness, because hardware capability is documented independently of Rockstar's secrecy.</caption>
+                <thead>
+                    <tr><th>Domain</th><th>Documented</th><th>Observable</th><th>Historical</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Rendering &amp; Graphics</td><td>Partial</td><td>Yes</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>World Streaming &amp; Memory</td><td>Yes</td><td>Partial</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Physics &amp; Simulation</td><td>Historical only</td><td>Indirect</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Animation</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>NPC AI &amp; Simulation</td><td>Team only</td><td>Partial</td><td>Partial</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Pedestrian Density</td><td>Claims</td><td>Yes</td><td>Partial</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Vehicle Simulation</td><td>No</td><td>No</td><td>No</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Environmental Systems</td><td>Claims</td><td>Partial</td><td>Partial</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Weather &amp; Atmosphere</td><td>No</td><td>Partial</td><td>Partial</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Destruction</td><td>No</td><td>No</td><td>No</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Audio Technology</td><td>No</td><td>No</td><td>No</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Engine Architecture</td><td>Yes</td><td>—</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Development Tooling</td><td>No</td><td>No</td><td>Partial</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Technical Scalability</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Hardware Transitions</td><td>Yes</td><td>—</td><td>Yes</td><td><span class="status-pill status-confirmed">NEAR-COMPLETE</span></td></tr>
+                    <tr><td>Performance Budgets</td><td>Framerate only</td><td>Yes</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                    <tr><td>Historical Evolution</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="status-pill status-unresolved">OPEN</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="source-cite">
+            EVERY CONCLUSION HERE IS STRUCTURED SO ANOTHER RESEARCHER CAN FIND THE
+            EVIDENCE, EXAMINE THE OBSERVATION, UNDERSTAND THE CONTEXT, FOLLOW THE
+            REASONING, IDENTIFY THE ASSUMPTIONS, SEE COMPETING EXPLANATIONS, AND
+            DETERMINE WHERE THE EVIDENCE ENDS.
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="n">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION N</span>
+            <h2>Coverage Audit &amp; Corrective Findings</h2>
+        </div>
+
+        <p>
+            This pass audited every section against a strict test: does the material
+            introduce evidence, a source, a mechanism, a correction or a
+            counterpoint the corpus did not already contain? Where the audit found a
+            claim the new evidence contradicts or qualifies, the claim is
+            <strong>flagged here and left intact in place</strong> — corrections are
+            registered, not silently rewritten.
+        </p>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>#</th><th>Existing claim</th><th>Problem found</th><th>New evidence</th><th>Corrected interpretation</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CX-1</td><td>DSR-001 / Section L: "RT shadows traded away"</td><td>Stated as a flat exclusion</td><td>DF Extended Look: limited, cutscene-specific RT shadows may be present in close-ups (EV-26)</td><td>General gameplay shadows remain shadow-map based; limited cutscene RT shadows cannot be ruled out</td><td><span class="status-pill status-unresolved">QUALIFIED</span></td></tr>
+                    <tr><td>CX-2</td><td>GAP-03 / GAP-04: GDC audio talk and Newswire "could not be read"</td><td>Access verdict outdated</td><td>GDC abstract read in full (EV-19) plus an independent detailed report (EV-20); Newswire launch-date headline corroborated by many outlets</td><td>Audio talk substantially readable via abstract and report; slides and Newswire body text still unread — gaps stay open, reduced</td><td><span class="status-pill status-confirmed">PARTLY LIFTED</span></td></tr>
+                    <tr><td>CX-3</td><td>EV-18: physical editions ship codes (tier 5)</td><td>Single-source platform claim</td><td>Independent guide shows disc-less code-in-box with physical map (EV-32)</td><td>Code-in-box corroborated by two independent sources; official Rockstar store still unread</td><td><span class="status-pill status-observed">STRENGTHENED</span></td></tr>
+                    <tr><td>CX-4</td><td>UNK-10: no announced PC version</td><td>Conflicting reporting surfaced</td><td>Kotaku product copy says PC at launch; IGN, Mashable and Game Informer say console-only (EV-34)</td><td>No official announcement either way; contradiction logged as I7, not resolved</td><td><span class="status-pill status-unresolved">FLAGGED</span></td></tr>
+                    <tr><td>CX-5</td><td>"Locked 30fps" (DSR and F11)</td><td>Unqualified permanence</td><td>Rockstar's "for now" framing; DF reports post-launch higher-framerate modes as a consideration (EV-26/27)</td><td>30fps is the launch target, not a permanent ceiling; F11 and the evolution model stand</td><td><span class="status-pill status-unresolved">QUALIFIED</span></td></tr>
+                    <tr><td>CX-6</td><td>OBS-02: Trailer 2 at 2560×1152, FSR-1-like upscaler</td><td>Risk of false conflict with the 1440p Extended Look reading</td><td>Two different footage assets measured (EV-1 / EV-26)</td><td>No contradiction — trailer masters and Extended Look captures are separate pipelines; launch re-check logged as I8</td><td><span class="status-pill status-confirmed">NO CONFLICT</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">SOURCE AUDIT</span>
+            <h3>Independence and lineage checks</h3>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>DF concentration risk</h4><p>EV-06/07/10/26/27/29/30 trace to one outlet. Claims are mutually consistent, but no independent lab has published pixel counts, frametime graphs or RT configuration details — one highly expert witness, not seven.</p></div>
+            <div class="detail"><h4>Relay chains</h4><p>EV-28 (PureXbox) and EV-31 (GTA BOOM) relay DF video content; EV-25 relays Game Informer. Relays raise reach, not confidence — confidence follows the original source.</p></div>
+            <div class="detail"><h4>Community corroboration</h4><p>EV-32 and EV-18 are independent guides reaching the same code-in-box conclusion from official imagery — convergent, still tier 5 until the official store page is read.</p></div>
+            <div class="detail"><h4>Primary-source wins</h4><p>EV-21 (Vermeij, ex-Rockstar North technical director) and EV-23 (Rockstar's own job brief) are first-party statements — the strongest additions of this pass, both recovered after the original pages were removed.</p></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="o">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION O</span>
+            <h2>New Domain Findings</h2>
+        </div>
+
+        <p>
+            Eight domains the corpus had absent, thin or marked OPEN now carry
+            first-party or independent material. Each entry states what the new
+            evidence says, what it does not say, and the resulting status — no
+            numeric budgets are inferred, and no leak material is used.
+        </p>
+
+        <div class="detail-grid">
+
+            <div class="detail"><h4>O-1 · Audio architecture</h4><p>RAGE Audio (named in the GDC 2014 report) evolved RDR and GTA IV approaches; GTA V doubled BGM/dialogue and quadrupled metadata over IV while wave memory stayed ~unchanged, using the Synthetic Audio Tool for real-time SFX synthesis "to minimise memory load," across 949 static ambient zones vs ~86 in IV. <span class="status-pill status-confirmed">GAP-03 SUBSTANTIALLY ADDRESSED</span> — talk slides still unread; RDR2/VI audio still unaddressed.</p></div>
+
+            <div class="detail"><h4>O-2 · Engine internals, via hiring</h4><p>Rockstar's own Senior Engine Programmer brief scopes the Engine team: memory management, streaming game data, population systems, LOD, scene management, scripting engine — designed under "rapid player movement, limited system memory." <span class="status-pill status-observed">GAP-05 PARTIALLY CLOSED</span> — subsystem names are employer-authored; runtime design remains unread.</p></div>
+
+            <div class="detail"><h4>O-3 · Weather evolution</h4><p>Vermeij documents a III-era table-driven cyclic scheduler (~40 hourly entries, script overrides for missions). Game Informer (2026): weather "re-engineered… much more localized and persistent," wind occlusion, wet-surface persistence, hurricane frequency declined. <span class="status-pill status-confirmed">GAP-08 CLOSED AS DOMAIN</span> — a documented generational transition from global table to localized simulation.</p></div>
+
+            <div class="detail"><h4>O-4 · Wildlife simulation</h4><p>170+ species with iridescence, bioluminescence, translucency, feather types and fully simulated fur; all-animal auxiliary mode reported. This is a population subsystem class the corpus never modeled. <span class="status-pill status-unresolved">OPEN</span> — simulation depth, spawn logic and memory cost unknown.</p></div>
+
+            <div class="detail"><h4>O-5 · Heat and identification</h4><p>The Heat system gathers evidence on the player "based on their appearance and whereabouts" — extending the wanted model with persistent suspect-description state and appearance-change mechanics. <span class="status-pill status-unresolved">OPEN</span> — relationship to DSR-003's witness-based model unverified; depth unknown.</p></div>
+
+            <div class="detail"><h4>O-6 · Networking lineage</h4><p>Vermeij: III's network game and VC's two-dev version were both scrapped, SA shipped co-op instead, IV shipped with four programmers. GTA Online today is peer-to-peer host-based (EV-35); ≥32-player VI Online sessions reported from court filings — unverified. <span class="status-pill status-unresolved">OPEN</span> — VI Online's model unknown; dedicated-server question loggable.</p></div>
+
+            <div class="detail"><h4>O-7 · Upscaling and image pipeline</h4><p>Extended Look: 1440p native base PS5, no DRS, spatial 4K upscale, no FSR2/TAAU evidence; a soft image has been publicly criticized, with Sony QSSR discussed as a possible fallback. <span class="status-pill status-unresolved">OPEN</span> — launch-day retail captures needed; conflicts with Trailer 2's reading logged as I8.</p></div>
+
+            <div class="detail"><h4>O-8 · Storage and distribution</h4><p>No official install size as of 1 Sep 2026; pre-orders 12 Nov; physical Standard is code-in-box (two independent guides); no PC platform line in specific listings. <span class="status-pill status-unresolved">OPEN</span> — sizes and the disc question resolve only at official store/pre-order publication.</p></div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="p">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION P</span>
+            <h2>Historical Deep Findings</h2>
+        </div>
+
+        <p>
+            Four lineages reconstructed from first-party testimony and independent
+            technical history — the material the corpus's timeline (Section C) was
+            thinnest on. Each record names its sources, its limits, and what it
+            licenses us to ask about GTA VI.
+        </p>
+
+        <div class="record-list">
+
+            <article class="record">
+                <div class="record-top">
+                    <span>HIST-01</span>
+                    <span>STREAMING</span>
+                    <span>III → IV → VI</span><span class="status-pill status-observed">DOCUMENTED</span>
+                </div>
+
+                <h2>Streaming load-shedding as a recurring design technique</h2>
+
+                <p>
+                    When streaming could not keep up, Rockstar has repeatedly
+                    throttled the player rather than the data — with III drag zones,
+                    with IV roadworks, and unknown for VI.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: Vermeij blog (Nov 2023, via archive) and GMTK (7 May
+                        2026), independent of each other. OBSERVATION: III added
+                        hidden 5–10% air resistance in zones where streaming could
+                        not cope, and redesigned Portland's main strip with
+                        obstructing geometry to slow the player; IV placed roadworks
+                        on Algonquin's longest road — GMTK reads both as the same
+                        technique. INFERENCE: gameplay-level countermeasures are a
+                        standing part of Rockstar's streaming toolkit (F15).
+                        ALTERNATIVES: set-dressing coincidence for the roadworks;
+                        Vermeij does not mention them. LIMITATIONS: none of this is
+                        documented for V or VI — extrapolation is hypothesis H7, not
+                        finding. CONFIDENCE: high for III, medium-high for IV.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record">
+                <div class="record-top">
+                    <span>HIST-02</span>
+                    <span>WEATHER</span>
+                    <span>III → VI</span><span class="status-pill status-observed">DOCUMENTED</span>
+                </div>
+
+                <h2>From global weather table to localized persistent simulation</h2>
+
+                <p>
+                    A complete generational transition in one subsystem: a
+                    table-driven global scheduler in 2001 to a re-engineered,
+                    area-specific system in 2026.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: Vermeij "How does the weather work?" (Nov 8 2023)
+                        and Game Informer cover story (29 Sep 2026). OBSERVATION:
+                        III cycled ~40 hourly weather entries from a table, with
+                        hourly transitions and mission script overrides; VI's
+                        weather is "re-engineered… much more localized and
+                        persistent" with sun and rain visible in different areas
+                        simultaneously, wetness surviving storms, and hurricane
+                        frequency reduced for playability. INFERENCE: the
+                        script-override mechanism is the likely ancestor of modern
+                        mission weather authoring. LIMITATIONS: intermediate
+                        generations (IV/V/RDR2) unread; no numeric parameters
+                        known. CONFIDENCE: high for the two endpoints.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record">
+                <div class="record-top">
+                    <span>HIST-03</span>
+                    <span>NETWORKING</span>
+                    <span>III → IV → VI</span><span class="status-pill status-inferred">PARTIAL</span>
+                </div>
+
+                <h2>Multiplayer's failed prehistory and the persistence of P2P</h2>
+
+                <p>
+                    Three networked attempts were scrapped before GTA IV shipped
+                    multiplayer; the P2P architecture behind GTA Online may
+                    therefore be a twenty-year default, not a fresh decision.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: Vermeij network-game post (via gist archive);
+                        GTA6Session and perjel.hu on GTA Online's current
+                        architecture (tier 5-6). OBSERVATION: III's network game
+                        was built and dropped; VC's two-developer version likewise;
+                        SA shipped network co-op only; IV shipped full multiplayer
+                        after four programmers plus level designers were assigned;
+                        GTA Online today is host-P2P with 30-player sessions.
+                        INFERENCE: matchmaking and bandwidth constraints plus
+                        "bug avalanche" were the recurring blockers. OPEN: whether
+                        VI Online moves to dedicated servers — reported 32-plus-player
+                        sessions cite court filings never read here. CONFIDENCE:
+                        high for history, low for VI-era architecture.
+                    </p>
+                </div>
+            </article>
+
+            <article class="record">
+                <div class="record-top">
+                    <span>HIST-04</span>
+                    <span>MEMORY</span>
+                    <span>SA → V → VI</span><span class="status-pill status-observed">DOCUMENTED</span>
+                </div>
+
+                <h2>Content growth is always paid for somewhere</h2>
+
+                <p>
+                    Rockstar staff have twice described rejecting or absorbing
+                    content growth because of memory cost — the historical context
+                    for VI's animation and wildlife explosion.
+                </p>
+
+                <button class="expand">VIEW ANALYSIS +</button>
+
+                <div class="record-details">
+                    <p>
+                        SOURCE: MCV "Inside Rockstar North" (Oct 2013); GDC 2014
+                        audio report; Vermeij on SA budgets. OBSERVATION: Benzies
+                        rejected a three-protagonist San Andreas "from a tech point
+                        of view… three times as much memory, three types of
+                        animation" — five years before V shipped three; SA's
+                        countryside was spaced to serve streaming; GTA V's audio
+                        doubled content on flat wave memory via synthesis.
+                        INFERENCE: fixed budgets are met by technique (synthesis,
+                        spacing, LOD), not by scaling memory with content — the
+                        pattern F14 identifies. LIMITATIONS: no VI-era budget
+                        statement exists; 600k animations and 170 species have no
+                        published memory figures. CONFIDENCE: high for history,
+                        none for VI numbers.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="q">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION Q</span>
+            <h2>Failure Modes, Edge Cases &amp; Negative Evidence</h2>
+        </div>
+
+        <p>
+            What goes wrong, what nearly goes wrong, and what is absent. The audit
+            found the original corpus strong on positive claims and thin on the
+            places where the technology shows its seams — or refuses to show up
+            at all.
+        </p>
+
+        <div class="detail-grid">
+
+            <div class="detail"><h4>FM-1 · Streaming outrun (III-era, systematic)</h4><p>Player travels faster than data arrives: late geometry, missing collision, falls through the world. Documented mitigations: drag zones, strip redesign, CD layout optimization (EV-21/22). The original failure mode of the whole open-world genre — and the reason streaming never disappears (H6).</p></div>
+
+            <div class="detail"><h4>FM-2 · Reflection object exclusion (VI, observable)</h4><p>The Ferris wheel missing from the water while its neighbors appear: a BVH flag excluding a non-essential object to protect frame time (EV-29). Not a bug — a budget decision rendered visible. Isolated: every other reflection in the shot is intact. Systematic would be an effect absent from whole categories of scene.</p></div>
+
+            <div class="detail"><h4>FM-3 · RT reflection quality floor (VI, observable)</h4><p>Reflections are noisy and smeared under scrutiny — DF's still-frame comparisons find SSR "clearly superior" for static shots; RT wins on movement, accuracy and coverage. Brightness of reflections without AO/shadow carryover (OBS-13) is a second quality seam.</p></div>
+
+            <div class="detail"><h4>FM-4 · Cadence vulnerability (VI, measured)</h4><p>33.3ms is "maintained with care" with both CPU and GPU fully saturating; a single dropped frame breaks the 30fps illusion, and DF reports visible judder entering gameplay for the first time in the series (EV-27/30). The mode closest to the edge is fidelity, not performance.</p></div>
+
+            <div class="detail"><h4>FM-5 · Soft output without temporal upscaling (VI, reported)</h4><p>1440p base with a spatial upscale produces a softer image than competitors using temporal solutions — publicly criticized, with QSSR discussed as a possible launch fallback (EV-26). Edge case: pre-release captures may not represent launch pipeline; re-check logged as I8.</p></div>
+
+            <div class="detail"><h4>FM-6 · Measurement artifacts (research, meta)</h4><p>The original DF 30fps analysis used a 30fps video master — a known capture limitation. Extended Look material distributed to streaming services is likewise rate-limited. Research failure mode: mistaking the measurement pipeline's ceiling for the game's.</p></div>
+
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">NEGATIVE EVIDENCE</span>
+            <h3>What is not observed</h3>
+        </div>
+
+        <div class="evidence-block">
+NOT OBSERVED, AS OF 2 OCT 2026 — absence is not disproof, but each item bounds the model:<br><br>
+· No general ray-traced shadows in gameplay (only possibly limited cutscene RT — CX-1).<br>
+· No dynamic resolution scaling in captured PS5 footage.<br>
+· No announced PC version (conflicting reporting — I7), no announced install size,<br>
+&nbsp;&nbsp;no official frame-rate mode beyond the launch 30fps target, no official benchmarks.<br>
+· No numeric memory, CPU, audio or animation budgets from any source — the "no<br>
+&nbsp;&nbsp;numeric budgets" rule still holds after this pass.<br>
+· No technical talk or job posting read yet that describes VI-era runtime internals by name.<br>
+· No dedicated-server evidence for VI Online; no post-2018 Rockstar technical talk found.
+        </div>
+
+        <p class="source-cite">
+            EDGE-CASE DISCIPLINE: AN ISOLATED ARTIFACT (ONE WHEEL, ONE SHOT) IS
+            RECORDED AS ISOLATED. ONLY REPEATED OBSERVATION ACROSS SCENES UPGRADES
+            IT TO A SYSTEMIC JUDGMENT — WHICH THESE ACCUMULATE INTO, ONE CLIP AT A TIME.
+        </p>
+
+    </div>
+</section>
+
+<section class="section" id="r">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">SECTION R</span>
+            <h2>Gap Register Update &amp; New Research Questions</h2>
+        </div>
+
+        <p>
+            Status of every GAP after this pass, four newly opened gaps, and the
+            questions the pass generated — including the ones that challenge the
+            dossier's own framing.
+        </p>
+
+        <div class="table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Gap</th><th>Original subject</th><th>Status after this pass</th><th>Driven by</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>GAP-01</td><td>Full Extended Look analysis unread</td><td><span class="status-pill status-observed">CLOSED</span> — full text read; framerate, resolution and mode claims extracted</td><td>EV-26/27</td></tr>
+                    <tr><td>GAP-02</td><td>Technical press coverage not read (Eurogamer, IGN analysis)</td><td><span class="status-pill status-unresolved">OPEN</span> — partial only (IGN roundup); Eurogamer analysis still unread</td><td>EV-25</td></tr>
+                    <tr><td>GAP-03</td><td>GDC 2014 audio talk</td><td><span class="status-pill status-observed">PARTIALLY CLOSED</span> — abstract plus independent detailed report; slides still unread; RDR2/VI audio untouched</td><td>EV-19/20</td></tr>
+                    <tr><td>GAP-04</td><td>Official delay Newswire unread</td><td><span class="status-pill status-unresolved">OPEN, REDUCED</span> — headline title now corroborated everywhere; body text still JS-blocked</td><td>CX-2</td></tr>
+                    <tr><td>GAP-05</td><td>RAGE internals from Rockstar jobs</td><td><span class="status-pill status-observed">PARTIALLY CLOSED</span> — one posting read in full (Engine team scope); several other roles remain</td><td>EV-23</td></tr>
+                    <tr><td>GAP-06</td><td>Rockstar technical talks post-RDR2</td><td><span class="status-pill status-unresolved">OPEN</span> — GDC 2014 found is pre-RDR2; nothing post-2018 located</td><td>EV-19</td></tr>
+                    <tr><td>GAP-07</td><td>Platform and networking edge sources (PS5 store, Xbox store, session docs)</td><td><span class="status-pill status-unresolved">OPEN</span> — storefronts unread; session claims reached only via tier-6 relays</td><td>EV-35</td></tr>
+                    <tr><td>GAP-08</td><td>Weather/hurricane origin and frequency</td><td><span class="status-pill status-confirmed">CLOSED</span> — Game Informer cover story (29 Sep 2026), Rockstar co-promoted: re-engineered localized system; frequency declined</td><td>EV-24</td></tr>
+                    <tr><td>GAP-09</td><td>(new) RDR2-era technical sources: RAGE memory/animation talks, RDR2 PC breakdowns</td><td><span class="status-pill status-unresolved">OPEN</span> — the middle generation of every lineage in Section P is unread</td><td>Section P limits</td></tr>
+                    <tr><td>GAP-10</td><td>(new) Post-2014 audio talks (RDR2, RDR Online, GTA Online updates)</td><td><span class="status-pill status-unresolved">OPEN</span> — audio lineage stops at GTA V</td><td>O-1</td></tr>
+                    <tr><td>GAP-11</td><td>(new) Dedicated-server / netcode job postings for VI Online</td><td><span class="status-pill status-unresolved">OPEN</span> — would resolve the P2P-vs-server question Rockstar has not answered</td><td>HIST-03</td></tr>
+                    <tr><td>GAP-12</td><td>(new) Launch-day retail captures for DRS, pop-in and upscaler re-check</td><td><span class="status-pill status-unresolved">OPEN</span> — resolves I8 and tests FM-1/FM-5 at retail</td><td>I8, FM-5</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">NEW QUESTIONS</span>
+            <h3>What this pass now wants answered</h3>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail"><h4>RQ-1 · Does VI throttle the player?</h4><p>H7's test: run any open highway at top speed and watch for layout-induced slowdown, density drop-off or late pop-in. One evening of launch footage answers a twenty-five-year lineage question (HIST-01).</p></div>
+            <div class="detail"><h4>RQ-2 · Is synthesis still the audio strategy?</h4><p>If VI's SFX are partly synthesized like GTA V's Synthetic Audio Tool output, F14 becomes a standing pattern rather than a 2013 anecdote. Answerable from sound-design interviews or GDC talks, not gameplay.</p></div>
+            <div class="detail"><h4>RQ-3 · P2P or servers for VI Online?</h4><p>Rockstar netcode job postings are the cleanest tell (GAP-11). Forum reports of "court filings" are not — the filings themselves must be read before EV-35's 32-player claim moves above tier 6.</p></div>
+            <div class="detail"><h4>RQ-4 · One population budget or several?</h4><p>H8 asks whether crowd, traffic and wildlife draw from a single engine subsystem. Watch for population/LOD wording in future job posts, or a Rockstar engineer talk naming the subsystems.</p></div>
+            <div class="detail"><h4>RQ-5 · Does weather script-override survive?</h4><p>If mission weather in VI still runs through authoring overrides on a schedule — Vermeij's III mechanism — the lineage in HIST-02 completes. Missions with forced weather (confirmed gameplay systems) are the observable.</p></div>
+            <div class="detail"><h4>RQ-6 · What breaks first under stress?</h4><p>Intersections, not averages: maximum wanted level + storm + tunnel + 20 corpses + traffic jam in one frame. Press assets never show this; launch players will. The dossier's performance model is untested against degenerate cases.</p></div>
+        </div>
+
+        <div class="section-heading">
+            <span class="eyebrow">§22 CHECK</span>
+            <h3>What are we not asking?</h3>
+        </div>
+
+        <div class="evidence-block">
+            WHOSE ACCOUNTS ARE MISSING — QA, localization, audio mixers, tool
+            programmers: the corpus cites art leads and directors almost
+            exclusively. Why it matters: the streaming story came from one
+            technical director's blog; the others have not spoken yet.<br><br>
+            WHY THE CORPUS IS FEATURE-SHAPED — press coverage optimizes for what a
+            game has, not where it fails. Every failure mode in Section Q came
+            from one outlet (DF) or one ex-employee (Vermeij). The research design
+            should deliberately hunt seams: bugs at boundaries, mods that break
+            the world, datamined config files, players stress-testing on day one.<br><br>
+            WHAT WE ASSUME IS STATIC — launch targets are not end states (CX-5:
+            30fps "for now"). Patches add DRS, modes, RT options. Any question
+            asked before launch should be re-asked at patch 1.0x.
+        </div>
+
+        <div class="source-cite">
+            THE CORPUS IS NOW STRONGER ON HISTORY AND SEAMS THAN ON RUNTIME
+            MECHANICS. ITS NEXT BEST MOVE IS NOT MORE LAUNCH COVERAGE — IT IS
+            ROCKSTAR'S OWN WORDS: TALKS, JOB POSTINGS, AND THE NEWSWIRE.
+        </div>
+
+    </div>
+</section>
+
+
+</main>
+
+<footer>
+    <div class="container">
+        <strong>LEONIDA.RPF</strong>
+        <p>WE DO NOT SHARE LEAKS.</p>
+        <p>PUBLIC INFORMATION ONLY.</p>
+    </div>
+</footer>
+
+<noscript>
+<style>
+.card, .stat, .record, .archive-entry, .method {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.record-details { max-height: none !important; }
+</style>
+</noscript>
+
+<script>
+document.body.classList.add("loaded");
+
+document.querySelectorAll(".record").forEach((record, i) => {
+    record.style.setProperty("--delay", `${i * 80}ms`);
+});
+
+document.querySelectorAll(".expand").forEach(button => {
+    button.addEventListener("click", () => {
+        const details = button.nextElementSibling;
+        details.classList.toggle("open");
+
+        button.textContent =
+            details.classList.contains("open")
+            ? "HIDE ANALYSIS −"
+            : "VIEW ANALYSIS +";
+    });
+});
+
+var themeBtn = document.querySelector("[data-theme-toggle]");
+
+function paintThemeBtn() {
+    if (!themeBtn) return;
+    var cur = document.documentElement.getAttribute("data-theme") || "dark";
+    themeBtn.textContent = (cur === "light" ? "DARK" : "LIGHT") + " / TOGGLE";
+}
+
+if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+        var cur = document.documentElement.getAttribute("data-theme") || "dark";
+        var next = cur === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("leonida-theme", next); } catch (e) {}
+        paintThemeBtn();
+    });
+    paintThemeBtn();
+}
+</script>
+
+<script src="js/entry-gate.js" defer></script>
+<script src="js/modes.js" defer></script>
+<script src="js/environment.js" defer></script>
+<script src="js/bgm-data.js" defer></script>
+<script src="js/player.js" defer></script>
+</body>
+</html>

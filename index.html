@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LEONIDA.RPF — independent GTA VI analysis.">
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f9f9" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://daelynmaycode.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LEONIDA.RPF">
+    <meta property="og:title" content="LEONIDA.RPF — Dashboard">
+    <meta property="og:description" content="LEONIDA.RPF — independent GTA VI analysis.">
+    <meta property="og:url" content="https://daelynmaycode.github.io/">
+    <meta property="og:image" content="https://daelynmaycode.github.io/images/gta6skyline.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>LEONIDA.RPF — Dashboard</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script>(function(){try{var r=document.documentElement;var e=localStorage.getItem('leonida-entry-agreement-v1');if(e==='accepted'){r.setAttribute('data-entry-accepted','true');}else{r.setAttribute('data-entry-pending','true');}var t=localStorage.getItem('leonida-theme');if(t==='light'||t==='dark'){r.setAttribute('data-theme',t);}var m=localStorage.getItem('leonida-mode');if(m==='a11y'||m==='fast'){r.setAttribute('data-mode',m);}var a=JSON.parse(localStorage.getItem('leonida-a11y')||'{}');['motion','contrast','transparency','blur','text','font','focus'].forEach(function(k){if(a[k]){r.setAttribute('data-a11y-'+k,'on');}});}catch(e){}})();</script>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a class="logo" href="index.html" aria-label="LEONIDA.RPF home"><img src="images/Leonida-RPF-LOGO-header.png" alt="LEONIDA.RPF" width="112" height="56" decoding="async"></a>
+
+        <nav>
+            <a class="active" href="index.html" aria-current="page">Home</a>
+            <a href="predictions.html">Predictions</a>
+            <a href="weapons.html">Weapons</a>
+            <a href="geography.html">Leonida</a>
+            <a href="editions.html">Editions</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="opinions.html">Opinions</a>
+            <a href="confirmed.html">Confirmed</a>
+            <a href="archive.html">Archive</a>
+            <a href="dossier.html">Dossier</a>
+        </nav>
+
+        <div class="nav-controls">
+            <div class="system-status">
+                <span></span> DATABASE ONLINE
+            </div>
+            <div class="mode-switch" role="group" aria-label="Presentation mode">
+                <button class="mode-btn" type="button" data-mode-set="normal" aria-pressed="true">NORMAL</button>
+                <button class="mode-btn" type="button" data-mode-set="a11y" aria-pressed="false">A11Y</button>
+                <button class="mode-btn" type="button" data-mode-set="fast" aria-pressed="false">FAST</button>
+                <button class="mode-btn" type="button" data-a11y-panel aria-expanded="false" aria-controls="a11yPanel">OPTIONS</button>
+            </div>
+            <button class='theme-toggle' type='button' data-theme-toggle aria-label='Toggle light and dark theme'>LIGHT / DARK</button>
+        </div>
+    </div>
+</header>
+
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options" hidden>
+    <h3>ACCESSIBILITY</h3>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="motion"> REDUCE MOTION</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="contrast"> HIGH CONTRAST</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="transparency"> OPAQUE SURFACES</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="blur"> DISABLE BLUR</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="text"> LARGER TEXT</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="font"> LEGIBLE TYPE</label>
+    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="focus"> STRONG FOCUS</label>
+</div>
+
+<a class="skip-link" href="#main">SKIP TO CONTENT</a>
+
+<main id="main">
+
+<section class="hero dashboard-hero">
+    <div class="container">
+
+        <div class="terminal-line">
+            LEONIDA.RPF / DATABASE / HOME
+        </div>
+
+        <p class="eyebrow">INDEPENDENT GTA VI ANALYSIS</p>
+
+        <h1 class="brand-lockup">LEONIDA<span>.RPF</span></h1>
+
+        <p class="intro">
+            An independent archive of observations, analysis,
+            predictions, opinions, and publicly confirmed information
+            surrounding Grand Theft Auto VI.
+        </p>
+
+        <div class="dashboard-meta">
+            <div>
+                <small>STATUS</small>
+                <strong>OPERATIONAL</strong>
+            </div>
+            <div>
+                <small>ACCESS</small>
+                <strong>PUBLIC</strong>
+            </div>
+            <div>
+                <small>DATA SOURCE</small>
+                <strong>PUBLIC MATERIAL</strong>
+            </div>
+            <div>
+                <small>LAUNCH WINDOW</small>
+                <strong>19 NOV 2026 — <span data-countdown>60</span> DAYS OUT</strong>
+            </div>
+        </div>
+
+        <div class="notice">
+            <span class="notice-label">EDITORIAL POLICY</span>
+            <strong>WE DO NOT SHARE LEAKS.</strong>
+            <p>
+                No leaked or stolen material is published, distributed,
+                or hosted here. Analysis is based on publicly available
+                information and personal interpretation.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">DATABASE</span>
+            <h2>System Overview</h2>
+        </div>
+
+        <div class="stats">
+
+            <a href="analysis.html" class="stat">
+                <span class="stat-value" data-count="5">0</span>
+                <span class="stat-label">ANALYSIS</span>
+            </a>
+
+            <a href="predictions.html" class="stat">
+                <span class="stat-value" data-count="7">0</span>
+                <span class="stat-label">PREDICTIONS</span>
+            </a>
+
+            <a href="weapons.html" class="stat">
+                <span class="stat-value" data-count="4">0</span>
+                <span class="stat-label">WEAPONS</span>
+            </a>
+
+            <a href="geography.html">Leonida</a>
+
+            <a href="geography.html" class="stat">
+                <span class="stat-value" data-count="17">0</span>
+                <span class="stat-label">GEOGRAPHY EVIDENCE</span>
+            </a>
+
+            <a href="editions.html" class="stat">
+                <span class="stat-value" data-count="18">0</span>
+                <span class="stat-label">EVIDENCE</span>
+            </a>
+
+            <a href="confirmed.html" class="stat">
+                <span class="stat-value" data-count="11">0</span>
+                <span class="stat-label">CONFIRMED</span>
+            </a>
+
+            <a href="opinions.html" class="stat">
+                <span class="stat-value" data-count="2">0</span>
+                <span class="stat-label">OPINIONS</span>
+            </a>
+
+            <a href="archive.html" class="stat">
+                <span class="stat-value" data-count="13">0</span>
+                <span class="stat-label">ARCHIVE</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">NAVIGATION</span>
+            <h2>Explore Database</h2>
+        </div>
+
+        <div class="grid">
+
+            <a class="card" href="predictions.html">
+                <span class="card-index">01</span>
+                <h3>Predictions</h3>
+                <p>What may happen, and why.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="weapons.html">
+                <span class="card-index">02</span>
+                <h3>Weapons</h3>
+                <p>Weapons &amp; combat evidence log.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="geography.html">
+                <span class="card-index">03</span>
+                <h3>Leonida</h3>
+                <p>Geographic archive of the state, place by place.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="editions.html">
+                <span class="card-index">04</span>
+                <h3>Editions</h3>
+                <p>Editions, formats, upgrades &amp; bonuses.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="analysis.html">
+                <span class="card-index">05</span>
+                <h3>Analysis</h3>
+                <p>Detailed examination of public material.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="opinions.html">
+                <span class="card-index">06</span>
+                <h3>Opinions</h3>
+                <p>Interpretations, theories, and personal takes.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="confirmed.html">
+                <span class="card-index">07</span>
+                <h3>Confirmed</h3>
+                <p>Information officially established.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="archive.html">
+                <span class="card-index">08</span>
+                <h3>Archive</h3>
+                <p>A chronological record of the database.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+            <a class="card" href="dossier.html">
+                <span class="card-index">09</span>
+                <h3>Dossier</h3>
+                <p>RAGE technical dossier: GTA III → GTA VI.</p>
+                <span class="card-link">OPEN →</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">METHODOLOGY</span>
+            <h2>Evidence → Interpretation</h2>
+        </div>
+
+        <div class="method-grid">
+
+            <article class="method">
+                <span>01</span>
+                <h3>Evidence</h3>
+                <p>Publicly available material is collected.</p>
+            </article>
+
+            <article class="method">
+                <span>02</span>
+                <h3>Observation</h3>
+                <p>Visible details and statements are documented.</p>
+            </article>
+
+            <article class="method">
+                <span>03</span>
+                <h3>Analysis</h3>
+                <p>Observations are interpreted and contextualized.</p>
+            </article>
+
+            <article class="method">
+                <span>04</span>
+                <h3>Prediction</h3>
+                <p>Reasoned possibilities are separated from fact.</p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+</main>
+
+<footer>
+    <div class="container">
+        <strong>LEONIDA.RPF</strong>
+        <p>WE DO NOT SHARE LEAKS.</p>
+        <p>PUBLIC INFORMATION ONLY.</p>
+    </div>
+</footer>
+
+<noscript>
+<style>
+.card, .stat, .record, .archive-entry, .method {
+    opacity: 1 !important;
+    transform: none !important;
+}
+</style>
+</noscript>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+
+    document.querySelectorAll(".card, .stat").forEach((el, i) => {
+        el.style.setProperty("--delay", `${i * 60}ms`);
+    });
+
+    const counters = document.querySelectorAll("[data-count]");
+
+    counters.forEach(counter => {
+        const target = Number(counter.dataset.count);
+        let current = 0;
+
+        if (!target) return;
+
+        const timer = setInterval(() => {
+            current++;
+            counter.textContent = current;
+
+            if (current >= target) clearInterval(timer);
+        }, 30);
+    });
+
+    // Launch-window countdown — derived from the current date so it never goes stale.
+    const countdown = document.querySelector("[data-countdown]");
+
+    if (countdown) {
+        const launch = new Date(2026, 10, 19);
+        const today = new Date();
+        launch.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
+        const days = Math.round((launch - today) / 86400000);
+        const label = countdown.closest("strong");
+
+        if (days > 1) {
+            countdown.textContent = days;
+        } else if (days === 1) {
+            countdown.textContent = 1;
+            if (label) label.innerHTML = label.innerHTML.replace("DAYS OUT", "DAY OUT");
+        } else if (label) {
+            label.textContent = "19 NOV 2026 — RELEASED";
+        }
+    }
+
+    var themeBtn = document.querySelector("[data-theme-toggle]");
+
+    function paintThemeBtn() {
+        if (!themeBtn) return;
+        var cur = document.documentElement.getAttribute("data-theme") || "dark";
+        themeBtn.textContent = (cur === "light" ? "DARK" : "LIGHT") + " / TOGGLE";
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener("click", function () {
+            var cur = document.documentElement.getAttribute("data-theme") || "dark";
+            var next = cur === "light" ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", next);
+            try { localStorage.setItem("leonida-theme", next); } catch (e) {}
+            paintThemeBtn();
+        });
+        paintThemeBtn();
+    }
+});
+</script>
+
+<script src="js/entry-gate.js" defer></script>
+<script src="js/modes.js" defer></script>
+<script src="js/environment.js" defer></script>
+<script src="js/bgm-data.js" defer></script>
+<script src="js/player.js" defer></script>
+</body>
+</html>

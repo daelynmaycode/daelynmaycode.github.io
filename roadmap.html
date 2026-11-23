@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Development Roadmap — Final Fantasy I 3D Remake</title>
+<meta name="description" content="What is complete, what is active, and what is planned: the twenty-milestone roadmap and the seven-stage route from the current slice to a playable game.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="Development Roadmap — Final Fantasy I 3D Remake">
+<meta property="og:description" content="Completed milestones, the active art pass, and the battle route that has not started.">
+<meta property="og:url" content="https://daelynmaycode.github.io/roadmap.html">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/world-coneria-plaza.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/roadmap.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="progress.html">Progress</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="roadmap.html" aria-current="page">Roadmap</a>
+      <a href="tales.html">Tales of Light</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="num">06 / 07</span> Development Roadmap</p>
+      <h1>Eighteen milestones left, and one that matters most.</h1>
+      <p class="lede">
+        The project runs on numbered milestones, each closing only when a packaged deliverable
+        exists. Five are signed off in whole or in part; the rest are scheduled. The critical
+        path runs through battle: until encounters resolve, none of the world's content is
+        actually playable.
+      </p>
+      <div class="head-meta">
+        <span>20 milestones</span>
+        <span>7-stage near-term route</span>
+        <span>Updated 22 Nov 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">06.1</span> Milestones</p>
+          <h2>The ledger.</h2>
+        </div>
+        <p class="aside">
+          Status is a property of the deliverable, not of the effort. A milestone with unfinished
+          art stays open even when every system in it runs.
+        </p>
+      </div>
+
+      <div class="ledger">
+        <div class="row">
+          <span class="id">M1</span>
+          <span class="name">NES reconstruction</span>
+          <span class="desc">Byte-identical rebuild, verified in an emulator, packaged.</span>
+          <span class="chip" data-state="implemented">Complete</span>
+        </div>
+        <div class="row">
+          <span class="id">M2</span>
+          <span class="name">Original data extraction</span>
+          <span class="desc">Overworld, tiles, enemies, AI, formations and domains decoded. Items, spells, classes, maps and dialogue remain.</span>
+          <span class="chip" data-state="active">4 of 9 done</span>
+        </div>
+        <div class="row">
+          <span class="id">M3</span>
+          <span class="name">Technical architecture</span>
+          <span class="desc">Build and overworld format documented; schema package, gameplay core API and combat-math tests outstanding.</span>
+          <span class="chip" data-state="active">In progress</span>
+        </div>
+        <div class="row">
+          <span class="id">M4</span>
+          <span class="name">3D engine foundation</span>
+          <span class="desc">Project, streaming terrain, collision, controller and camera.</span>
+          <span class="chip" data-state="implemented">Complete</span>
+        </div>
+        <div class="row">
+          <span class="id">M5</span>
+          <span class="name">First playable slice</span>
+          <span class="desc">Coneria, inn, NPC dialogue, HUD and the 4 km overworld. Geometry is blockout; packaged as v0.1.0.</span>
+          <span class="chip" data-state="active">Complete — blockout</span>
+        </div>
+        <div class="row">
+          <span class="id">M6</span>
+          <span class="name">World art &amp; town production</span>
+          <span class="desc">Environment, weather, water, settings and vegetation complete. Coast mesh, final materials, architecture kit and repackage remain.</span>
+          <span class="chip" data-state="active">7 of 12 done</span>
+        </div>
+        <div class="row">
+          <span class="id">M7–M8</span>
+          <span class="name">World, towns, interiors, NPCs</span>
+          <span class="desc">Remaining settlements, castles, caves and dungeons at production quality; NPC and event system.</span>
+          <span class="chip" data-state="planned">Planned</span>
+        </div>
+        <div class="row">
+          <span class="id">M9–M11</span>
+          <span class="name">Characters &amp; combat</span>
+          <span class="desc">Modelled classes and animations, the turn-based battle scene, targeting, damage, status, spells, enemy models and bosses.</span>
+          <span class="chip" data-state="planned">Planned</span>
+        </div>
+        <div class="row">
+          <span class="id">M12–M15</span>
+          <span class="name">Systems &amp; content</span>
+          <span class="desc">Classes and promotion, XP and levels, equipment, inventory, shops, economy, treasure, magic effects, dungeons, quests and story progression.</span>
+          <span class="chip" data-state="planned">Planned</span>
+        </div>
+        <div class="row">
+          <span class="id">M16–M20</span>
+          <span class="name">Presentation &amp; release</span>
+          <span class="desc">Original audio, menus and UI art, save/load, content completion, optimisation, testing and a final downloadable build.</span>
+          <span class="chip" data-state="planned">Planned</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">06.2</span> Completed</p>
+          <h2>What is actually finished.</h2>
+        </div>
+        <p class="aside">
+          Everything below is verifiable in the repository today: a passing suite, a packaged
+          build, or both.
+        </p>
+      </div>
+
+      <div class="phase-list">
+        <article class="phase">
+          <header>
+            <h3>Stage 0 — Input ownership</h3>
+            <span class="chip" data-state="implemented">Complete</span>
+          </header>
+          <ul class="checklist">
+            <li class="done">Settings look and camera controls registered for mouse and controller (the suite previously crashed on a nil slider)</li>
+            <li class="done">Controller camera sensitivity made a real persisted, clamped setting</li>
+            <li class="done">Duplicate Cancel binding removed; cinematics own Cancel while active</li>
+            <li class="done">Underwater rise retuned to 30 m/s² so a jump reverses a dive in 0.2 s</li>
+            <li class="done">Title, controls and settings suites all exit clean</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <header>
+            <h3>Stage 1.1 — Typed battle rules</h3>
+            <span class="chip" data-state="implemented">Complete</span>
+          </header>
+          <ul class="checklist">
+            <li class="done">Read-only typed layer over 128 enemies, 44 AI records, 128 formations and 128 domains</li>
+            <li class="done">Strict load: counts, id contiguity, raw sizes and every cross-reference validated</li>
+            <li class="done">Variant-B count selection, weight probabilities and map encounter rates decoded once</li>
+            <li class="done">54-check suite pins every field of all 1,024 table entries</li>
+            <li>Encounter selection, count rolls, combat math and gameplay consumers</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <header>
+            <h3>Stage 1.2 / 1.3 — Capital and heroes</h3>
+            <span class="chip" data-state="implemented">Complete</span>
+          </header>
+          <ul class="checklist">
+            <li class="done">Coneria rebuilt from the FF1 town plan at 0.21 m per plan pixel</li>
+            <li class="done">Contextual interaction system: 7 resident verbs, 4 animal verbs, 1 object verb, 3 self-directed actions</li>
+            <li class="done">Hero definitions in data; MetaHuman intake, four exported hero bodies and the Ghibli shading pass</li>
+            <li class="done">Eight verification views captured for the town</li>
+            <li>Castle room partition layout (reference plan unavailable)</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">06.3</span> Active</p>
+          <h2>Three things in flight.</h2>
+        </div>
+        <p class="aside">
+          Only one of these is on the critical path to a playable game; the other two determine
+          whether that game looks finished.
+        </p>
+      </div>
+
+      <div class="phase-list">
+        <article class="phase">
+          <header>
+            <h3>Next task — FF1-exact resolution core</h3>
+            <span class="chip" data-state="active">Next</span>
+          </header>
+          <p class="small mb-2">
+            Turn order, hit and absorb checks, morale, elemental response and AI decisions
+            implemented as deterministic functions over the typed rules, with headless tests that
+            pin ROM-derived outcomes before any battle UI exists.
+          </p>
+          <ul class="checklist">
+            <li>Deterministic resolution functions</li>
+            <li>Headless outcome tests against known encounters</li>
+            <li>Encounter builder on the same tables</li>
+            <li>Field-to-battle bridge</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <header>
+            <h3>M6 — World art and town production</h3>
+            <span class="chip" data-state="active">Active</span>
+          </header>
+          <ul class="checklist">
+            <li class="done">Shared environment state, seven weather presets, ocean and wave physics</li>
+            <li class="done">Beach grading, shoreline refinement, waterfall headland prototype</li>
+            <li class="done">Settings UI, seven audio buses, persistence and display proof</li>
+            <li class="done">Five-species tree library with billboard HLODs</li>
+            <li class="active">Final authored coast mesh with matching collision and cliff transitions</li>
+            <li>Replace terrain, water and rock placeholders; final waterfall art</li>
+            <li>Coneria architecture kit and final town dressing</li>
+            <li>Final UI/audio art pass and target-hardware profiling</li>
+            <li>Repackage as an art-passed playable slice</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <header>
+            <h3>M2 — Remaining data extraction</h3>
+            <span class="chip" data-state="active">In progress</span>
+          </header>
+          <ul class="checklist">
+            <li class="done">Overworld map, tile properties, walkability and start route</li>
+            <li class="done">Enemy stats, names, AI records</li>
+            <li class="done">Formations, encounter domains, weights and map rates</li>
+            <li>Weapons, armor, magic, items and shops</li>
+            <li>Classes, stat growth and level-up tables</li>
+            <li>Town and dungeon maps, tilesets, chests, teleports and NPCs</li>
+            <li>Dialogue and story text</li>
+            <li>Graphics reference export for modelling</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">06.4</span> Upcoming</p>
+          <h2>The route to a first acceptance run.</h2>
+        </div>
+        <p class="aside">
+          Seven stages between the current build and a fresh save that can walk out of Coneria,
+          fight, level, enter the Chaos Shrine and take a ship. No dates — sequence only.
+        </p>
+      </div>
+
+      <div class="phase-list">
+        <article class="phase">
+          <header><h3>S2 — Active ATB, battle UI, enemies, resolution</h3><span class="chip" data-state="planned">Not started</span></header>
+          <p class="small mb-0">
+            The dedicated arena, ATB gauges, command entry, enemy turns, damage and status
+            resolution — driven entirely by the typed rules layer.
+          </p>
+        </article>
+        <article class="phase">
+          <header><h3>S3 — Field encounter bridge</h3><span class="chip" data-state="planned">Not started</span></header>
+          <p class="small mb-0">
+            Encounter domains and rates select formations; the field hands the party and the
+            formation to the arena; the result returns to the field.
+          </p>
+        </article>
+        <article class="phase">
+          <header><h3>S4 — XP, levels, charges, loot, persistence</h3><span class="chip" data-state="planned">Not started</span></header>
+          <p class="small mb-0">
+            Progression finally becomes real: experience, level-up growth, spell charges,
+            dropped loot and a save that carries all of it.
+          </p>
+        </article>
+        <article class="phase">
+          <header><h3>S5 — Dungeon kit, Chaos Shrine, Garland</h3><span class="chip" data-state="planned">Not started</span></header>
+          <p class="small mb-0">
+            A reusable dungeon kit, the first real interior, and the Garland encounter that
+            currently exists only as a placed model.
+          </p>
+        </article>
+        <article class="phase">
+          <header><h3>S6 — Pravoka, pirates, ship</h3><span class="chip" data-state="planned">Not started</span></header>
+          <p class="small mb-0">
+            The second settlement, the pirate encounter, and the first vehicle — the end of the
+            original game's opening act.
+          </p>
+        </article>
+        <article class="phase">
+          <header><h3>S7 — Fresh New Game to ship acceptance run</h3><span class="chip" data-state="planned">Not started</span></header>
+          <p class="small mb-0">
+            One unbroken run from a new save to the ship, with no debug travel and no console
+            commands. This is the moment the project becomes a game.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">06.5</span> Long term</p>
+          <h2>What "finished" would mean.</h2>
+        </div>
+        <p class="aside">
+          The end state is a complete remake, not a demo — but it is defined so it can be
+          recognised when it arrives.
+        </p>
+      </div>
+
+      <div class="grid g2">
+        <div class="cell">
+          <h3>A complete world</h3>
+          <p>Eight settlements at production quality, sixteen landmark surfaces with real interiors, and authored countryside across all six regions.</p>
+        </div>
+        <div class="cell">
+          <h3>The original rules, exactly</h3>
+          <p>Turn-based combat driven by the decoded tables: formations, morale, elemental weakness, AI scripts and encounter rates identical to the ROM.</p>
+        </div>
+        <div class="cell">
+          <h3>The whole party</h3>
+          <p>All six classes with promotion, modelled and animated, with equipment that is visible and class restrictions that hold.</p>
+        </div>
+        <div class="cell">
+          <h3>Its own audio</h3>
+          <p>An original soundtrack and sound design replacing the reference material, mixed across the seven existing buses.</p>
+        </div>
+        <div class="cell">
+          <h3>A finished interface</h3>
+          <p>The authored UI art pass, with the accessibility and remapping work that already exists retained.</p>
+        </div>
+        <div class="cell">
+          <h3>Nothing borrowed</h3>
+          <p>No NES ROM, no original art, no reference soundtrack. The verification project stays separate and unshipped.</p>
+        </div>
+      </div>
+
+      <div class="grid g3 mt-3">
+        <div class="cell">
+          <span class="kicker">Principle</span>
+          <h3>Engine-independent logic</h3>
+          <p>Gameplay rules are testable without rendering. Rendering, UI and audio consume state; they never own it.</p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Principle</span>
+          <h3>Data over hard-coding</h3>
+          <p>Original data is extracted, documented and validated against the ROM rather than transcribed by hand.</p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Principle</span>
+          <h3>Two projects, one source</h3>
+          <p>The NES reconstruction stays independently buildable and is never redistributed with the remake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Project overview</a></li>
+          <li><a href="progress.html">Development progress</a></li>
+          <li><a href="atlas.html">World atlas</a></li>
+          <li><a href="gallery.html">Visual gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="tales.html">Tales of Light</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
+</body>
+</html>

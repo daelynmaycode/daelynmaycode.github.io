@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Atlas — Final Fantasy I 3D Remake</title>
+<meta name="description" content="The remake's world: a 4,000 × 4,000 m overworld built from the original 256 × 256 NES grid, eight settlements, six regions and sixteen landmark footprints.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="World Atlas — Final Fantasy I 3D Remake">
+<meta property="og:description" content="Eight settlements, six regions and sixteen landmarks rebuilt on the original NES geography at 15.625 metres per tile.">
+<meta property="og:url" content="https://daelynmaycode.github.io/atlas.html">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/world-coneria-plan.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/atlas.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="progress.html">Progress</a>
+      <a href="atlas.html" aria-current="page">Atlas</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="tales.html">Tales of Light</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="num">03 / 07</span> World Atlas</p>
+      <h1>Sixteen square kilometres of the same geography.</h1>
+      <p class="lede">
+        The original 256 × 256 overworld is decoded straight from the ROM and mapped at
+        15.625 metres per reference tile. Coastlines, forests and mountain ranges keep their
+        exact relative positions; only the distance between them changes.
+      </p>
+      <div class="head-meta">
+        <span>Footprint 4,000 × 4,000 m</span>
+        <span>8 settlements · 6 regions · 16 landmarks</span>
+        <span>Layout approved 12 Nov 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="split">
+        <div class="body prose">
+          <h3>The map is not an imitation</h3>
+          <p>
+            Before any 3D geometry existed, the project decoded the overworld's run-length
+            encoded rows out of PRG bank 1 of the original cartridge. Tile types, forest flags,
+            encounter flags, teleport flags and walkability were read from PRG bank 0.
+          </p>
+          <p>
+            That decoded grid is the source of the landscape you can walk across. The 3D terrain
+            is not modelled by hand, and it is not an artist's impression of the map — it is a
+            height field generated from the same bytes that produced the 1987 coastline.
+          </p>
+          <p class="small">
+            The image to the right is the independently decoded overworld, rendered from the ROM
+            data alone. It predates the 3D build and remains its geometry reference.
+          </p>
+        </div>
+        <figure class="plate">
+          <img class="pixel" src="assets/img/nes-worldmap.png" width="768" height="768" alt="The full 256 by 256 overworld decoded from the ROM, colour-rendered, showing continents, oceans, forests and mountain ranges." loading="lazy" decoding="async" style="image-rendering:pixelated;width:100%">
+          <figcaption>
+            <span>Decoded 256 × 256 overworld — PRG bank 1</span>
+            <span class="tag">ROM data</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="table-wrap mt-4">
+        <table class="t-compact">
+          <caption>World specification</caption>
+          <thead>
+            <tr><th scope="col">Property</th><th scope="col">Value</th><th scope="col">Note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Footprint</td><td class="num">4,000 × 4,000 m</td><td>One continuous environment, no scene transitions</td></tr>
+            <tr><td>Area</td><td class="num">16,000,000 m²</td><td>16 km²</td></tr>
+            <tr><td>Reference grid</td><td class="num">256 × 256</td><td>Original NES overworld tiles</td></tr>
+            <tr><td>Metres per tile</td><td class="num">15.625 m</td><td>Applied uniformly across the whole map</td></tr>
+            <tr><td>Terrain resolution</td><td class="num">2,000 × 2,000 cells</td><td>2 m per cell, streamed in 128 m chunks</td></tr>
+            <tr><td>Land / water</td><td class="num">~40% / ~60%</td><td>Target ratio, preserved from the original</td></tr>
+            <tr><td>Coordinate origin</td><td class="num">North-west</td><td>X east, Y south, metres</td></tr>
+            <tr><td>Crossing the capital</td><td class="num">5–8 min</td><td>On foot, gate to gate</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">03.1</span> Regions</p>
+          <h2>Six overlays, not loading zones.</h2>
+        </div>
+        <p class="aside">
+          Regions are organisational. They overlap by design, because the original continent
+          does not divide into neat boxes.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Regional bounds and role</caption>
+          <thead>
+            <tr>
+              <th scope="col">Region</th>
+              <th scope="col">Bounds (km)</th>
+              <th scope="col">Contents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>A — Northwestern Continent</strong></td><td class="num">X 0–1.7 · Y 0–1.6</td><td>Onrac, Waterfall Cavern, Desert Caravan, Sunken Shrine</td></tr>
+            <tr><td><strong>B — Northern Islands</strong></td><td class="num">X 2.0–3.0 · Y 0.3–1.2</td><td>Cardia archipelago, Castle of Ordeals</td></tr>
+            <tr><td><strong>C — Eastern Highlands</strong></td><td class="num">X 3.0–4.0 · Y 0–1.8</td><td>Gaia, Lefein, Mirage Tower, Flying Fortress</td></tr>
+            <tr><td><strong>D — Central Kingdoms</strong></td><td class="num">X 0.8–4.0 · Y 1.5–2.9</td><td>Melmond, Temple of Fiends, Matoya's Cave, Coneria, Pravoka</td></tr>
+            <tr><td><strong>E — Southwestern Continent</strong></td><td class="num">X 0–2.7 · Y 2.8–4.0</td><td>Elfheim, Marsh Cave, Earth Cave, Western Keep, Titan's Tunnel</td></tr>
+            <tr><td><strong>F — Southeastern Continent</strong></td><td class="num">X 3.0–4.0 · Y 2.5–4.0</td><td>Crescent Lake, Gurgu Volcano, Ice Cavern, Lykion Desert</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note mt-3">
+        <strong>Region D is a constraint, not a label.</strong> The central kingdoms must contain
+        forests, rivers, valleys, farmland, small villages, ruins, roads, trails and mountain
+        passes. It is explicitly forbidden from becoming uninterrupted grassland — the 4 km scale
+        is only defensible if the space between canonical places is authored.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">03.2</span> Settlements</p>
+          <h2>Eight towns at their original anchors.</h2>
+        </div>
+        <p class="aside">
+          One is reconstructed from its own town plan. Seven are scaled blockouts — placed,
+          walkable, and waiting for their production pass.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Developed footprints and status</caption>
+          <thead>
+            <tr>
+              <th scope="col">Town</th>
+              <th scope="col">Footprint</th>
+              <th scope="col">Region</th>
+              <th scope="col">Identity in the remake</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coneria</strong></td>
+              <td class="num">500 × 400 m reserved<br>214 × 163 m built</td>
+              <td class="num">D</td>
+              <td>Walled capital; the reference reconstruction</td>
+              <td><span class="chip" data-state="active">Reconstructed</span></td>
+            </tr>
+            <tr>
+              <td><strong>Pravoka</strong></td>
+              <td class="num">300 × 240 m</td>
+              <td class="num">D</td>
+              <td>Working harbour, shipyards, warehouses, taverns, coastal defences</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+            <tr>
+              <td><strong>Elfheim</strong></td>
+              <td class="num">320 × 260 m</td>
+              <td class="num">E</td>
+              <td>Forest settlement with organic architecture; 150 × 130 m elven castle grounds</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+            <tr>
+              <td><strong>Melmond</strong></td>
+              <td class="num">350 × 280 m</td>
+              <td class="num">D</td>
+              <td>Visibly declining: damaged infrastructure, weathered walls, cemetery, ruins</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+            <tr>
+              <td><strong>Crescent Lake</strong></td>
+              <td class="num">320 × 260 m</td>
+              <td class="num">F</td>
+              <td>Lakeside residences, waterfront market, docks, canoe access, Circle of Sages</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+            <tr>
+              <td><strong>Gaia</strong></td>
+              <td class="num">380 × 300 m</td>
+              <td class="num">C</td>
+              <td>Isolated mountain terraces, stone architecture, springs, waterfalls</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+            <tr>
+              <td><strong>Onrac</strong></td>
+              <td class="num">340 × 270 m</td>
+              <td class="num">A</td>
+              <td>Fishing and waterfront infrastructure, canoe access, Sea Shrine approach</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+            <tr>
+              <td><strong>Lefein</strong></td>
+              <td class="num">320 × 260 m</td>
+              <td class="num">C</td>
+              <td>Independent ancient geometry, ceremonial spaces, ruins</td>
+              <td><span class="chip" data-state="planned">Blockout</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">03.3</span> Coneria</p>
+          <h2>The one town built from its own plan.</h2>
+        </div>
+        <p class="aside">
+          Every wall run, gate, street, canal and plot in the capital is placed from coordinates
+          read off the original town map — 0.21 metres per plan pixel.
+        </p>
+      </div>
+
+      <div class="figure-grid">
+        <figure class="plate wide">
+          <img src="assets/img/world-coneria-plan.jpg" width="1280" height="720" alt="Overhead capture of the reconstructed Coneria: the stepped perimeter wall, two gates on a north-south avenue, central square, canal reaches and seven buildings with the castle to the north." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Coneria from above — stepped wall, axial gates, canals, seven plots</span>
+            <span class="tag">Reconstruction</span>
+          </figcaption>
+        </figure>
+        <figure class="plate">
+          <img src="assets/img/world-coneria-gate.jpg" width="1280" height="720" alt="The south gate of Coneria, seen from inside the wall, with plinth, coping and merlons." loading="lazy" decoding="async">
+          <figcaption>
+            <span>South gate — plinth, coping and merlons</span>
+            <span class="tag">Capture</span>
+          </figcaption>
+        </figure>
+        <figure class="plate">
+          <img src="assets/img/world-coneria-canals.jpg" width="1280" height="720" alt="A stone canal reach inside Coneria with right-angle bends and a bridge crossing." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Canal reach — water geometry in stone embankments</span>
+            <span class="tag">Capture</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid g2 mt-3">
+        <div class="cell">
+          <h3>Built from the map, not around it</h3>
+          <p>
+            The earlier version of Coneria was a 500 × 400 m rectangle with four gatehouses and a
+            circular fountain. It was replaced: the wall is now an irregular stepped perimeter
+            traced from the reference, split by a north gate and a south gate that both sit on
+            the same avenue.
+          </p>
+        </div>
+        <div class="cell">
+          <h3>Castle on its own ground</h3>
+          <p>
+            Castle Coneria keeps its approved 180 × 160 m curtain north of the town, separated by
+            roughly 104 metres of open grass and a paved approach. The town itself moved 60 m
+            south so the castle could keep its position.
+          </p>
+        </div>
+        <div class="cell">
+          <h3>Seven plots, one landmark</h3>
+          <p>
+            A north-west residential pair, a north-east house, a weapons and armour pair, a
+            mid-right house, and the large south-western inn with its INN board — each on its own
+            grass plot, with conifer rows inside the north wall.
+          </p>
+        </div>
+        <div class="cell">
+          <h3>Solid from the first frame</h3>
+          <p>
+            A 216 × 166 m collision slab sits under the town and another under the castle court,
+            so the ground is walkable before terrain streaming completes. The town slab sits
+            below the canal beds, which keeps the channels at their intended depth.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">03.4</span> Landmarks</p>
+          <h2>Sixteen footprints reserved.</h2>
+        </div>
+        <p class="aside">
+          Surface footprints are locked by the layout specification. Interiors may extend well
+          beyond them through multiple levels.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="t-compact">
+          <caption>Landmark surface footprints</caption>
+          <thead>
+            <tr><th scope="col">Landmark</th><th scope="col" class="num">Footprint</th><th scope="col" class="num">Region</th><th scope="col">State</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Temple of Fiends</td><td class="num">180 × 160 m</td><td class="num">D</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Matoya's Cave</td><td class="num">90 × 70 m</td><td class="num">D</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Marsh Cave</td><td class="num">250 × 200 m</td><td class="num">E</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Dwarf Cave</td><td class="num">220 × 180 m</td><td class="num">D</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Western Keep</td><td class="num">300 × 250 m</td><td class="num">E</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Titan's Tunnel</td><td class="num">400 × 60 m passage</td><td class="num">E</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Earth Cave</td><td class="num">250 × 200 m</td><td class="num">E</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Sage's Cave</td><td class="num">80 × 60 m</td><td class="num">E</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Gurgu Volcano</td><td class="num">600 × 600 m</td><td class="num">F</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Ice Cavern</td><td class="num">180 × 150 m</td><td class="num">F</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Cardia Islands</td><td class="num">600 × 450 m region</td><td class="num">B</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Castle of Ordeals</td><td class="num">200 × 180 m</td><td class="num">B</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Waterfall Cavern</td><td class="num">120 × 100 m</td><td class="num">A</td><td><span class="chip" data-state="active">Headland built</span></td></tr>
+            <tr><td>Sea Shrine</td><td class="num">400 × 300 m</td><td class="num">A</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Mirage Tower</td><td class="num">100 × 100 m</td><td class="num">C</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+            <tr><td>Flying Fortress</td><td class="num">250 × 200 m</td><td class="num">C</td><td><span class="chip" data-state="planned">Planned</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note mt-3">
+        <strong>One exception.</strong> The Waterfall Cavern's surface headland, lagoon and
+        floating props exist as an environment prototype — that is the shot below — but the
+        dungeon interior behind the fall is not built.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">03.5</span> Field craft</p>
+          <h2>The space between the landmarks.</h2>
+        </div>
+        <p class="aside">
+          Distances are specified so that a 4 km world reads as landscape rather than a
+          stretched tile map.
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="body">
+          <h3>Scale targets</h3>
+          <ul class="spec-list">
+            <li>Main roads <b>6–10 m</b></li>
+            <li>Secondary roads <b>3–6 m</b></li>
+            <li>Dirt paths <b>1.5–3 m</b></li>
+            <li>Small villages <b>100–180 m</b></li>
+            <li>Large forests <b>300–700 m</b></li>
+            <li>Major rivers <b>15–40 m</b></li>
+            <li>Large lakes <b>200–500 m</b></li>
+            <li>Mountain ranges <b>300–900 m</b></li>
+          </ul>
+          <p class="small mt-2">
+            Roads near Coneria are maintained. Near Melmond they deteriorate. Near Elfheim they
+            dissolve into the forest.
+          </p>
+        </div>
+        <figure class="plate">
+          <img src="assets/img/env-overview.jpg" width="1280" height="720" alt="A high overview of the streamed world: terrain chunks, forests, mountains, roads and distant ocean haze." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Streamed chunks and far horizon</span>
+            <span class="tag">Overview</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid g3 mt-4">
+        <div class="cell">
+          <span class="kicker">Permitted narration</span>
+          <h3>Additive content</h3>
+          <p>
+            Farming settlements, abandoned villages, watchtowers, ruined castles, roadside inns,
+            forest shrines, graveyards, mines and hidden waterfalls may fill the gaps between
+            canonical places.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Hard rule</span>
+          <h3>Nothing displaces a landmark</h3>
+          <p>
+            Additive content must respect the original geography and timeline. Moving or resizing
+            a town requires re-running the layout validator and re-checking every original
+            landmark distance.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Single source</span>
+          <h3>Data is canonical</h3>
+          <p>
+            <code>world_layout.json</code> is the authority for every coordinate and footprint.
+            The written specification explains it; the JSON decides it. The validator reports
+            zero errors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Project overview</a></li>
+          <li><a href="progress.html">Development progress</a></li>
+          <li><a href="gallery.html">Visual gallery</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="roadmap.html">Roadmap</a></li>
+          <li><a href="tales.html">Tales of Light</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
+</body>
+</html>

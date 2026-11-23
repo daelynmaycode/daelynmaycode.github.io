@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tales of Light — the journal system | Final Fantasy I 3D Remake</title>
+<meta name="description" content="Tales of Light is the remake's quest and adventure tracker: main story, side quests, completed tales and discoveries, with a compact objective tracker in the field.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="Tales of Light — the journal system">
+<meta property="og:description" content="How the remake turns Final Fantasy I's implied quest structure into a legible, state-backed journal.">
+<meta property="og:url" content="https://daelynmaycode.github.io/tales.html">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/ui-tales-main.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/tales.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="progress.html">Progress</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="tales.html" aria-current="page">Tales of Light</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="num">07 / 07</span> Tales of Light</p>
+      <h1>A world this large needs a memory.</h1>
+      <p class="lede">
+        Tales of Light is the remake's adventure journal — the record of what the Warriors of
+        Light know, what they are seeking, and what they have witnessed. It replaces the original
+        game's reliance on remembering what a villager said forty hours ago.
+      </p>
+      <div class="head-meta">
+        <span>System implemented</span>
+        <span>Content limited to Coneria</span>
+        <span>Saved with the journey</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="split">
+        <div class="body prose">
+          <h3>Why it exists</h3>
+          <p>
+            Final Fantasy I hides its structure in dialogue. A single line from a villager
+            establishes the next objective; a broken bridge implies a ship; a crown implies a
+            king. On a 256 × 256 tile world with a handful of screens, memory is enough.
+          </p>
+          <p>
+            At 4,000 × 4,000 metres it is not. Walking from Coneria to Melmond takes minutes, not
+            seconds, and every resident can now say something contextual about weather, threat or
+            their own mood. Without a record, the game's guidance dissolves into noise.
+          </p>
+          <p>
+            Tales of Light is therefore not a modern concession bolted onto an old game. It is
+            the load-bearing structure that makes the new scale navigable while keeping the
+            original's quest shape: the crystals, the four Warriors, and a world that tells you
+            where to go next only if you listen.
+          </p>
+        </div>
+        <figure class="plate">
+          <img src="assets/img/ui-tales-main.jpg" width="1280" height="720" alt="The Tales of Light journal open on the main story tab, showing a priority tale, four tabs and a detail panel with stages, first heard, reward and known path." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Journal — main story tab</span>
+            <span class="tag">Field menu</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">07.1</span> Structure</p>
+          <h2>Four ways to remember.</h2>
+        </div>
+        <p class="aside">
+          The journal splits a tale's life into what is being pursued, what is optional, what is
+          finished, and what has merely been heard about.
+        </p>
+      </div>
+
+      <div class="grid g2">
+        <div class="cell">
+          <span class="kicker">Tab one</span>
+          <h3>Main story</h3>
+          <p>
+            The spine of the game. One entry is flagged as the <strong>priority tale</strong> —
+            the thread the party is currently following — and every other main entry sits behind
+            it in a known order.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Tab two</span>
+          <h3>Side quests</h3>
+          <p>
+            Optional threads discovered in the world. They appear only once the party has actually
+            learned of them, and they never displace the priority tale's prominence.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Tab three</span>
+          <h3>Completed tales</h3>
+          <p>
+            Closed entries keep their completion note, so the journal accumulates as a record of
+            what happened rather than collapsing into a checklist that empties as you play.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Tab four</span>
+          <h3>Discoveries</h3>
+          <p>
+            Places the party has learned about but not yet resolved — grouped by region and
+            attributed to whoever provided the knowledge, so a rumour is visibly a rumour.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">07.2</span> Anatomy of an entry</p>
+          <h2>What a tale actually shows.</h2>
+        </div>
+        <p class="aside">
+          An entry is a small state machine with a readable surface. Nothing in the panel is
+          decoration: each field is a value the game maintains.
+        </p>
+      </div>
+
+      <div class="split">
+        <figure class="plate">
+          <img src="assets/img/ui-tales-complete.jpg" width="1280" height="720" alt="A completed tale entry with its title, status stamp, region, completion note and stage list." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Completed entry — status stamp and completion note</span>
+            <span class="tag">Journal</span>
+          </figcaption>
+        </figure>
+        <div class="body">
+          <ul class="spec-list">
+            <li>Title and status stamp <b>Main · Side · Complete</b></li>
+            <li>Region and context <b>Where it began</b></li>
+            <li>Stages <b>Ordered progress</b></li>
+            <li>First heard <b>Source of the lead</b></li>
+            <li>Reward <b>What completion grants</b></li>
+            <li>Known path <b>Next step in plain language</b></li>
+            <li>Clear priority <b>Marks the active thread</b></li>
+          </ul>
+          <p class="small mt-2">
+            The priority tale is shown as a separate card above the list, so opening the journal
+            answers "what am I doing?" before it answers anything else.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">07.3</span> In the field</p>
+          <h2>The journal outside the menu.</h2>
+        </div>
+        <p class="aside">
+          A compact tracker sits in the corner of the screen so the objective is available
+          without opening anything, and disappears when there is nothing to pursue.
+        </p>
+      </div>
+
+      <div class="split reverse">
+        <div class="body prose">
+          <p>
+            The tracker shows the active tale's next step in one or two lines. It is deliberately
+            quiet: no arrow, no distance counter, no marker floating over a building. The world is
+            supposed to be read, not followed.
+          </p>
+          <p>
+            Discoveries resolve differently. Learning about a place does not add a quest — it
+            adds knowledge, grouped by region, attributed to a speaker. A rumour overheard in a
+            market reads as a rumour, and only becomes a tale once the party commits to it.
+          </p>
+          <p class="small">
+            The dialogue shell reserves space for subtitles and voice lines. Neither exists yet;
+            every line in the build is text.
+          </p>
+        </div>
+        <figure class="plate">
+          <img src="assets/img/ui-discoveries.jpg" width="1280" height="720" alt="The discoveries tab, listing places grouped by region with the speaker who provided the knowledge and a detail panel." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Discoveries — grouped by region, attributed by speaker</span>
+            <span class="tag">Journal</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">07.4</span> Implementation</p>
+          <h2>One owner for quest state.</h2>
+        </div>
+        <p class="aside">
+          The journal is a view. The state lives in a single autoload, which is why a quest can
+          never disagree with itself across two screens.
+        </p>
+      </div>
+
+      <div class="grid g3">
+        <div class="cell">
+          <span class="kicker">State</span>
+          <h3>RPG state autoload</h3>
+          <p>
+            Owns quest stages, priorities and discoveries, alongside the party, equipment,
+            inventory, magic charges and formation. It emits a change signal rather than letting
+            screens poll.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">View</span>
+          <h3>Field menu projection</h3>
+          <p>
+            The journal reads state directly and keeps no copy. Changing a stage anywhere is
+            reflected everywhere on the next refresh, including the field tracker.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Persistence</span>
+          <h3>Saved with the journey</h3>
+          <p>
+            Quest progress travels in the same save as the party and the world clock, so
+            continuing a journey restores the journal exactly as it was left.
+          </p>
+        </div>
+      </div>
+
+      <div class="table-wrap mt-3">
+        <table class="t-compact">
+          <caption>Verification</caption>
+          <thead>
+            <tr><th scope="col">Suite</th><th scope="col">What it asserts</th><th scope="col">Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quest tracker</td><td>Tracker visibility, active tale resolution, refresh on quest change</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Field menu</td><td>Sections, tab switching, entry selection, save and reload of journal state</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Immersion</td><td>Social lines, schedule flags and caption routing alongside the journal</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn mt-3">
+        <strong>What is not there yet.</strong> The system is finished; the story is not. Entries
+        exist for the opening at Coneria — the crystal's call, the four warriors, the wishing
+        fountain — and nothing beyond the capital. Experience, levels, spell charges and loot,
+        which would give the journal something to record, are stage S4 and unbuilt.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">07.5</span> Role</p>
+          <h2>What it means for the remake.</h2>
+        </div>
+        <p class="aside">
+          Three consequences, all of them structural rather than cosmetic.
+        </p>
+      </div>
+      <div class="prose">
+        <ol>
+          <li>
+            <strong>Scale becomes navigable.</strong> The journal is what allows a 4 km world to
+            keep the original's sparse guidance without becoming hostile to a player who puts the
+            game down for a week.
+          </li>
+          <li>
+            <strong>Residents become worth talking to.</strong> Because knowledge is attributed,
+            a conversation has a destination. Learning a place's name is a tangible state change,
+            not flavour text.
+          </li>
+          <li>
+            <strong>The remake can be honest about its own progress.</strong> A tale's stages are
+            explicit, so the game never implies that something has advanced when it has not — the
+            same discipline this website applies to the build itself.
+          </li>
+        </ol>
+      </div>
+
+      <div class="hero-actions mt-3">
+        <a class="btn" href="gallery.html">See the journal in the gallery <span class="arrow">→</span></a>
+        <a class="btn ghost" href="progress.html">Read the progress record</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Project overview</a></li>
+          <li><a href="progress.html">Development progress</a></li>
+          <li><a href="atlas.html">World atlas</a></li>
+          <li><a href="gallery.html">Visual gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
+</body>
+</html>

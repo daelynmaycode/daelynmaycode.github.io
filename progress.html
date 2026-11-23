@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Development Progress — Final Fantasy I 3D Remake</title>
+<meta name="description" content="Measured development status across ten categories: world, towns, characters, combat, story, equipment, rendering, audio, AI and UI. Status labels come from the build's own verification suites.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="Development Progress — Final Fantasy I 3D Remake">
+<meta property="og:description" content="Ten development categories, stage-gated and labelled from measured build results rather than estimates.">
+<meta property="og:url" content="https://daelynmaycode.github.io/progress.html">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/world-coneria-plaza.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/progress.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="progress.html" aria-current="page">Progress</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="tales.html">Tales of Light</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="num">02 / 07</span> Development Progress</p>
+      <h1>What works, what is being built, what is still a plan.</h1>
+      <p class="lede">
+        Ten categories, each measured against four production gates. A category only moves to
+        "implemented" when its systems are present, playable and verified by a headless suite —
+        never because a feature was described in a design document.
+      </p>
+      <div class="head-meta">
+        <span>Suites verified 22 Nov 2026 · page audited 23 Nov 2026</span>
+        <span>Source: build verification suites</span>
+        <span>Engine Godot 4.7.2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="statstrip">
+    <div class="wrap" style="display:contents">
+      <div class="stat">
+        <span class="val">8 / 10<small>categories with a working systems layer</small></span>
+        <span class="lbl">Systems live</span>
+      </div>
+      <div class="stat">
+        <span class="val">1 / 8<small>settlements reconstructed from reference plans</small></span>
+        <span class="lbl">Towns built</span>
+      </div>
+      <div class="stat">
+        <span class="val">4 / 9<small>ROM data domains fully decoded and verified</small></span>
+        <span class="lbl">Data extraction</span>
+      </div>
+      <div class="stat">
+        <span class="val">7 / 12<small>world-art tasks complete in the active milestone</small></span>
+        <span class="lbl">M6 checklist</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="legend">
+        <div class="item">
+          <span class="chip" data-state="implemented">Implemented</span>
+          <span><b>Present and verified.</b> Playable now, covered by an automated suite, no known blocking defect.</span>
+        </div>
+        <div class="item">
+          <span class="chip" data-state="active">In development</span>
+          <span><b>Partially working.</b> Core systems may run while art, content or a dependent stage is unfinished.</span>
+        </div>
+        <div class="item">
+          <span class="chip" data-state="planned">Planned</span>
+          <span><b>Designed but not built.</b> Specified in the roadmap or an architecture doc, with no runtime code.</span>
+        </div>
+      </div>
+
+      <div class="note mb-3">
+        <strong>How the gates work.</strong> Each track lists four gates — system, geometry, art
+        and polish. A gate is filled only when the corresponding work is signed off in the
+        build. No percentage on this page is an estimate of remaining time.
+      </div>
+
+      <div class="dash">
+
+        <article class="track" id="world">
+          <div class="idx">01</div>
+          <div>
+            <div class="title-row">
+              <h3>World &amp; environments</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              A continuous 16 km² overworld streamed in 128 m cells, with day/night, seven
+              weather states and a shared ocean.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="done">Geometry</span>
+              <span class="gate" data-g="active">Art</span>
+              <span class="gate" data-g="planned">Polish</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Working</span>
+              <span>2,000 × 2,000 terrain cells at 2 m; 4,000 m world; 81 chunks resident at the south gate; asynchronous cell streaming with distance LODs.</span>
+            </div>
+            <div class="row">
+              <span class="k">Art in</span>
+              <span>Triplanar PBR terrain for grass, forest floor, rock, sand and snow; five authored tree species with near meshes and billboard HLODs.</span>
+            </div>
+            <div class="row">
+              <span class="k">Missing</span>
+              <span>Authored coast mesh with matching collision and cliff transitions, final water and rock materials, grass alpha cards and the final waterfall art.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="towns">
+          <div class="idx">02</div>
+          <div>
+            <div class="title-row">
+              <h3>Towns, settlements &amp; dungeons</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              Eight settlement anchors from the approved layout. Coneria is rebuilt from its own
+              NES town plan; the rest are scaled blockouts.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="active">Geometry</span>
+              <span class="gate" data-g="active">Art</span>
+              <span class="gate" data-g="planned">Polish</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Coneria</span>
+              <span>214 × 163 m stepped perimeter traced from the town map at 0.21 m per plan pixel; two axial gates, crossroad square, four canal reaches with stone bridges, seven buildings including the inn.</span>
+            </div>
+            <div class="row">
+              <span class="k">Interiors</span>
+              <span>Seven enterable doors and eight interior spaces reported by the boot smoke test; castle first floor dressed with runner, carpets and railings. A November asset pass dressed them with scanned books, wine bottles, cargo crates, shovels, shop shelves and inn beds.</span>
+            </div>
+            <div class="row">
+              <span class="k">Missing</span>
+              <span>Detailed districts for the other seven towns, all dungeon interiors, and the castle room partition layout (the reference plan was not available).</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="characters">
+          <div class="idx">03</div>
+          <div>
+            <div class="title-row">
+              <h3>Characters &amp; NPCs</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              Four rigged hero classes driven by a data file, with exported MetaHuman bodies in
+              the intake slot, and residents and animals with contextual behaviour.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="done">Geometry</span>
+              <span class="gate" data-g="active">Art</span>
+              <span class="gate" data-g="planned">Polish</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Working</span>
+              <span><code>heroes.json</code> defines identity, height, palette and proportions for Fighter (male and female), Thief and Monk over a shared 92-bone Humanoid contract. Four exported MetaHuman bodies now sit at the declared paths under <code>assets/characters/heroes/</code>.</span>
+            </div>
+            <div class="row">
+              <span class="k">Pipeline</span>
+              <span>MetaHuman bone renaming, height normalisation and proportional stylisation; a Ghibli-style shading pass restyles both MetaHuman and authored bodies into one visual language.</span>
+            </div>
+            <div class="row">
+              <span class="k">Gaps</span>
+              <span>The MetaHuman body source is declared and exported, but the newest hero capture still renders the authored fallback, so the switch is not yet proven in a frame. That fallback's supplied modular head reads as a doll at conversation distance. Villagers are procedural; remaining classes are unmodelled.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="combat">
+          <div class="idx">04</div>
+          <div>
+            <div class="title-row">
+              <h3>Combat &amp; gameplay systems</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              Real-time field combat works. The turn-based battle layer that will resolve FF1
+              encounters is specified and staged, with no runtime yet.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="active">Systems</span>
+              <span class="gate" data-g="active">Geometry</span>
+              <span class="gate" data-g="planned">Art</span>
+              <span class="gate" data-g="planned">Polish</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Working</span>
+              <span>Basic attack, lock-on and a target acquisition/retention system verified at 67 checks; survival model with health, fatigue, hydration and stamina; swimming, diving and mounted travel.</span>
+            </div>
+            <div class="row">
+              <span class="k">Rules</span>
+              <span>A read-only typed layer loads all 128 enemies, 44 AI records, 128 formations and 128 domains once at startup and refuses to run on tainted tables.</span>
+            </div>
+            <div class="row">
+              <span class="k">Not built</span>
+              <span>Active Time Battle, the battle arena, damage and status resolution, and the field-to-battle bridge. Encounter selection and count rolls are deliberately withheld until the resolution core exists.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="story">
+          <div class="idx">05</div>
+          <div>
+            <div class="title-row">
+              <h3>Story, quests &amp; progression</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              The journal, tracker and opening cinematic are built. Authored story content
+              currently stops at Coneria.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="active">Content</span>
+              <span class="gate" data-g="planned">Polish</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Working</span>
+              <span><a href="tales.html">Tales of Light</a>: main story, side quests, completed tales and discoveries, priority tale, stage tracking and a compact objective tracker. A skippable opening cinematic sets the prophecy.</span>
+            </div>
+            <div class="row">
+              <span class="k">Backed by</span>
+              <span>A single RPG state autoload owns quest stages, priorities and discoveries, emits a change signal and saves with the journey. The Field Menu never keeps a second copy.</span>
+            </div>
+            <div class="row">
+              <span class="k">Not built</span>
+              <span>Experience, levels, spell charges, loot tables and persistence of progression — the whole S4 stage. Story content beyond the capital is unwritten.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="equipment">
+          <div class="idx">06</div>
+          <div>
+            <div class="title-row">
+              <h3>Weapons, armor &amp; equipment</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              The equipment system and its interface are working. The original item, weapon,
+              armor and shop tables have not been extracted yet.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="active">Content</span>
+              <span class="gate" data-g="planned">Art</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Working</span>
+              <span>Five-slot contract — main hand, off hand, head, body, accessory — with a visible loadout on the character, an equipment comparison view, starter gear, a satchel and key items.</span>
+            </div>
+            <div class="row">
+              <span class="k">Restrictions</span>
+              <span>Class restrictions and per-slot defaults are normalised on save so a malformed loadout cannot persist.</span>
+            </div>
+            <div class="row">
+              <span class="k">Missing</span>
+              <span>ROM weapon, armor, item and shop tables (M2), plus weapon and armor models for the gallery's equipment set.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="graphics">
+          <div class="idx">07</div>
+          <div>
+            <div class="title-row">
+              <h3>Graphics, lighting &amp; rendering</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              A modern Forward+ pipeline with global illumination approximations, quality tiers
+              and capability gating — running on blockout geometry.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="active">Art</span>
+              <span class="gate" data-g="planned">Optimise</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">High preset</span>
+              <span>SDFGI, SSIL, SSAO, screen-space reflections, volumetric fog, cascaded soft shadows, Filmic tonemapping, auto exposure and TAA.</span>
+            </div>
+            <div class="row">
+              <span class="k">Measured</span>
+              <span>57.4 FPS average in the town with 2,563 draw calls and 1,823 MB VRAM at the last audit. These figures predate the most recent rendering work and have not been re-measured.</span>
+            </div>
+            <div class="row">
+              <span class="k">Note</span>
+              <span>These are Nanite- and Lumen-inspired approximations on Godot's native renderer — not virtual geometry or software ray tracing.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="audio">
+          <div class="idx">08</div>
+          <div>
+            <div class="title-row">
+              <h3>Audio &amp; soundtrack</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              Routing, mixing and soundtrack selection are built. The audio itself is reference
+              material that must be replaced before release.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="active">Content</span>
+              <span class="gate" data-g="planned">Mix</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Working</span>
+              <span>Seven routed and independently mixable buses; selectable NES and Pixel Remaster soundtracks resolved centrally and crossfaded across overworld, town, battle, castle and menu sequences.</span>
+            </div>
+            <div class="row">
+              <span class="k">Persisted</span>
+              <span>Bus levels and soundtrack choice survive a restart; a separate-process check reloads and re-applies every audio, graphics and input value.</span>
+            </div>
+            <div class="row">
+              <span class="k">Legal</span>
+              <span>Both soundtracks are user-supplied reference audio. They are study material only and cannot ship.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="ai">
+          <div class="idx">09</div>
+          <div>
+            <div class="title-row">
+              <h3>AI &amp; character behaviour</h3>
+              <span class="chip" data-state="active">In development</span>
+            </div>
+            <p class="what">
+              Field behaviour — aggro, animal temperament, resident social state — runs. Battle
+              AI exists as decoded tables with no executor.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="active">Field AI</span>
+              <span class="gate" data-g="done">Data</span>
+              <span class="gate" data-g="planned">Battle AI</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Field</span>
+              <span>Enemy spawn authority and manager, aggro and movement profiles; animals with temperament, trust, mood and a behaviour state machine plus synthesised vocalisations.</span>
+            </div>
+            <div class="row">
+              <span class="k">Social</span>
+              <span>Residents keep hostility, warning and alert state, so the same verb reads differently on a calm, irritated or hostile villager; a line composer reacts to role, weather, threat and recent dialogue.</span>
+            </div>
+            <div class="row">
+              <span class="k">Battle</span>
+              <span>All 44 enemy AI records are decoded and cross-validated — spell slots, special slots and chance weights — but nothing consumes them yet.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="track" id="ui">
+          <div class="idx">10</div>
+          <div>
+            <div class="title-row">
+              <h3>UI/UX &amp; menus</h3>
+              <span class="chip" data-state="implemented">Implemented</span>
+            </div>
+            <p class="what">
+              The most complete part of the build: a full Field Menu, pause menu, Settings
+              suite, HUD and accessibility layer, all persistent.
+            </p>
+            <div class="gates">
+              <span class="gate" data-g="done">Systems</span>
+              <span class="gate" data-g="done">Layout</span>
+              <span class="gate" data-g="done">Verified</span>
+              <span class="gate" data-g="active">Art</span>
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="row">
+              <span class="k">Menus</span>
+              <span>Field Menu with eight sections — overview, status, equipment, items, magic, formation, tales and discoveries. Pause menu limited to exactly five choices.</span>
+            </div>
+            <div class="row">
+              <span class="k">Settings</span>
+              <span>Graphics, Input and Sound categories: resolution and quality tiers, effect toggles, full keyboard and controller remapping, deadzone and sensitivity, accessibility options.</span>
+            </div>
+            <div class="row">
+              <span class="k">Verified</span>
+              <span>Layouts checked at 1024 × 768, 1280 × 720, 1600 × 900 and 1920 × 800; settings persistence verified across two separate processes.</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="note mt-4">
+        <strong>One known failure.</strong> The controls suite reports 323 passes and a single
+        failure: "jump acts as swim-up while swimming". It is in the underwater input path, far
+        from the town work that produced it, and is recorded rather than hidden. Every other
+        suite exits clean.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">02.1</span> Coverage</p>
+          <h2>Counted, not estimated.</h2>
+        </div>
+        <p class="aside">
+          Where a real denominator exists it is shown. These are proportions of a defined list —
+          not percentages of a finished game.
+        </p>
+      </div>
+
+      <div class="grid g2">
+        <div class="cell">
+          <h3>Settlements reconstructed</h3>
+          <p>Coneria is rebuilt from its own plan. Seven towns remain scaled blockouts at their approved anchors.</p>
+          <div class="meter ok" style="--p:12.5%"><span></span></div>
+          <p class="mono mt-1">1 of 8 · 12.5%</p>
+        </div>
+        <div class="cell">
+          <h3>ROM data domains extracted</h3>
+          <p>Overworld, tile properties, enemy and AI records, and formations with encounter domains. Items, spells, classes, maps and dialogue remain.</p>
+          <div class="meter active" style="--p:44%"><span></span></div>
+          <p class="mono mt-1">4 of 9 · 44%</p>
+        </div>
+        <div class="cell">
+          <h3>World-art checklist</h3>
+          <p>Environment, weather, water, shoreline grading, settings, polish and the tree library are done. Coast mesh, final materials, architecture kit and the art-passed package are not.</p>
+          <div class="meter active" style="--p:58%"><span></span></div>
+          <p class="mono mt-1">7 of 12 · 58%</p>
+        </div>
+        <div class="cell">
+          <h3>Route to a playable game</h3>
+          <p>Input and settings, typed battle rules, the Coneria reconstruction and the hero pipeline are complete. Active ATB through the first acceptance run are not started.</p>
+          <div class="meter active" style="--p:33%"><span></span></div>
+          <p class="mono mt-1">3 of 9 route stages · 33%</p>
+        </div>
+      </div>
+
+      <p class="small mt-2">
+        Route stages are counted from the milestone record: stage 0, stage 1.1 and the combined
+        stage 1.2/1.3 delivery are signed off; stages 2 through 7 are untouched.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">02.2</span> Evidence</p>
+          <h2>The suites that produce these labels.</h2>
+        </div>
+        <p class="aside">
+          Every status above traces to one of these deterministic runs. They execute headless,
+          with the audio driver disabled, against the real scenes.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="t-compact">
+          <caption>Last recorded headless results</caption>
+          <thead>
+            <tr>
+              <th scope="col">Suite</th>
+              <th scope="col">Covers</th>
+              <th scope="col" class="num">Checks</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Battle data</td><td>ROM tables, offsets, cross-references</td><td class="num">117</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Battle rules</td><td>Typed layer over every table field</td><td class="num">54</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Fighters</td><td>Hero rig, equipment, animation, combat</td><td class="num">469</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Monk</td><td>Fourth class, model, combat and menus</td><td class="num">185</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Interactions</td><td>Contextual verbs, commitment, cooldowns</td><td class="num">115</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Targeting</td><td>Acquisition, retention, HUD</td><td class="num">67</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Immersion</td><td>Social state, schedules, captions</td><td class="num">35</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Hero pipeline</td><td>Hero definitions, MetaHuman intake</td><td class="num">88</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Animation system</td><td>Clip blending, layered poses, death reset</td><td class="num">55</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Expression layer</td><td>Layered offsets, drift under mixer priority</td><td class="num">14</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Surface system</td><td>27 surface profiles, chunk and material response</td><td class="num">49</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Settings</td><td>Graphics, input, audio, persistence</td><td class="num">227</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Remake features</td><td>Cross-system behaviour after the input fixes</td><td class="num">95</td><td><span class="chip" data-state="implemented">Pass</span></td></tr>
+            <tr><td>Controls</td><td>Bindings, pause menu, swim response</td><td class="num">323</td><td><span class="chip" data-state="active">1 failure</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note mt-3">
+        <strong>Why this matters.</strong> Check counts come from the newest recorded run of each
+        suite. A system can look finished in a screenshot and still be
+        wrong. Running the same deterministic checks after every change is what allows this page
+        to say "implemented" about anything at all.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Project overview</a></li>
+          <li><a href="atlas.html">World atlas</a></li>
+          <li><a href="gallery.html">Visual gallery</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="roadmap.html">Roadmap</a></li>
+          <li><a href="tales.html">Tales of Light</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
+</body>
+</html>

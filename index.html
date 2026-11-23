@@ -1,389 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LEONIDA.RPF — independent GTA VI analysis.">
-    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f6f9f9" media="(prefers-color-scheme: light)">
-    <link rel="canonical" href="https://daelynmaycode.github.io/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="LEONIDA.RPF">
-    <meta property="og:title" content="LEONIDA.RPF — Dashboard">
-    <meta property="og:description" content="LEONIDA.RPF — independent GTA VI analysis.">
-    <meta property="og:url" content="https://daelynmaycode.github.io/">
-    <meta property="og:image" content="https://daelynmaycode.github.io/images/gta6skyline.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>LEONIDA.RPF — Dashboard</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/style.css">
-    <script>(function(){try{var r=document.documentElement;var e=localStorage.getItem('leonida-entry-agreement-v1');if(e==='accepted'){r.setAttribute('data-entry-accepted','true');}else{r.setAttribute('data-entry-pending','true');}var t=localStorage.getItem('leonida-theme');if(t==='light'||t==='dark'){r.setAttribute('data-theme',t);}var m=localStorage.getItem('leonida-mode');if(m==='a11y'||m==='fast'){r.setAttribute('data-mode',m);}var a=JSON.parse(localStorage.getItem('leonida-a11y')||'{}');['motion','contrast','transparency','blur','text','font','focus'].forEach(function(k){if(a[k]){r.setAttribute('data-a11y-'+k,'on');}});}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Final Fantasy I — 3D Remake | Development Portal</title>
+<meta name="description" content="An independent, from-scratch 3D remake of Final Fantasy I built in Godot 4.7. Documented development: the playable Coneria slice, the 4 km overworld, verified data extraction and the roadmap ahead.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Final Fantasy I — 3D Remake">
+<meta property="og:description" content="A from-scratch 3D remake of the 1987 original. Development portal: progress, world atlas, gallery, timeline and roadmap.">
+<meta property="og:url" content="https://daelynmaycode.github.io/">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/hero-title.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
 </head>
 <body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<header>
-    <div class="container nav">
-        <a class="logo" href="index.html" aria-label="LEONIDA.RPF home"><img src="images/Leonida-RPF-LOGO-header.png" alt="LEONIDA.RPF" width="112" height="56" decoding="async"></a>
-
-        <nav>
-            <a class="active" href="index.html" aria-current="page">Home</a>
-            <a href="predictions.html">Predictions</a>
-            <a href="weapons.html">Weapons</a>
-            <a href="geography.html">Leonida</a>
-            <a href="editions.html">Editions</a>
-            <a href="analysis.html">Analysis</a>
-            <a href="opinions.html">Opinions</a>
-            <a href="confirmed.html">Confirmed</a>
-            <a href="archive.html">Archive</a>
-            <a href="dossier.html">Dossier</a>
-        </nav>
-
-        <div class="nav-controls">
-            <div class="system-status">
-                <span></span> DATABASE ONLINE
-            </div>
-            <div class="mode-switch" role="group" aria-label="Presentation mode">
-                <button class="mode-btn" type="button" data-mode-set="normal" aria-pressed="true">NORMAL</button>
-                <button class="mode-btn" type="button" data-mode-set="a11y" aria-pressed="false">A11Y</button>
-                <button class="mode-btn" type="button" data-mode-set="fast" aria-pressed="false">FAST</button>
-                <button class="mode-btn" type="button" data-a11y-panel aria-expanded="false" aria-controls="a11yPanel">OPTIONS</button>
-            </div>
-            <button class='theme-toggle' type='button' data-theme-toggle aria-label='Toggle light and dark theme'>LIGHT / DARK</button>
-        </div>
-    </div>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="progress.html">Progress</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="tales.html">Tales of Light</a>
+    </nav>
+  </div>
 </header>
-
-<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options" hidden>
-    <h3>ACCESSIBILITY</h3>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="motion"> REDUCE MOTION</label>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="contrast"> HIGH CONTRAST</label>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="transparency"> OPAQUE SURFACES</label>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="blur"> DISABLE BLUR</label>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="text"> LARGER TEXT</label>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="font"> LEGIBLE TYPE</label>
-    <label class="a11y-row"><input type="checkbox" data-a11y-toggle="focus"> STRONG FOCUS</label>
-</div>
-
-<a class="skip-link" href="#main">SKIP TO CONTENT</a>
 
 <main id="main">
 
-<section class="hero dashboard-hero">
-    <div class="container">
-
-        <div class="terminal-line">
-            LEONIDA.RPF / DATABASE / HOME
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow"><span class="num">01 / 07</span> Project Overview</p>
+          <h1>
+            <span class="line">The 1987 classic,</span>
+            <span class="line accent">rebuilt as a world</span>
+            <span class="line">you can walk through.</span>
+          </h1>
+          <p class="lede">
+            An independent, from-scratch 3D remake of <em>Final Fantasy I</em>, developed in
+            Godot 4.7. Every original map, enemy table and encounter rule is decoded from
+            the NES ROM itself — then rebuilt as a continuous 4 km world.
+          </p>
+          <div class="hero-badges">
+            <span class="pill">Engine <b>Godot 4.7.2</b></span>
+            <span class="pill">Renderer <b>Forward+ / Vulkan</b></span>
+            <span class="pill">Stage <b>Playable blockout</b></span>
+            <span class="pill">Verified <b>22 Nov 2026</b></span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="progress.html">Development dashboard <span class="arrow">→</span></a>
+            <a class="btn ghost" href="gallery.html">View captures</a>
+          </div>
         </div>
 
-        <p class="eyebrow">INDEPENDENT GTA VI ANALYSIS</p>
+        <figure class="plate hero-plate">
+          <img src="assets/img/hero-title.jpg" width="1280" height="720" alt="The remake's title screen: the Final Fantasy wordmark above a crystal, with a Continue card reading The Journey." fetchpriority="high" decoding="async">
+          <figcaption>
+            <span>Title screen — classes, soundtrack and journey state</span>
+            <span class="tag">Build 0.1.0</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <h1 class="brand-lockup">LEONIDA<span>.RPF</span></h1>
+  <div class="statstrip">
+    <div class="wrap" style="display:contents">
+      <div class="stat">
+        <span class="val">4,000 × 4,000 m<small>16 km² continuous overworld</small></span>
+        <span class="lbl">World scale</span>
+      </div>
+      <div class="stat">
+        <span class="val">0 bytes<small>SHA-256 identical reconstruction</small></span>
+        <span class="lbl">NES build fidelity</span>
+      </div>
+      <div class="stat">
+        <span class="val">128 / 44 / 128<small>enemies / AI records / formations</small></span>
+        <span class="lbl">ROM tables decoded</span>
+      </div>
+      <div class="stat">
+        <span class="val">8 of 10<small>categories with a working systems layer</small></span>
+        <span class="lbl">Systems live</span>
+      </div>
+    </div>
+  </div>
 
-        <p class="intro">
-            An independent archive of observations, analysis,
-            predictions, opinions, and publicly confirmed information
-            surrounding Grand Theft Auto VI.
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">01.1</span> Creative vision</p>
+          <h2>A preservation project that happens to be a game.</h2>
+        </div>
+        <p class="aside">
+          The remake does not reinterpret Final Fantasy I. It reconstructs it — first as data,
+          then as geometry — and asks what that world looks like when the tiles are removed.
         </p>
+      </div>
 
-        <div class="dashboard-meta">
-            <div>
-                <small>STATUS</small>
-                <strong>OPERATIONAL</strong>
-            </div>
-            <div>
-                <small>ACCESS</small>
-                <strong>PUBLIC</strong>
-            </div>
-            <div>
-                <small>DATA SOURCE</small>
-                <strong>PUBLIC MATERIAL</strong>
-            </div>
-            <div>
-                <small>LAUNCH WINDOW</small>
-                <strong>19 NOV 2026 — <span data-countdown>60</span> DAYS OUT</strong>
-            </div>
+      <div class="split">
+        <div class="body prose">
+          <p>
+            Final Fantasy I is a game about scale told in 16-pixel squares. A castle is four
+            tiles wide. A continent fits on one screen. The imagination fills the rest.
+          </p>
+          <p>
+            This project takes the opposite approach. The original 256 × 256 overworld grid is
+            decoded straight out of the ROM, then mapped at <strong>15.625 metres per reference
+            tile</strong> onto a 4,000 × 4,000 metre landscape. Coastlines, forests, mountain
+            ranges and the relative position of every town stay exactly where the NES put them.
+            Nothing is relocated to make a nicer composition.
+          </p>
+          <p>
+            The result is a world that is faithful in <em>geography</em> and entirely new in
+            <em>scale</em> — a Coneria whose wall runs 214 metres, whose castle sits a hundred
+            metres up a grass approach, and whose canals are crossed by bridges you can stand on.
+          </p>
         </div>
+        <figure class="plate">
+          <img src="assets/img/env-coast.jpg" width="1280" height="720" alt="A graded coastline at the edge of the streamed terrain, shallow water fading to deep ocean." loading="lazy" decoding="async">
+          <figcaption>
+            <span>Height-field coast, 1 m shoreline refinement</span>
+            <span class="tag">Environment</span>
+          </figcaption>
+        </figure>
+      </div>
 
-        <div class="notice">
-            <span class="notice-label">EDITORIAL POLICY</span>
-            <strong>WE DO NOT SHARE LEAKS.</strong>
-            <p>
-                No leaked or stolen material is published, distributed,
-                or hosted here. Analysis is based on publicly available
-                information and personal interpretation.
-            </p>
+      <div class="grid g3 mt-4">
+        <div class="cell">
+          <span class="cell-num">01</span>
+          <h3>Fidelity before flourish</h3>
+          <p>
+            The NES ROM is the authority. Town plans, enemy stats, AI scripts, formations and
+            encounter rates are extracted and validated against the source bytes — not retyped
+            from memory or a wiki.
+          </p>
         </div>
-
+        <div class="cell">
+          <span class="cell-num">02</span>
+          <h3>One continuous world</h3>
+          <p>
+            No loading screens between regions. A 128 m cell streamer, distance LODs and a far
+            horizon keep a 16 km² landscape resident without a single scene transition.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="cell-num">03</span>
+          <h3>Systems proven headless</h3>
+          <p>
+            Gameplay rules are engine-independent and tested without rendering. A system is
+            documented as working only when a deterministic suite says so.
+          </p>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-
-<section class="section">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">DATABASE</span>
-            <h2>System Overview</h2>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">01.2</span> Objectives</p>
+          <h2>What this build is trying to achieve.</h2>
         </div>
+        <p class="aside">
+          Five objectives govern every milestone decision. They are the reason some features
+          ship late and others are deliberately refused.
+        </p>
+      </div>
 
-        <div class="stats">
-
-            <a href="analysis.html" class="stat">
-                <span class="stat-value" data-count="5">0</span>
-                <span class="stat-label">ANALYSIS</span>
-            </a>
-
-            <a href="predictions.html" class="stat">
-                <span class="stat-value" data-count="7">0</span>
-                <span class="stat-label">PREDICTIONS</span>
-            </a>
-
-            <a href="weapons.html" class="stat">
-                <span class="stat-value" data-count="4">0</span>
-                <span class="stat-label">WEAPONS</span>
-            </a>
-
-            <a href="geography.html">Leonida</a>
-
-            <a href="geography.html" class="stat">
-                <span class="stat-value" data-count="17">0</span>
-                <span class="stat-label">GEOGRAPHY EVIDENCE</span>
-            </a>
-
-            <a href="editions.html" class="stat">
-                <span class="stat-value" data-count="18">0</span>
-                <span class="stat-label">EVIDENCE</span>
-            </a>
-
-            <a href="confirmed.html" class="stat">
-                <span class="stat-value" data-count="11">0</span>
-                <span class="stat-label">CONFIRMED</span>
-            </a>
-
-            <a href="opinions.html" class="stat">
-                <span class="stat-value" data-count="2">0</span>
-                <span class="stat-label">OPINIONS</span>
-            </a>
-
-            <a href="archive.html" class="stat">
-                <span class="stat-value" data-count="13">0</span>
-                <span class="stat-label">ARCHIVE</span>
-            </a>
-
-        </div>
-
+      <div class="prose">
+        <ol>
+          <li>
+            <strong>Reconstruct, don't approximate.</strong> Rebuild the original ROM
+            byte-identically, then decode its data so gameplay can be driven by the real
+            numbers rather than a re-creation of them.
+          </li>
+          <li>
+            <strong>Preserve geography at a new scale.</strong> Keep the original landmark
+            skeleton authoritative across a 4 km world. Expansion fills the space between
+            canonical places; it never displaces one.
+          </li>
+          <li>
+            <strong>Make the world legible on foot.</strong> A third-person controller, spring
+            camera, day/night cycle and seven weather states exist so a 4 km crossing reads as
+            travel rather than traversal.
+          </li>
+          <li>
+            <strong>Modernise the interface, not the rules.</strong> The Field Menu, the Tales of
+            Light journal and the Settings screen are rebuilt for clarity; the underlying
+            statistics, formations and encounter tables stay FF1-exact.
+          </li>
+          <li>
+            <strong>Never ship borrowed content.</strong> The NES ROM, original art and the
+            reference soundtracks are study material. They must be replaced by original or
+            licensed work before any public release.
+          </li>
+        </ol>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="section">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">NAVIGATION</span>
-            <h2>Explore Database</h2>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">01.3</span> What changes</p>
+          <h2>Same story. Different world to stand in.</h2>
         </div>
+        <p class="aside">
+          A direct comparison of the 1990 NES release and this remake, limited to differences
+          that exist in the build today or are explicitly scheduled.
+        </p>
+      </div>
 
-        <div class="grid">
+      <div class="table-wrap">
+        <table>
+          <caption>Original release versus the 3D remake</caption>
+          <thead>
+            <tr>
+              <th scope="col">Aspect</th>
+              <th scope="col">NES original (1990)</th>
+              <th scope="col">This remake</th>
+              <th scope="col">State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>World</td>
+              <td>256 × 256 tile overworld, screen-by-screen</td>
+              <td>One continuous 4,000 × 4,000 m landscape, streamed in 128 m cells</td>
+              <td><span class="chip" data-state="implemented">Implemented</span></td>
+            </tr>
+            <tr>
+              <td>Movement</td>
+              <td>Grid-aligned walking, tile-step collision</td>
+              <td>Third-person controller with acceleration, climb, swim and a spring-arm camera</td>
+              <td><span class="chip" data-state="implemented">Implemented</span></td>
+            </tr>
+            <tr>
+              <td>Towns</td>
+              <td>Single-screen 2D maps with door tiles</td>
+              <td>Coneria reconstructed from its own town plan at 0.21 m per plan pixel; seven enterable buildings and four canal reaches</td>
+              <td><span class="chip" data-state="active">In development</span></td>
+            </tr>
+            <tr>
+              <td>Time &amp; weather</td>
+              <td>Static daylight</td>
+              <td>Continuous day/night clock and seven weather states with wetness, settled snow and lightning</td>
+              <td><span class="chip" data-state="implemented">Implemented</span></td>
+            </tr>
+            <tr>
+              <td>Combat</td>
+              <td>Classic turn-based, front-view battle screen</td>
+              <td>Field combat with attack, lock-on and targeting; an Active Time Battle arena is scheduled but not built</td>
+              <td><span class="chip" data-state="active">In development</span></td>
+            </tr>
+            <tr>
+              <td>Journal</td>
+              <td>No quest log; guidance lives in NPC dialogue</td>
+              <td><a href="tales.html">Tales of Light</a> — main story, side quests, completed tales and discoveries, plus a compact objective tracker</td>
+              <td><span class="chip" data-state="implemented">Implemented</span></td>
+            </tr>
+            <tr>
+              <td>Characters</td>
+              <td>2D sprite classes chosen at the title screen</td>
+              <td>Rigged 3D heroes driven by a data file, with four exported MetaHuman bodies in the intake slot and a stylised shading pass</td>
+              <td><span class="chip" data-state="active">In development</span></td>
+            </tr>
+            <tr>
+              <td>Audio</td>
+              <td>NES 2A03 soundtrack and effects</td>
+              <td>Centrally routed music with selectable NES and Pixel Remaster soundtracks, seven mixable buses and crossfades</td>
+              <td><span class="chip" data-state="active">In development</span></td>
+            </tr>
+            <tr>
+              <td>Settings</td>
+              <td>None</td>
+              <td>Graphics, Input and Sound categories: presets, capability gating, full remapping, accessibility and persistence</td>
+              <td><span class="chip" data-state="implemented">Implemented</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-            <a class="card" href="predictions.html">
-                <span class="card-index">01</span>
-                <h3>Predictions</h3>
-                <p>What may happen, and why.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="weapons.html">
-                <span class="card-index">02</span>
-                <h3>Weapons</h3>
-                <p>Weapons &amp; combat evidence log.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="geography.html">
-                <span class="card-index">03</span>
-                <h3>Leonida</h3>
-                <p>Geographic archive of the state, place by place.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="editions.html">
-                <span class="card-index">04</span>
-                <h3>Editions</h3>
-                <p>Editions, formats, upgrades &amp; bonuses.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="analysis.html">
-                <span class="card-index">05</span>
-                <h3>Analysis</h3>
-                <p>Detailed examination of public material.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="opinions.html">
-                <span class="card-index">06</span>
-                <h3>Opinions</h3>
-                <p>Interpretations, theories, and personal takes.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="confirmed.html">
-                <span class="card-index">07</span>
-                <h3>Confirmed</h3>
-                <p>Information officially established.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="archive.html">
-                <span class="card-index">08</span>
-                <h3>Archive</h3>
-                <p>A chronological record of the database.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-            <a class="card" href="dossier.html">
-                <span class="card-index">09</span>
-                <h3>Dossier</h3>
-                <p>RAGE technical dossier: GTA III → GTA VI.</p>
-                <span class="card-link">OPEN →</span>
-            </a>
-
-        </div>
-
+      <p class="small mt-2">
+        "Implemented" means a system is present, verified by a headless suite and playable in
+        the current working tree. "In development" means it works partially or its art and
+        content pass is incomplete. Nothing on this page is a projection.
+      </p>
     </div>
-</section>
+  </section>
 
-
-<section class="section">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">METHODOLOGY</span>
-            <h2>Evidence → Interpretation</h2>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">01.4</span> Current status</p>
+          <h2>Where development actually stands.</h2>
         </div>
+        <p class="aside">
+          Two milestones are signed off, one is mid-art-pass, and the battle route that turns
+          the slice into a playable game has not begun. That is the honest picture.
+        </p>
+      </div>
 
-        <div class="method-grid">
-
-            <article class="method">
-                <span>01</span>
-                <h3>Evidence</h3>
-                <p>Publicly available material is collected.</p>
-            </article>
-
-            <article class="method">
-                <span>02</span>
-                <h3>Observation</h3>
-                <p>Visible details and statements are documented.</p>
-            </article>
-
-            <article class="method">
-                <span>03</span>
-                <h3>Analysis</h3>
-                <p>Observations are interpreted and contextualized.</p>
-            </article>
-
-            <article class="method">
-                <span>04</span>
-                <h3>Prediction</h3>
-                <p>Reasoned possibilities are separated from fact.</p>
-            </article>
-
+      <div class="grid g3">
+        <div class="cell">
+          <span class="kicker">Signed off</span>
+          <h3>NES reconstruction</h3>
+          <p>
+            The Disch v1.0 disassembly builds to a byte-identical 262,160-byte ROM. Same SHA-256,
+            zero differing bytes, exercised through intro, party creation, overworld, battle and
+            victory in FCEUX 2.6.6.
+          </p>
+          <div class="gates">
+            <span class="gate" data-g="done">Build</span>
+            <span class="gate" data-g="done">Play</span>
+            <span class="gate" data-g="done">Packaged</span>
+          </div>
         </div>
+        <div class="cell">
+          <span class="kicker">Signed off, art pending</span>
+          <h3>Playable 3D slice</h3>
+          <p>
+            Engine foundation and vertical slice: streaming terrain, collision, third-person
+            controller, Coneria, interiors, NPC dialogue, HUD, swimming and the ocean. Geometry
+            and characters are still blockout in places.
+          </p>
+          <div class="gates">
+            <span class="gate" data-g="done">Systems</span>
+            <span class="gate" data-g="done">Geometry</span>
+            <span class="gate" data-g="active">Art</span>
+            <span class="gate" data-g="planned">Polish</span>
+          </div>
+        </div>
+        <div class="cell">
+          <span class="kicker">Active milestone</span>
+          <h3>World art &amp; town production</h3>
+          <p>
+            Environment, weather and water are integrated; Coneria's house kit, terrain
+            materials and five tree species are in. The authored coast mesh, final water and
+            architecture kit are not.
+          </p>
+          <div class="gates">
+            <span class="gate" data-g="done">Environment</span>
+            <span class="gate" data-g="active">Architecture</span>
+            <span class="gate" data-g="planned">Repackage</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="note warn mt-3">
+        <strong>Art quality caveat.</strong> Every capture on this site is a real frame from the
+        project. Most of them are blockout captures: flat-shaded terrain, primitive villagers and
+        untextured castle interiors. They document systems and scale — not final visual quality.
+        The <a href="gallery.html">gallery</a> labels each image with its stage.
+      </div>
+
+      <div class="hero-actions mt-3">
+        <a class="btn" href="progress.html">Full dashboard <span class="arrow">→</span></a>
+        <a class="btn ghost" href="roadmap.html">What comes next</a>
+      </div>
     </div>
-</section>
-
+  </section>
 
 </main>
 
-<footer>
-    <div class="container">
-        <strong>LEONIDA.RPF</strong>
-        <p>WE DO NOT SHARE LEAKS.</p>
-        <p>PUBLIC INFORMATION ONLY.</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="progress.html">Development progress</a></li>
+          <li><a href="atlas.html">World atlas</a></li>
+          <li><a href="gallery.html">Visual gallery</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="roadmap.html">Roadmap</a></li>
+          <li><a href="tales.html">Tales of Light</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
 </footer>
 
-<noscript>
-<style>
-.card, .stat, .record, .archive-entry, .method {
-    opacity: 1 !important;
-    transform: none !important;
-}
-</style>
-</noscript>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("loaded");
-
-    document.querySelectorAll(".card, .stat").forEach((el, i) => {
-        el.style.setProperty("--delay", `${i * 60}ms`);
-    });
-
-    const counters = document.querySelectorAll("[data-count]");
-
-    counters.forEach(counter => {
-        const target = Number(counter.dataset.count);
-        let current = 0;
-
-        if (!target) return;
-
-        const timer = setInterval(() => {
-            current++;
-            counter.textContent = current;
-
-            if (current >= target) clearInterval(timer);
-        }, 30);
-    });
-
-    // Launch-window countdown — derived from the current date so it never goes stale.
-    const countdown = document.querySelector("[data-countdown]");
-
-    if (countdown) {
-        const launch = new Date(2026, 10, 19);
-        const today = new Date();
-        launch.setHours(0, 0, 0, 0);
-        today.setHours(0, 0, 0, 0);
-
-        const days = Math.round((launch - today) / 86400000);
-        const label = countdown.closest("strong");
-
-        if (days > 1) {
-            countdown.textContent = days;
-        } else if (days === 1) {
-            countdown.textContent = 1;
-            if (label) label.innerHTML = label.innerHTML.replace("DAYS OUT", "DAY OUT");
-        } else if (label) {
-            label.textContent = "19 NOV 2026 — RELEASED";
-        }
-    }
-
-    var themeBtn = document.querySelector("[data-theme-toggle]");
-
-    function paintThemeBtn() {
-        if (!themeBtn) return;
-        var cur = document.documentElement.getAttribute("data-theme") || "dark";
-        themeBtn.textContent = (cur === "light" ? "DARK" : "LIGHT") + " / TOGGLE";
-    }
-
-    if (themeBtn) {
-        themeBtn.addEventListener("click", function () {
-            var cur = document.documentElement.getAttribute("data-theme") || "dark";
-            var next = cur === "light" ? "dark" : "light";
-            document.documentElement.setAttribute("data-theme", next);
-            try { localStorage.setItem("leonida-theme", next); } catch (e) {}
-            paintThemeBtn();
-        });
-        paintThemeBtn();
-    }
-});
-</script>
-
-<script src="js/entry-gate.js" defer></script>
-<script src="js/modes.js" defer></script>
-<script src="js/environment.js" defer></script>
-<script src="js/bgm-data.js" defer></script>
-<script src="js/player.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
 </body>
 </html>

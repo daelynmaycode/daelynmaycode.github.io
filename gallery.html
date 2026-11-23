@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual Gallery — Final Fantasy I 3D Remake</title>
+<meta name="description" content="Development captures from the remake: environment studies, the Coneria reconstruction, hero models, equipment, enemies, animation and the full menu interface. Every image is a real build frame, labelled by production stage.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="Visual Gallery — Final Fantasy I 3D Remake">
+<meta property="og:description" content="Real development captures: world, towns, heroes, equipment, enemies and interface.">
+<meta property="og:url" content="https://daelynmaycode.github.io/gallery.html">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/world-coneria-plaza.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/gallery.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="progress.html">Progress</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="gallery.html" aria-current="page">Gallery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="tales.html">Tales of Light</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="num">04 / 07</span> Visual Gallery</p>
+      <h1><span data-gallery-count>36</span> frames from the current build.</h1>
+      <p class="lede">
+        Every image here is a real capture from the project — no renders made for the website,
+        no concept art passed off as gameplay. Each is labelled with the stage it documents:
+        blockout, reconstruction, interface or ROM data.
+      </p>
+      <div class="head-meta">
+        <span>Captured Nov 2026</span>
+        <span>1280 × 720 native</span>
+        <span>Select any image to enlarge</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All <span data-gallery-count>36</span></button>
+        <button class="filter" type="button" data-filter="towns" aria-pressed="false">Towns</button>
+        <button class="filter" type="button" data-filter="environment" aria-pressed="false">Environments</button>
+        <button class="filter" type="button" data-filter="characters" aria-pressed="false">Characters</button>
+        <button class="filter" type="button" data-filter="equipment" aria-pressed="false">Equipment</button>
+        <button class="filter" type="button" data-filter="enemies" aria-pressed="false">Enemies</button>
+        <button class="filter" type="button" data-filter="animation" aria-pressed="false">Animation</button>
+        <button class="filter" type="button" data-filter="ui" aria-pressed="false">UI &amp; menus</button>
+      </div>
+
+      <div class="gallery" id="gallery">
+
+        <button class="shot" type="button" data-group="towns" data-title="Coneria from above" data-meta="Reconstruction · Nov 2026">
+          <span class="badge">Reconstruction</span>
+          <img src="assets/img/world-coneria-plan.jpg" width="1280" height="720" alt="Overhead view of Coneria showing the stepped perimeter wall, two gates, crossroad square, canals and seven building plots." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Coneria, plan view</span>
+            <span class="cap-sub">Stepped wall traced from the town map. Two axial gates, four canal reaches, seven plots.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="Coneria south gate" data-meta="Reconstruction · Nov 2026">
+          <span class="badge">Reconstruction</span>
+          <img src="assets/img/world-coneria-gate.jpg" width="1280" height="720" alt="The south gatehouse of Coneria seen from inside the walls, with stone plinth, coping and merlons." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">South gate</span>
+            <span class="cap-sub">Real boxes with plinth, coping and merlons — not a decal on a flat wall.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="Coneria central square" data-meta="Reconstruction · Nov 2026">
+          <span class="badge">Reconstruction</span>
+          <img src="assets/img/world-coneria-plaza.jpg" width="1280" height="720" alt="The central square of Coneria at noon, with pale cobble paving, market props and surrounding buildings." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Central square</span>
+            <span class="cap-sub">East–west avenue crossing the north–south spine. Cobble paving, market props, tree rows.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="Coneria canal reach" data-meta="Reconstruction · Nov 2026">
+          <span class="badge">Reconstruction</span>
+          <img src="assets/img/world-coneria-canals.jpg" width="1280" height="720" alt="A stone-walled canal inside Coneria with a right-angle bend and a stone bridge crossing it." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Canal reach</span>
+            <span class="cap-sub">Four connected reaches with right-angle bends, in stone embankments, crossed by bridges.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="Castle Coneria, first floor" data-meta="Interior · Nov 2026">
+          <span class="badge">Interior</span>
+          <img src="assets/img/world-castle-interior.jpg" width="1280" height="720" alt="The castle's first floor: deep blue ceremonial floor, patterned runner, coral corner carpets and green and ivory railings." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Castle, first floor</span>
+            <span class="cap-sub">Ceremonial floor, patterned runner, corner carpets, railing rhythm with blue shields.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="Market square, PBR pass" data-meta="Material pass · Nov 2026">
+          <span class="badge">Material pass</span>
+          <img src="assets/img/pbr-market.jpg" width="1280" height="720" alt="A market square inside Coneria after the PBR material pass, showing architectural wall, paving and roof surfaces." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Market square</span>
+            <span class="cap-sub">Poly Haven PBR albedo, normal and roughness maps with world-space triplanar projection.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="Throne room" data-meta="Material pass · Nov 2026">
+          <span class="badge">Material pass</span>
+          <img src="assets/img/pbr-throne.jpg" width="1280" height="720" alt="The castle throne room with masonry, carpets and banners, lit at midday." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Throne room</span>
+            <span class="cap-sub">Single throne hall. The room partition layout is still unbuilt pending its reference plan.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="towns" data-title="House kit, residential front" data-meta="Modular kit · Nov 2026">
+          <span class="badge">House kit</span>
+          <img src="assets/img/ui-house-kit.jpg" width="1280" height="720" alt="A residential house front built from the modular exterior kit, with recessed windows, shutters, door canopy and roof." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Residential front</span>
+            <span class="cap-sub">Split walls around real openings, recessed windows, shutters, canopies, gutters and downpipes.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Coastline" data-meta="Environment · Nov 2026">
+          <span class="badge">Environment</span>
+          <img src="assets/img/env-coast.jpg" width="1280" height="720" alt="A graded coastline where shallow water fades to deep ocean at the edge of the terrain." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Coastline</span>
+            <span class="cap-sub">Height-field beach grading with 2 × 2 shoreline refinement and one-metre waterline samples.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Forest interior" data-meta="Environment · Nov 2026">
+          <span class="badge">Environment</span>
+          <img src="assets/img/env-forest.jpg" width="1280" height="720" alt="Dense forest with tree trunks, grass tufts, rocks and canopy." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Forest</span>
+            <span class="cap-sub">Five authored species: Melaleuca, Fir 01, Jacaranda, Island Tree 02 and Tree Small 02.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Waterfall headland" data-meta="Environment prototype · Nov 2026">
+          <span class="badge">Prototype</span>
+          <img src="assets/img/env-waterfall.jpg" width="1280" height="720" alt="An authored waterfall headland with a lagoon, refined coast and floating props." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Waterfall headland</span>
+            <span class="cap-sub">The one landmark surface built ahead of schedule. The cavern interior behind it does not exist.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Storm weather state" data-meta="Weather · Nov 2026">
+          <span class="badge">Weather</span>
+          <img src="assets/img/env-storm.jpg" width="1280" height="720" alt="Storm conditions: dark sky, heavy rain, stronger waves and lightning." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Storm</span>
+            <span class="cap-sub">One of seven presets. Rain, wetness response, wave height and lightning all driven from shared state.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Night" data-meta="Time of day · Nov 2026">
+          <span class="badge">Time of day</span>
+          <img src="assets/img/env-night.jpg" width="1280" height="720" alt="Night in the overworld: star field, moon lighting and darkened terrain." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Night</span>
+            <span class="cap-sub">Continuous clock. Sky, stars, moon lighting and settlement windows all follow the same time value.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Settled snow" data-meta="Weather · Nov 2026">
+          <span class="badge">Weather</span>
+          <img src="assets/img/env-snow.jpg" width="1280" height="720" alt="Snow weather: falling snow, settled ground snow and foliage response." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Snow</span>
+            <span class="cap-sub">Settled snow accumulation and foliage response, not just a particle effect.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Mountain horizon" data-meta="Environment · Nov 2026">
+          <span class="badge">Environment</span>
+          <img src="assets/img/env-mountains.jpg" width="1280" height="720" alt="Mountain silhouettes and a far-terrain horizon across the world." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Mountain range</span>
+            <span class="cap-sub">Near terrain is streamed geometry; the distance is a separate far-horizon mesh.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="World overview" data-meta="Environment · Nov 2026">
+          <span class="badge">Environment</span>
+          <img src="assets/img/env-overview.jpg" width="1280" height="720" alt="A high overview of the streamed world showing terrain chunks, forests, mountains and ocean haze." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Streamed chunks</span>
+            <span class="cap-sub">128 m cells loaded asynchronously, with distance-based visibility over the whole 4 km map.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="environment" data-title="Opening cinematic" data-meta="Cinematic · Nov 2026">
+          <span class="badge">Cinematic</span>
+          <img src="assets/img/cine-opening.jpg" width="1280" height="720" alt="A letterboxed opening cinematic shot of a decaying landscape with the caption The earth decays." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Opening — “The earth decays…”</span>
+            <span class="cap-sub">Eight-shot skippable sequence. Cancel is context-routed so it owns Escape while running.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="characters" data-title="Fighter, male" data-meta="Hero model · Nov 2026">
+          <span class="badge">Hero model</span>
+          <img src="assets/img/hero-fighter.jpg" width="1100" height="619" alt="The Fighter hero model, male variant, standing in a plaza." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Fighter — male</span>
+            <span class="cap-sub">Data-driven from heroes.json on a shared 92-bone Humanoid rig. Supplied modular head.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="characters" data-title="Fighter, female" data-meta="Hero model · Nov 2026">
+          <span class="badge">Hero model</span>
+          <img src="assets/img/hero-female.jpg" width="1100" height="619" alt="The Fighter hero model, female variant." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Fighter — female</span>
+            <span class="cap-sub">Same rig, different proportions and palette from the definition file.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="characters" data-title="Thief" data-meta="Hero model · Nov 2026">
+          <span class="badge">Hero model</span>
+          <img src="assets/img/hero-thief.jpg" width="1100" height="619" alt="The Thief hero model." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Thief</span>
+            <span class="cap-sub">Ghibli-style shading pass: warm skin with rim light, toon diffuse on hair, cloth and metal.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="characters" data-title="Monk" data-meta="Hero model · Nov 2026">
+          <span class="badge">Hero model</span>
+          <img src="assets/img/hero-monk.jpg" width="1100" height="619" alt="The Monk hero model." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Monk</span>
+            <span class="cap-sub">The fourth class, added with its own 185-check suite covering model, combat and menus.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="characters" data-title="Villager dialogue" data-meta="NPC system · Nov 2026">
+          <span class="badge">NPC</span>
+          <img src="assets/img/npc-dialogue.jpg" width="1280" height="720" alt="A villager NPC dialogue box open in the field, with the player character standing nearby." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Resident dialogue</span>
+            <span class="cap-sub">Real interaction from the interact key. Lines compose from role, state, weather and recent dialogue.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="equipment" data-title="Back gear with cape" data-meta="Equipment · Nov 2026">
+          <span class="badge">Equipment</span>
+          <img src="assets/img/gear-cape.jpg" width="1280" height="720" alt="Rear view of the Fighter with a cape and back-mounted gear." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Loadout — cape mounted</span>
+            <span class="cap-sub">Five slots: main hand, off hand, head, body, accessory. Visible on the model, not only in a menu.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="equipment" data-title="Back gear without cape" data-meta="Equipment · Nov 2026">
+          <span class="badge">Equipment</span>
+          <img src="assets/img/gear-field.jpg" width="1280" height="720" alt="Rear view of the Fighter without a cape, showing back-mounted equipment." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Loadout — cape removed</span>
+            <span class="cap-sub">Equipment changes rebuild the visible loadout; class restrictions are normalised on save.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="equipment" data-title="Saddlebags" data-meta="Equipment · Nov 2026">
+          <span class="badge">Equipment</span>
+          <img src="assets/img/gear-horse.jpg" width="1280" height="720" alt="A horse with saddlebags carrying field equipment." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Mounted gear</span>
+            <span class="cap-sub">Inventory carried in the world. Horses are rideable; saddlebags are part of the loadout.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="enemies" data-title="Imp" data-meta="Enemy model · Nov 2026">
+          <span class="badge">Enemy model</span>
+          <img src="assets/img/enemy-imp.jpg" width="1100" height="619" alt="A green imp enemy standing outside the Coneria gate, with a horse nearby." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Imp</span>
+            <span class="cap-sub">Authored field enemy at the capital gate. Field enemies and ROM battle records are separate systems.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="enemies" data-title="Garland" data-meta="Character model · Nov 2026">
+          <span class="badge">Character</span>
+          <img src="assets/img/enemy-garland.jpg" width="1100" height="619" alt="Garland standing in a plaza in Coneria." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Garland</span>
+            <span class="cap-sub">Supplied GLB, placed in the Coneria plaza. His boss encounter is stage S5 and unbuilt.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="animation" data-title="Attack — wind-up" data-meta="Animation · Nov 2026">
+          <span class="badge">Animation</span>
+          <img src="assets/img/combat-monk.jpg" width="1280" height="720" alt="The Monk mid attack animation, striking toward a target." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Strike — approach</span>
+            <span class="cap-sub">Basic attack from the third-person controller. No damage resolution exists in battle yet.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="animation" data-title="Attack — contact" data-meta="Animation · Nov 2026">
+          <span class="badge">Animation</span>
+          <img src="assets/img/anim-strike.jpg" width="1280" height="720" alt="The Monk at the contact frame of a strike." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Strike — contact</span>
+            <span class="cap-sub">Gait blends between walk and sprint; attack, dodge and interaction beats are authored per class.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Title screen" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/hero-title.jpg" width="1280" height="720" alt="The title screen with the Final Fantasy wordmark, crystal and a Continue card." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Title screen</span>
+            <span class="cap-sub">Class selection, soundtrack choice, credits and a Continue card that restores the journey.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Tales of Light — main story" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/ui-tales-main.jpg" width="1280" height="720" alt="The field menu open on the Tales of Light main story tab, with a priority tale and entry list." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Tales of Light — main story</span>
+            <span class="cap-sub">Four tabs, a priority tale and a detail panel with stages, first heard, reward and known path.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Tales of Light — completed" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/ui-tales-complete.jpg" width="1280" height="720" alt="The completed tales tab showing a finished tale with its completion note." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Completed tales</span>
+            <span class="cap-sub">Closed entries keep their completion note, so the journal reads as a record rather than a checklist.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Tales of Light — discoveries" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/ui-discoveries.jpg" width="1280" height="720" alt="The discoveries tab listing places learned about, grouped by region with attribution." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Discoveries</span>
+            <span class="cap-sub">Places the party has learned about, grouped by region, each attributed to who told them.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Field menu — status" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/ui-field-status.jpg" width="1280" height="720" alt="The field menu status screen showing attributes, physical condition, equipment and the hero portrait." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Status</span>
+            <span class="cap-sub">Attributes, physical condition, stamina recovery, equipment and class — one screen, no pagination.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Character sheet" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/ui-character.jpg" width="1280" height="720" alt="The character sheet with condition bars, attributes and equipment list." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Character sheet</span>
+            <span class="cap-sub">Survival state is authoritative here; the Field Menu reads it and never keeps a copy.</span>
+          </span>
+        </button>
+
+        <button class="shot" type="button" data-group="ui" data-title="Settings — graphics" data-meta="Interface · Nov 2026">
+          <span class="badge">Interface</span>
+          <img src="assets/img/ui-settings.jpg" width="1280" height="720" alt="The settings screen on the graphics tab, showing render scale, interface options and quality settings." loading="lazy" decoding="async">
+          <span class="shot-cap">
+            <span class="cap-title">Settings — graphics</span>
+            <span class="cap-sub">Presets, capability gating, effect toggles and accessibility. Changes apply live and persist.</span>
+          </span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">04.1</span> Before &amp; after</p>
+          <h2>The original is the reference, not the target.</h2>
+        </div>
+        <p class="aside">
+          Two pairings that show what has actually changed — and, honestly, what has not been
+          built yet.
+        </p>
+      </div>
+
+      <div class="compare">
+        <div class="side">
+          <div class="label"><span>NES original</span><b>1990</b></div>
+          <img class="pixel" src="assets/img/nes-overworld.png" width="256" height="224" alt="The NES overworld: the party standing outside Coneria on the tile map." loading="lazy" decoding="async">
+          <p class="cap">The overworld at Coneria. One screen, tile-stepped movement, four-colour land.</p>
+        </div>
+        <div class="side">
+          <div class="label"><span>3D remake</span><b>Blockout</b></div>
+          <img src="assets/img/env-coast.jpg" width="1280" height="720" alt="The same region of the world rebuilt as 3D terrain with a graded coast." loading="lazy" decoding="async">
+          <p class="cap">The same geography at 15.625 m per tile. The coastline is the ROM's coastline — the distance and materials are new.</p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="side">
+          <div class="label"><span>NES original</span><b>1990</b></div>
+          <img class="pixel" src="assets/img/nes-battle.png" width="256" height="224" alt="The NES battle screen against three Imps, with the party's command window." loading="lazy" decoding="async">
+          <p class="cap">A random encounter against Imps. This is the scene the remake's battle layer must eventually reproduce.</p>
+        </div>
+        <div class="side">
+          <div class="label"><span>3D remake</span><b>Field only</b></div>
+          <img src="assets/img/enemy-imp.jpg" width="1100" height="619" alt="The 3D Imp model in the field outside Coneria." loading="lazy" decoding="async">
+          <p class="cap">
+            The 3D Imp exists as a field enemy — not a battle screen. Active Time Battle, enemy
+            formations and damage resolution are stage S2 and have not been started.
+          </p>
+        </div>
+      </div>
+
+      <div class="note warn mt-3">
+        <strong>What this gallery cannot show.</strong> There are no final weapon or armor models:
+        the gear that exists is a blockout kit — one staff, shared chest and shin armour shells,
+        and procedural blades and shields — which the asset audit marks for rebuild. There are no
+        spell effects and no finished animation set beyond locomotion, attack and interaction
+        beats, and the equipment images document the loadout system, not finished gear. Those
+        categories are marked as planned on the <a href="progress.html">progress dashboard</a>
+        rather than filled with stand-ins.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged capture">
+  <button class="lb-close" type="button" data-close aria-label="Close">✕</button>
+  <img alt="">
+  <div class="lb-caption">
+    <span class="lb-title"></span>
+    <span class="lb-meta"></span>
+  </div>
+</dialog>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Project overview</a></li>
+          <li><a href="progress.html">Development progress</a></li>
+          <li><a href="atlas.html">World atlas</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="roadmap.html">Roadmap</a></li>
+          <li><a href="tales.html">Tales of Light</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
+</body>
+</html>

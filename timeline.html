@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Development Timeline — Final Fantasy I 3D Remake</title>
+<meta name="description" content="Dated development record: the byte-identical NES reconstruction, the approved world layout, verified data extraction, the Coneria rebuild, the MetaHuman pipeline and the input repairs.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="Development Timeline — Final Fantasy I 3D Remake">
+<meta property="og:description" content="What was built, when, and which architectural decisions shaped it.">
+<meta property="og:url" content="https://daelynmaycode.github.io/timeline.html">
+<meta property="og:image" content="https://daelynmaycode.github.io/assets/img/world-coneria-gate.jpg">
+<link rel="canonical" href="https://daelynmaycode.github.io/timeline.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var off=false;try{var s=JSON.parse(localStorage.getItem("ff1.motion.v1")||"{}");if(s.choice==="off"){off=true;}else if(s.choice!=="on"&&window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){off=true;}}catch(e){}document.documentElement.setAttribute("data-motion",off?"off":"on");})();</script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <svg class="crest" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16 3.5 27.5 13 16 29 4.5 13Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M4.5 13h23M16 3.5v25.5" stroke="currentColor" stroke-width="0.7" opacity=".5"/>
+      </svg>
+      <span class="words">
+        <span class="name">FINAL FANTASY I</span>
+        <span class="sub">3D Remake · Dev Portal</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="progress.html">Progress</a>
+      <a href="atlas.html">Atlas</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="timeline.html" aria-current="page">Timeline</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="tales.html">Tales of Light</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><span class="num">05 / 07</span> Development Timeline</p>
+      <h1>Eleven days that turned a ROM into a world.</h1>
+      <p class="lede">
+        This record covers the working history of the project from the first verified build to
+        the current tree. Every entry corresponds to a document, a package or a passing suite in
+        the repository — not to a plan.
+      </p>
+      <div class="head-meta">
+        <span>11 – 22 November 2026</span>
+        <span>Reverse chronological source</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="timeline">
+
+        <article class="tl-item major">
+          <p class="tl-date">22 November 2026</p>
+          <h3>Input repaired, rules typed, capital rebuilt, heroes pipelined</h3>
+          <p>
+            The largest single day. The Settings screen was crashing on a nil slider because
+            every look control had never been registered; the title suite failed 17 checks and
+            controls failed 5. All three now exit clean. A duplicated Cancel binding was removed
+            in favour of context ownership, and the underwater rise acceleration was retuned from
+            9.0 to 30.0 m/s².
+          </p>
+          <p>
+            On the same day the typed battle-rules layer shipped (54 checks over all 1,024 table
+            entries), Coneria was torn out and rebuilt from its own town map, and the MetaHuman
+            intake pipeline plus its Ghibli shading pass landed. By the end of that day four
+            exported MetaHuman hero bodies held the slot, and a pass over the mixed asset drop
+            put real books, wine bottles, cargo crates, shovels, shelves and inn beds into the
+            interiors.
+          </p>
+          <div class="tl-tags">
+            <span>Input</span><span>Verification</span><span>Battle rules</span><span>Coneria</span><span>Heroes</span>
+          </div>
+        </article>
+
+        <article class="tl-item major">
+          <p class="tl-date">21 November 2026</p>
+          <h3>The quality gate, and a route to something playable</h3>
+          <p>
+            An asset quality audit and a playability completion tracker were written, and the
+            first honest conclusion was recorded: the slice is a systems demonstration, not a
+            game. That produced the S0–S7 route — input ownership, battle rules, encounter
+            bridge, progression, dungeon kit, Pravoka, and a single end-to-end acceptance run.
+          </p>
+          <p>
+            A milestone definition was also tightened: a stage is only complete when its packaged
+            deliverable exists.
+          </p>
+          <div class="tl-tags">
+            <span>Process</span><span>Audit</span><span>Milestones</span>
+          </div>
+        </article>
+
+        <article class="tl-item">
+          <p class="tl-date">16 November 2026</p>
+          <h3>Vertical slice recorded; interface polished</h3>
+          <p>
+            The M4/M5 feature and limitation record was finished, alongside a character
+            production guide. The pause menu was cut to exactly five choices, the Satchel was
+            moved behind its own key, the Field Menu was limited to plain section names, and the
+            world stamina gauge became a compact continuous ring.
+          </p>
+          <div class="tl-tags">
+            <span>UI</span><span>Documentation</span><span>Movement</span>
+          </div>
+        </article>
+
+        <article class="tl-item">
+          <p class="tl-date">15 November 2026</p>
+          <h3>Environment and rendering contracts written</h3>
+          <p>
+            The shared day/night, weather and water architecture was documented as one state
+            object with a director, rather than per-system implementations. The rendering
+            pipeline document fixed the feature contract, the quality tiers and what the
+            "Nanite-inspired" claim does and does not mean.
+          </p>
+          <div class="tl-tags">
+            <span>Environment</span><span>Rendering</span><span>Architecture</span>
+          </div>
+        </article>
+
+        <article class="tl-item">
+          <p class="tl-date">13–14 November 2026</p>
+          <h3>Data extraction becomes the spine of the project</h3>
+          <p>
+            The overworld, tile properties, walkability and a BFS route from the start position
+            were decoded. Then the battle tables: 128 enemies, 44 AI records, 128 formations,
+            128 encounter domains, the formation-weight selector and the map encounter rates —
+            all validated at 117 checks against the ROM.
+          </p>
+          <p>
+            In parallel, the first Poly Haven PBR library was mapped onto the blockout
+            architecture, and bridge geometry was iterated through a dozen verification views.
+          </p>
+          <div class="tl-tags">
+            <span>Data</span><span>ROM</span><span>Art</span><span>Bridge</span>
+          </div>
+        </article>
+
+        <article class="tl-item major">
+          <p class="tl-date">12 November 2026</p>
+          <h3>The world layout is approved and locked</h3>
+          <p>
+            A 4,000 × 4,000 m footprint at 15.625 metres per reference tile was approved,
+            replacing an earlier 16,384 m proposal. Eight settlement footprints, the Coneria
+            castle curtain, six regions, sixteen landmark footprints and the coordinate
+            convention were written into canonical JSON with a runtime validator.
+          </p>
+          <div class="tl-tags">
+            <span>World</span><span>Specification</span><span>Validation</span>
+          </div>
+        </article>
+
+        <article class="tl-item major">
+          <p class="tl-date">11 November 2026</p>
+          <h3>Milestone 1: a byte-identical Final Fantasy</h3>
+          <p>
+            Disch's documented v1.0 disassembly was reassembled with the bundled assembler and
+            linker, then compared against the original cartridge. Result: 262,160 bytes,
+            SHA-256 <code>D360BEEE…549667</code>, <strong>zero differing bytes</strong>. Automated
+            Lua input drove the rebuilt ROM through intro, party creation, naming, overworld
+            movement, a random encounter, victory and the return to the overworld in FCEUX.
+          </p>
+          <p>
+            The same day the Godot project opened: a third-person controller, spring camera,
+            collision, a deterministic overworld, Coneria with gate, walls and fountain, one
+            enterable house, one NPC and a packaged Windows build.
+          </p>
+          <div class="tl-tags">
+            <span>M1</span><span>Reconstruction</span><span>Engine</span><span>Package</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow"><span class="num">05.1</span> Decisions</p>
+          <h2>Six choices that shaped the build.</h2>
+        </div>
+        <p class="aside">
+          These are recorded in the project's implementation log because each one closed off an
+          alternative that would have been easier in the short term.
+        </p>
+      </div>
+
+      <div class="grid g2">
+        <div class="cell">
+          <span class="kicker">Battle staging</span>
+          <h3>A dedicated arena, not combat in place</h3>
+          <p>
+            Encounters will resolve in a reusable staged scene — party left, enemies right, lit
+            from the region's palette and weather — instead of fighting where the encounter
+            triggered. It keeps Active Time Battle pause semantics and camera framing stable, and
+            avoids inheriting slope, collision and streaming fragility.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Input</span>
+          <h3>One Cancel, owned by context</h3>
+          <p>
+            Skip-cinematic shipped with no default binding. Because a gameplay cinematic owns
+            Cancel while it runs, the pause menu refuses input whenever a cinematic is active.
+            A migration strips the old duplicate binding from saved profiles.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Data</span>
+          <h3>JSON is the authority; code only reads it</h3>
+          <p>
+            Extracted tables live in JSON and are loaded once into a read-only typed layer. No
+            caller indexes a raw array. Loading is strict: a bad count, a non-contiguous id or a
+            broken cross-reference makes the layer refuse to become ready, so combat cannot run
+            on tainted tables.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Art</span>
+          <h3>Blockout geometry, real materials</h3>
+          <p>
+            Rather than wait for final meshes, the project paired placeholder geometry with a
+            genuine PBR surface library. It proves lighting, scale and material response early,
+            and makes the remaining work a replacement job rather than a research problem.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Characters</span>
+          <h3>A MetaHuman slot with a clean fallback</h3>
+          <p>
+            Heroes are defined in data, not assembled in code. A MetaHuman body is attempted
+            first and silently rejected if its skeleton fails the Humanoid contract, falling back
+            to the authored body — so an unfinished character can never block the build. Four
+            exported bodies — Fighter male and female, Thief, Monk — now sit in that slot.
+          </p>
+        </div>
+        <div class="cell">
+          <span class="kicker">Process</span>
+          <h3>Verified means measured</h3>
+          <p>
+            Every claim in the implementation log carries a suite result and an exit status.
+            Where a check fails — the swim-up assertion, the missing castle reference plan — it
+            is written down instead of being quietly dropped from the report.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The project</h4>
+        <p>
+          An independent, from-scratch 3D remake of Final Fantasy I, built in Godot 4.7 and
+          documented in the open. Progress on this site is updated from measured build results,
+          not intentions.
+        </p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Project overview</a></li>
+          <li><a href="progress.html">Development progress</a></li>
+          <li><a href="atlas.html">World atlas</a></li>
+          <li><a href="gallery.html">Visual gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul class="foot-links">
+          <li><a href="roadmap.html">Roadmap</a></li>
+          <li><a href="tales.html">Tales of Light</a></li>
+          <li><a href="https://github.com/daelynmaycode/daelynmaycode.github.io">Repository</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Final Fantasy I — 3D Remake · Dev portal · <span data-year>2026</span></span>
+      <span class="legal">
+        Fan project. Final Fantasy and all related marks are trademarks of Square Enix.
+        No original game code, art or audio is redistributed. Screenshots are development
+        captures from the author's own build.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/audio.js" defer></script>
+</body>
+</html>
